@@ -6,7 +6,7 @@ import math
 import fractions as fr
 
 import pheasant.util as ym
-import pheasant.algebra as ag
+import pheasant.numtheory as nt
 import pheasant.calculus as cl
 import pheasant.linear as lr
 import pheasant.statistics as ts
@@ -593,9 +593,9 @@ class TestProbability(unittest.TestCase):
 		fm = None
 		
 		def probfn(x):
-			a = ag.Term(3/4, 1)
-			b = ag.Term(-3/4*x**2, 1)
-			fm = ag.Formula([a, b])
+			a = nt.Term(3/4, 1)
+			b = nt.Term(-3/4*x**2, 1)
+			fm = nt.Formula([a, b])
 			return fm.calc()
 			
 		res = ts.probability(probfn, 1, -1)
@@ -609,8 +609,8 @@ class TestProbability(unittest.TestCase):
 		'''
 		fm2 = None
 		def probfn2(y):
-			c = ag.Term(y)
-			fm2 = ag.Formula([c])
+			c = nt.Term(y)
+			fm2 = nt.Formula([c])
 			return fm2.calc()
 			
 		res = ts.expection(fm*fm2, 1, -1)

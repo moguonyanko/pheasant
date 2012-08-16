@@ -1,17 +1,17 @@
-.. gomath documentation master file, created by
-   sphinx-quickstart on Wed Aug  8 03:37:36 2012.
+.. pheasant documentation master file, created by
+   sphinx-quickstart on Fri Aug 17 01:20:00 2012.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to gomath's documentation!
-==================================
+Welcome to pheasant's documentation!
+====================================
 
 Contents:
 
 .. toctree::
    :maxdepth: 4
 
-   gomath
+   pheasant
 
 
 Indices and tables

@@ -670,7 +670,7 @@ def maxlikelihood():
 	Maximum Likelihood Estimate.
 	'''
 	pass
-	
+
 #Entry point
 if __name__ == '__main__':
 	print("statistics module load")

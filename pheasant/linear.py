@@ -5,7 +5,7 @@ import numbers
 import math
 
 import pheasant.util as ut
-import pheasant.algebra as ag
+import pheasant.numtheory as nt
 
 class Vector():
 	'''
@@ -594,7 +594,7 @@ class Matrix():
 
 		formula[2] = self.det()
 	
-		egs = ag.quadeq(formula)
+		egs = nt.quadeq(formula)
 		
 		if len(egs) <= 1:
 			raise ValueError("Multiple root cannot deal.")
@@ -606,9 +606,9 @@ class Matrix():
 	#TODO: reduct function is fault.
 	#		if resA != 1 and resC != 1:
 	#			if resA>resC:
-	#				resA,resC = ag.reduct(resA, resC)
+	#				resA,resC = nt.reduct(resA, resC)
 	#			elif resC<resA:	
-	#				resC,resA = ag.reduct(resC, resA)
+	#				resC,resA = nt.reduct(resC, resA)
 	#			else:
 	#				resA = resC = 1
 				

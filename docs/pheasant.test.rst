@@ -4,7 +4,7 @@ test Package
 :mod:`test_algebra` Module
 --------------------------
 
-.. automodule:: gomath.test.test_algebra
+.. automodule:: pheasant.test.test_algebra
     :members:
     :undoc-members:
     :show-inheritance:
@@ -12,7 +12,7 @@ test Package
 :mod:`test_algorithm` Module
 ----------------------------
 
-.. automodule:: gomath.test.test_algorithm
+.. automodule:: pheasant.test.test_algorithm
     :members:
     :undoc-members:
     :show-inheritance:
@@ -20,7 +20,7 @@ test Package
 :mod:`test_calculus` Module
 ---------------------------
 
-.. automodule:: gomath.test.test_calculus
+.. automodule:: pheasant.test.test_calculus
     :members:
     :undoc-members:
     :show-inheritance:
@@ -28,7 +28,7 @@ test Package
 :mod:`test_geometry` Module
 ---------------------------
 
-.. automodule:: gomath.test.test_geometry
+.. automodule:: pheasant.test.test_geometry
     :members:
     :undoc-members:
     :show-inheritance:
@@ -36,7 +36,7 @@ test Package
 :mod:`test_linear` Module
 -------------------------
 
-.. automodule:: gomath.test.test_linear
+.. automodule:: pheasant.test.test_linear
     :members:
     :undoc-members:
     :show-inheritance:
@@ -44,7 +44,7 @@ test Package
 :mod:`test_logic` Module
 ------------------------
 
-.. automodule:: gomath.test.test_logic
+.. automodule:: pheasant.test.test_logic
     :members:
     :undoc-members:
     :show-inheritance:
@@ -52,7 +52,7 @@ test Package
 :mod:`test_statistics` Module
 -----------------------------
 
-.. automodule:: gomath.test.test_statistics
+.. automodule:: pheasant.test.test_statistics
     :members:
     :undoc-members:
     :show-inheritance:
@@ -60,7 +60,7 @@ test Package
 :mod:`test_util` Module
 -----------------------
 
-.. automodule:: gomath.test.test_util
+.. automodule:: pheasant.test.test_util
     :members:
     :undoc-members:
     :show-inheritance:

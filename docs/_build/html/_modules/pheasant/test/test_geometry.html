@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>gomath.test.test_geometry &mdash; gomath  documentation</title>
+    <title>pheasant.test.test_geometry &mdash; pheasant  documentation</title>
     
     <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="gomath  documentation" href="../../../index.html" />
+    <link rel="top" title="pheasant  documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>  
@@ -48,27 +48,27 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <h1>Source code for gomath.test.test_geometry</h1><div class="highlight"><pre>
+  <h1>Source code for pheasant.test.test_geometry</h1><div class="highlight"><pre>
 <span class="c">#!/usr/bin/python3</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
-<span class="kn">import</span> <span class="nn">gomath.geometry</span> <span class="kn">as</span> <span class="nn">gm</span>
+<span class="kn">import</span> <span class="nn">pheasant.geometry</span> <span class="kn">as</span> <span class="nn">gm</span>
 
-<div class="viewcode-block" id="TestCalcArea"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_geometry.TestCalcArea">[docs]</a><span class="k">class</span> <span class="nc">TestCalcArea</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCalcArea"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_geometry.TestCalcArea">[docs]</a><span class="k">class</span> <span class="nc">TestCalcArea</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Test class for calculate area functions.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
-<div class="viewcode-block" id="TestCalcArea.test_heron"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_geometry.TestCalcArea.test_heron">[docs]</a>	<span class="k">def</span> <span class="nf">test_heron</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCalcArea.test_heron"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_geometry.TestCalcArea.test_heron">[docs]</a>	<span class="k">def</span> <span class="nf">test_heron</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">		Test heron function.</span>
 <span class="sd">		&#39;&#39;&#39;</span>
 		<span class="n">res</span> <span class="o">=</span> <span class="n">gm</span><span class="o">.</span><span class="n">heron</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 		</div>
-<div class="viewcode-block" id="TestCalcArea.test_trianglep"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_geometry.TestCalcArea.test_trianglep">[docs]</a>	<span class="k">def</span> <span class="nf">test_trianglep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCalcArea.test_trianglep"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_geometry.TestCalcArea.test_trianglep">[docs]</a>	<span class="k">def</span> <span class="nf">test_trianglep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">		Test to check Triangle fomation condition satisfied.</span>
 <span class="sd">		&#39;&#39;&#39;</span>
@@ -81,11 +81,11 @@
 		<span class="n">tri4</span> <span class="o">=</span> <span class="n">gm</span><span class="o">.</span><span class="n">trianglep</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">tri4</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
 		</div></div>
-<div class="viewcode-block" id="TestCoodinateTransform"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_geometry.TestCoodinateTransform">[docs]</a><span class="k">class</span> <span class="nc">TestCoodinateTransform</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCoodinateTransform"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_geometry.TestCoodinateTransform">[docs]</a><span class="k">class</span> <span class="nc">TestCoodinateTransform</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Test class for coordinate transform.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
-<div class="viewcode-block" id="TestCoodinateTransform.test_polar2rectangular"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_geometry.TestCoodinateTransform.test_polar2rectangular">[docs]</a>	<span class="k">def</span> <span class="nf">test_polar2rectangular</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCoodinateTransform.test_polar2rectangular"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_geometry.TestCoodinateTransform.test_polar2rectangular">[docs]</a>	<span class="k">def</span> <span class="nf">test_polar2rectangular</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">		Test function for converting polar to rectangular.</span>
 <span class="sd">		&#39;&#39;&#39;</span>
@@ -135,7 +135,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

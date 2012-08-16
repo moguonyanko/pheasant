@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>gomath.calculus &mdash; gomath  documentation</title>
+    <title>pheasant.calculus &mdash; pheasant  documentation</title>
     
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="gomath  documentation" href="../../index.html" />
+    <link rel="top" title="pheasant  documentation" href="../../index.html" />
     <link rel="up" title="Module code" href="../index.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>  
@@ -48,13 +48,13 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <h1>Source code for gomath.calculus</h1><div class="highlight"><pre>
+  <h1>Source code for pheasant.calculus</h1><div class="highlight"><pre>
 <span class="c">#!/usr/bin/python3</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">math</span>
 
-<div class="viewcode-block" id="simpson"><a class="viewcode-back" href="../../gomath.html#gomath.calculus.simpson">[docs]</a><span class="k">def</span> <span class="nf">simpson</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">divnum</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="viewcode-block" id="simpson"><a class="viewcode-back" href="../../pheasant.html#pheasant.calculus.simpson">[docs]</a><span class="k">def</span> <span class="nf">simpson</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">divnum</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Definite integral by simpson method.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
@@ -71,7 +71,7 @@
 	
 	<span class="k">return</span> <span class="n">res</span><span class="o">*</span><span class="n">h</span><span class="o">/</span><span class="mi">6</span>
 </div>
-<div class="viewcode-block" id="differentiate"><a class="viewcode-back" href="../../gomath.html#gomath.calculus.differentiate">[docs]</a><span class="k">def</span> <span class="nf">differentiate</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+<div class="viewcode-block" id="differentiate"><a class="viewcode-back" href="../../pheasant.html#pheasant.calculus.differentiate">[docs]</a><span class="k">def</span> <span class="nf">differentiate</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Calculate value by differentiate to x power function,</span>
 <span class="sd">	but an error to some extent.</span>
@@ -81,7 +81,7 @@
 <span class="sd">	&#39;&#39;&#39;</span>
 	<span class="k">return</span> <span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">)</span><span class="o">-</span><span class="n">fn</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">dx</span>
 </div>
-<div class="viewcode-block" id="diffn"><a class="viewcode-back" href="../../gomath.html#gomath.calculus.diffn">[docs]</a><span class="k">def</span> <span class="nf">diffn</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
+<div class="viewcode-block" id="diffn"><a class="viewcode-back" href="../../pheasant.html#pheasant.calculus.diffn">[docs]</a><span class="k">def</span> <span class="nf">diffn</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Make function to differentiate given function.</span>
 <span class="sd">	fn: Differentiate target function.</span>
@@ -91,7 +91,7 @@
 	
 	<span class="k">return</span> <span class="n">nowdiffn</span>
 	</div>
-<div class="viewcode-block" id="trapezoid"><a class="viewcode-back" href="../../gomath.html#gomath.calculus.trapezoid">[docs]</a><span class="k">def</span> <span class="nf">trapezoid</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">divnum</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="trapezoid"><a class="viewcode-back" href="../../pheasant.html#pheasant.calculus.trapezoid">[docs]</a><span class="k">def</span> <span class="nf">trapezoid</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">divnum</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Integral caluclation by trapezoid approximation.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
@@ -144,7 +144,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

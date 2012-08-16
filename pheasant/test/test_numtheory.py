@@ -4,7 +4,7 @@
 import unittest
 import math
 
-import pheasant.algebra as ag
+import pheasant.numtheory as nt
 
 class TestPrimeNumberFunctions(unittest.TestCase):
 	'''
@@ -14,7 +14,7 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		'''
 		Test of greatest common divisor.
 		'''
-		res = ag.gcd(10, 8)
+		res = nt.gcd(10, 8)
 		
 		self.assertEqual(res, 2)
 		
@@ -22,7 +22,7 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		'''
 		Test of reduction by greatest common divisor.
 		'''
-		res = ag.reduct(10, 5)
+		res = nt.reduct(10, 5)
 		
 		self.assertEqual(res, (2, 1))
 		
@@ -30,16 +30,16 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		'''
 		Test coprime function.
 		'''
-		res = ag.coprimep(2,5)
+		res = nt.coprimep(2,5)
 		self.assertEqual(res, True)
-		res = ag.coprimep(2,10)
+		res = nt.coprimep(2,10)
 		self.assertEqual(res, False)
 	
 	def test_primep(self):
 		'''
 		Test for prime number check function.
 		'''
-		res = ag.primep(11)
+		res = nt.primep(11)
 		self.assertEqual(res, [2,3,5,7,11])
 		#res = al.primep(1000000)
 		#self.assertEqual(len(res), 78498)
@@ -48,7 +48,7 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		'''
 		Test Euler's totient function.
 		'''
-		res = ag.euler_totient(100)
+		res = nt.euler_totient(100)
 		self.assertEqual(res, 40)
 
 	def test_indeq(self):
@@ -57,7 +57,7 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		'''
 		terms = (1004,1001)
 		
-		res = ag.indeq(terms)
+		res = nt.indeq(terms)
 		self.assertEqual(res, (334,-335))		
 		
 class TestIterationMethodTest(unittest.TestCase):
@@ -69,7 +69,7 @@ class TestIterationMethodTest(unittest.TestCase):
 		Test for newton_raphson method.
 		Test by square root.
 		'''
-		res = ag.newton_raphson(root=2, start=2, repeat=4)
+		res = nt.newton_raphson(root=2, start=2, repeat=4)
 		self.assertEqual(round(res, 7), 1.4142136)
 
 class TestQuadEq(unittest.TestCase):
@@ -82,7 +82,7 @@ class TestQuadEq(unittest.TestCase):
 		result is real root
 		'''
 		formula = [1,-2,-3]
-		res = ag.quadeq(formula)
+		res = nt.quadeq(formula)
 		chk = {3,-1}
 		
 		self.assertEqual(res, chk)
@@ -95,20 +95,20 @@ class TestQuadEq(unittest.TestCase):
 		'''
 		formula = [1,1,1]
 		
-		self.assertRaises(ValueError, ag.quadeq, formula)
+		self.assertRaises(ValueError, nt.quadeq, formula)
 		
 	def test_discriminant(self):
 		'''
 		test for discriminant of quadratic equation function
 		'''
 		formula1 = [1,-2,-3]
-		xnum = ag.discriminant(formula1)
+		xnum = nt.discriminant(formula1)
 		res1 = xnum > 0
 		formula2 = [1,1,1]
-		ynum = ag.discriminant(formula2)
+		ynum = nt.discriminant(formula2)
 		res2 = ynum < 0
 		formula3 = [1,-4,4]
-		znum = ag.discriminant(formula3)
+		znum = nt.discriminant(formula3)
 		res3 = znum == 0
 		self.assertEqual(res1, True)
 		self.assertEqual(res2, True)
@@ -137,18 +137,18 @@ class TestSleq(unittest.TestCase):
 	
 	def test_sleq_eq_2dim(self):
 		'''test by 2 dimention'''
-		result = ag.sleq(self.formura1)
+		result = nt.sleq(self.formura1)
 		self.assertEqual(result, self.equation1)
 
 	def test_sleq_eq_3dim_inverse_matrix_error(self):
 		'''test by 3 dimention at inverse matrix error occured.'''
-		result = ag.sleq(self.formura2)
+		result = nt.sleq(self.formura2)
 		res = map(lambda x: round(x), result)
 		self.assertEqual(list(res), self.equation2)
 	
 	def test_sleq_eq_3dim(self):	
 		'''test by 3 dimention'''
-		result2 = ag.sleq(self.formura2_2)
+		result2 = nt.sleq(self.formura2_2)
 		res2 = map(lambda x: round(x), result2)
 		self.assertEqual(list(res2), self.equation2_2)
 
@@ -162,19 +162,19 @@ class TestSleq(unittest.TestCase):
 
 	def test_sleq_eq_2dim_indefinite(self):
 		'''test by 2 dimention and indefinite case'''
-		self.check_errormessage(ag.sleq, self.formura3, self.INDEFINITE)
+		self.check_errormessage(nt.sleq, self.formura3, self.INDEFINITE)
 
 	def test_sleq_eq_2dim_inpossible(self):
 		'''test by 2 dimantion and impossible case'''
-		self.check_errormessage(ag.sleq, self.formura4, self.IMPOSSIBLE)
+		self.check_errormessage(nt.sleq, self.formura4, self.IMPOSSIBLE)
 
 	def test_sleq_eq_3dim_indefinite(self):
 		'''test by 3 dimention and imdefinite case'''
-		self.check_errormessage(ag.sleq, self.formura5, self.INDEFINITE)
+		self.check_errormessage(nt.sleq, self.formura5, self.INDEFINITE)
 
 	def test_sleq_eq_3dim_inpossible(self):
 		'''test by 3 dimantion and inpossible case'''
-		self.check_errormessage(ag.sleq, self.formura6, self.IMPOSSIBLE)
+		self.check_errormessage(nt.sleq, self.formura6, self.IMPOSSIBLE)
 
 #	def test_sleq_indefinite_return_formula(self):
 #		'''test return formula at indefinite case'''
@@ -193,8 +193,8 @@ class TestFormula(unittest.TestCase):
 		'''
 		Term class add test.
 		'''
-		a = ag.Term(2,2)	#2**2
-		b = ag.Term(3,2)	#3**2
+		a = nt.Term(2,2)	#2**2
+		b = nt.Term(3,2)	#3**2
 		
 		res = a+b
 		
@@ -208,7 +208,7 @@ class TestProgression(unittest.TestCase):
 		'''
 		Zeta function test.
 		'''
-		#res = ag.zeta(2)		
+		#res = nt.zeta(2)		
 		#self.assertEqual(res, math.pi**2/6)
 		#TODO Implement method thinking now.
 		pass
@@ -221,20 +221,20 @@ class TestEvenOdd(unittest.TestCase):
 		'''
 		Even number test.
 		'''
-		r1 = ag.even(2)
+		r1 = nt.even(2)
 		self.assertEqual(r1, True)
-		r2 = ag.even(0)
+		r2 = nt.even(0)
 		self.assertEqual(r2, True)
-		r3 = ag.even(7)
+		r3 = nt.even(7)
 		self.assertEqual(r3, False)
 		
 	def test_odd(self):
 		'''
 		Odd number test.
 		'''
-		r1 = ag.odd(3)
+		r1 = nt.odd(3)
 		self.assertEqual(r1, True)
-		r3 = ag.odd(0)
+		r3 = nt.odd(0)
 		self.assertEqual(r3, False)
 		
 class TestCollatz(unittest.TestCase):
@@ -247,11 +247,11 @@ class TestCollatz(unittest.TestCase):
 		'''
 		one = 1
 		
-		r1 = ag.collatz(10)
+		r1 = nt.collatz(10)
 		self.assertEqual(r1, one)
-		r2 = ag.collatz(31)
+		r2 = nt.collatz(31)
 		self.assertEqual(r2, one)
-		r3 = ag.collatz(3*2**53)
+		r3 = nt.collatz(3*2**53)
 		self.assertEqual(r3, one)
 		
 class TestHarmonicSeries(unittest.TestCase):
@@ -262,13 +262,13 @@ class TestHarmonicSeries(unittest.TestCase):
 		'''
 		Harmonic series function test.
 		'''
-		har = ag.harmony()
+		har = nt.harmony()
 		
 		self.assertEqual(next(har), 1/1)
 		self.assertEqual(next(har), 1/2)
 		self.assertEqual(next(har), 1/3)
 
-		har = ag.harmony(101)
+		har = nt.harmony(101)
 		
 		self.assertEqual(next(har), 1/101)
 		self.assertEqual(next(har), 1/102)
@@ -282,7 +282,7 @@ class TestNumericalSequence(unittest.TestCase):
 		'''
 		Test addition chain function.
 		'''
-		res = ag.addchain(45)
+		res = nt.addchain(45)
 		chk = [1,2,4,5,10,11,22,44,45]
 		
 		self.assertEqual(res, chk)

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>gomath.test.test_util &mdash; gomath  documentation</title>
+    <title>pheasant.test.test_util &mdash; pheasant  documentation</title>
     
     <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="gomath  documentation" href="../../../index.html" />
+    <link rel="top" title="pheasant  documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>  
@@ -48,7 +48,7 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <h1>Source code for gomath.test.test_util</h1><div class="highlight"><pre>
+  <h1>Source code for pheasant.test.test_util</h1><div class="highlight"><pre>
 <span class="c">#!/usr/bin/python3</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
@@ -56,36 +56,36 @@
 <span class="kn">import</span> <span class="nn">unittest</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
-<span class="kn">import</span> <span class="nn">gomath.util</span> <span class="kn">as</span> <span class="nn">ut</span>
+<span class="kn">import</span> <span class="nn">pheasant.util</span> <span class="kn">as</span> <span class="nn">ut</span>
 
-<div class="viewcode-block" id="TestFlatten"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestFlatten">[docs]</a><span class="k">class</span> <span class="nc">TestFlatten</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestFlatten"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestFlatten">[docs]</a><span class="k">class</span> <span class="nc">TestFlatten</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="n">sample_flatten</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="s">&quot;a&quot;</span><span class="p">,[</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">600</span><span class="p">],</span><span class="s">&quot;b&quot;</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
 	<span class="n">fx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
 	
-<div class="viewcode-block" id="TestFlatten.test_flatten"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestFlatten.test_flatten">[docs]</a>	<span class="k">def</span> <span class="nf">test_flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestFlatten.test_flatten"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestFlatten.test_flatten">[docs]</a>	<span class="k">def</span> <span class="nf">test_flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;test nested list flatten&#39;&#39;&#39;</span>
 		<span class="n">res</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_flatten</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fx</span><span class="p">)</span>
 </div></div>
-<div class="viewcode-block" id="TestRands"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestRands">[docs]</a><span class="k">class</span> <span class="nc">TestRands</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestRands"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestRands">[docs]</a><span class="k">class</span> <span class="nc">TestRands</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="n">rsize</span> <span class="o">=</span> <span class="mi">100</span>
 	
-<div class="viewcode-block" id="TestRands.test_rands"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestRands.test_rands">[docs]</a>	<span class="k">def</span> <span class="nf">test_rands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestRands.test_rands"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestRands.test_rands">[docs]</a>	<span class="k">def</span> <span class="nf">test_rands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;test get random values&#39;&#39;&#39;</span>
 		<span class="n">res</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">rands</span><span class="p">(</span><span class="mi">501</span><span class="p">,</span><span class="mi">979</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">rsize</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">rsize</span><span class="p">)</span>
 </div></div>
-<div class="viewcode-block" id="TestMakeList"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestMakeList">[docs]</a><span class="k">class</span> <span class="nc">TestMakeList</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestMakeList"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestMakeList">[docs]</a><span class="k">class</span> <span class="nc">TestMakeList</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	This is utility of making list.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
-<div class="viewcode-block" id="TestMakeList.test_makeformatlist"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestMakeList.test_makeformatlist">[docs]</a>	<span class="k">def</span> <span class="nf">test_makeformatlist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestMakeList.test_makeformatlist"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestMakeList.test_makeformatlist">[docs]</a>	<span class="k">def</span> <span class="nf">test_makeformatlist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;test make format list&#39;&#39;&#39;</span>
 		<span class="n">res</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">makeformatlist</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 		<span class="n">chk</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">chk</span><span class="p">)</span>
 	</div>
-<div class="viewcode-block" id="TestMakeList.test_makelist"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestMakeList.test_makelist">[docs]</a>	<span class="k">def</span> <span class="nf">test_makelist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestMakeList.test_makelist"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestMakeList.test_makelist">[docs]</a>	<span class="k">def</span> <span class="nf">test_makelist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">		test make array 1 dimention</span>
 <span class="sd">		&#39;&#39;&#39;</span>
@@ -94,11 +94,11 @@
 		<span class="n">res2</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">makelist</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res2</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
 </div></div>
-<div class="viewcode-block" id="TestCompose"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestCompose">[docs]</a><span class="k">class</span> <span class="nc">TestCompose</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCompose"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestCompose">[docs]</a><span class="k">class</span> <span class="nc">TestCompose</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Function compose test class.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
-<div class="viewcode-block" id="TestCompose.test_compose"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestCompose.test_compose">[docs]</a>	<span class="k">def</span> <span class="nf">test_compose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCompose.test_compose"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestCompose.test_compose">[docs]</a>	<span class="k">def</span> <span class="nf">test_compose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;function compose test&#39;&#39;&#39;</span>
 		<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 			<span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
@@ -110,11 +110,11 @@
 		<span class="n">res</span> <span class="o">=</span> <span class="n">resfn</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 		</div></div>
-<div class="viewcode-block" id="TestNearChoice"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestNearChoice">[docs]</a><span class="k">class</span> <span class="nc">TestNearChoice</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestNearChoice"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestNearChoice">[docs]</a><span class="k">class</span> <span class="nc">TestNearChoice</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Near value return function test class.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
-<div class="viewcode-block" id="TestNearChoice.test_nearchoice"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestNearChoice.test_nearchoice">[docs]</a>	<span class="k">def</span> <span class="nf">test_nearchoice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestNearChoice.test_nearchoice"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestNearChoice.test_nearchoice">[docs]</a>	<span class="k">def</span> <span class="nf">test_nearchoice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;test near value return&#39;&#39;&#39;</span>
 		<span class="n">target</span> <span class="o">=</span> <span class="mi">1</span>
 		<span class="n">sample</span> <span class="o">=</span> <span class="p">{</span>
@@ -128,11 +128,11 @@
 		<span class="n">res</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">nearchoice</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">sample</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s">&quot;Hairegu&quot;</span><span class="p">)</span>
 </div></div>
-<div class="viewcode-block" id="TestBenchMark"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestBenchMark">[docs]</a><span class="k">class</span> <span class="nc">TestBenchMark</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestBenchMark"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestBenchMark">[docs]</a><span class="k">class</span> <span class="nc">TestBenchMark</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Test class for benchmark.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
-<div class="viewcode-block" id="TestBenchMark.test_tarai"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_util.TestBenchMark.test_tarai">[docs]</a>	<span class="k">def</span> <span class="nf">test_tarai</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestBenchMark.test_tarai"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_util.TestBenchMark.test_tarai">[docs]</a>	<span class="k">def</span> <span class="nf">test_tarai</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">		Test function for tarai.</span>
 <span class="sd">		&#39;&#39;&#39;</span>
@@ -179,7 +179,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

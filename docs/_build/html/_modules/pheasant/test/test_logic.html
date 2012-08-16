@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>gomath.test.test_logic &mdash; gomath  documentation</title>
+    <title>pheasant.test.test_logic &mdash; pheasant  documentation</title>
     
     <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="gomath  documentation" href="../../../index.html" />
+    <link rel="top" title="pheasant  documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>  
@@ -48,19 +48,19 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <h1>Source code for gomath.test.test_logic</h1><div class="highlight"><pre>
+  <h1>Source code for pheasant.test.test_logic</h1><div class="highlight"><pre>
 <span class="c">#!/usr/bin/python3</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
 
-<span class="kn">import</span> <span class="nn">gomath.logic</span> <span class="kn">as</span> <span class="nn">lo</span>
+<span class="kn">import</span> <span class="nn">pheasant.logic</span> <span class="kn">as</span> <span class="nn">lo</span>
 
-<div class="viewcode-block" id="TestPatternMatchingUtillity"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_logic.TestPatternMatchingUtillity">[docs]</a><span class="k">class</span> <span class="nc">TestPatternMatchingUtillity</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestPatternMatchingUtillity"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_logic.TestPatternMatchingUtillity">[docs]</a><span class="k">class</span> <span class="nc">TestPatternMatchingUtillity</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Pattern matching utillity test class.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
-<div class="viewcode-block" id="TestPatternMatchingUtillity.test_symbolsetitem"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_logic.TestPatternMatchingUtillity.test_symbolsetitem">[docs]</a>	<span class="k">def</span> <span class="nf">test_symbolsetitem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestPatternMatchingUtillity.test_symbolsetitem"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_logic.TestPatternMatchingUtillity.test_symbolsetitem">[docs]</a>	<span class="k">def</span> <span class="nf">test_symbolsetitem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">		Symbol setitem test.</span>
 <span class="sd">		Should raise error.</span>
@@ -70,11 +70,11 @@
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="nb">setattr</span><span class="p">,</span> <span class="n">sym</span><span class="p">,</span> <span class="s">&quot;value&quot;</span><span class="p">,</span> <span class="s">&quot;FOO&quot;</span><span class="p">)</span>
 		<span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">sym</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;HOGE&quot;</span><span class="p">)</span>
 </div></div>
-<div class="viewcode-block" id="TestNatualNumber"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_logic.TestNatualNumber">[docs]</a><span class="k">class</span> <span class="nc">TestNatualNumber</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestNatualNumber"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_logic.TestNatualNumber">[docs]</a><span class="k">class</span> <span class="nc">TestNatualNumber</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Definition of Natural Number test class.</span>
 <span class="sd">	&#39;&#39;&#39;</span>
-<div class="viewcode-block" id="TestNatualNumber.test_natp"><a class="viewcode-back" href="../../../gomath.test.html#gomath.test.test_logic.TestNatualNumber.test_natp">[docs]</a>	<span class="k">def</span> <span class="nf">test_natp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestNatualNumber.test_natp"><a class="viewcode-back" href="../../../pheasant.test.html#pheasant.test.test_logic.TestNatualNumber.test_natp">[docs]</a>	<span class="k">def</span> <span class="nf">test_natp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 		<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">		Natural Number predicate test.</span>
 <span class="sd">		&#39;&#39;&#39;</span>
@@ -116,7 +116,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

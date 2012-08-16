@@ -1,10 +1,10 @@
-gomath Package
-==============
+pheasant Package
+================
 
 :mod:`algebra` Module
 ---------------------
 
-.. automodule:: gomath.algebra
+.. automodule:: pheasant.algebra
     :members:
     :undoc-members:
     :show-inheritance:
@@ -12,7 +12,7 @@ gomath Package
 :mod:`algorithm` Module
 -----------------------
 
-.. automodule:: gomath.algorithm
+.. automodule:: pheasant.algorithm
     :members:
     :undoc-members:
     :show-inheritance:
@@ -20,7 +20,7 @@ gomath Package
 :mod:`calculus` Module
 ----------------------
 
-.. automodule:: gomath.calculus
+.. automodule:: pheasant.calculus
     :members:
     :undoc-members:
     :show-inheritance:
@@ -28,7 +28,7 @@ gomath Package
 :mod:`geometry` Module
 ----------------------
 
-.. automodule:: gomath.geometry
+.. automodule:: pheasant.geometry
     :members:
     :undoc-members:
     :show-inheritance:
@@ -36,7 +36,7 @@ gomath Package
 :mod:`linear` Module
 --------------------
 
-.. automodule:: gomath.linear
+.. automodule:: pheasant.linear
     :members:
     :undoc-members:
     :show-inheritance:
@@ -44,15 +44,7 @@ gomath Package
 :mod:`logic` Module
 -------------------
 
-.. automodule:: gomath.logic
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-:mod:`server` Module
---------------------
-
-.. automodule:: gomath.server
+.. automodule:: pheasant.logic
     :members:
     :undoc-members:
     :show-inheritance:
@@ -60,7 +52,7 @@ gomath Package
 :mod:`statistics` Module
 ------------------------
 
-.. automodule:: gomath.statistics
+.. automodule:: pheasant.statistics
     :members:
     :undoc-members:
     :show-inheritance:
@@ -68,7 +60,7 @@ gomath Package
 :mod:`util` Module
 ------------------
 
-.. automodule:: gomath.util
+.. automodule:: pheasant.util
     :members:
     :undoc-members:
     :show-inheritance:
@@ -78,6 +70,6 @@ Subpackages
 
 .. toctree::
 
-    gomath.const
-    gomath.test
+    pheasant.const
+    pheasant.test
 

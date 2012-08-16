@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>gomath.util &mdash; gomath  documentation</title>
+    <title>pheasant.util &mdash; pheasant  documentation</title>
     
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="gomath  documentation" href="../../index.html" />
+    <link rel="top" title="pheasant  documentation" href="../../index.html" />
     <link rel="up" title="Module code" href="../index.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>  
@@ -48,14 +48,14 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <h1>Source code for gomath.util</h1><div class="highlight"><pre>
+  <h1>Source code for pheasant.util</h1><div class="highlight"><pre>
 <span class="c">#!/usr/bin/python3</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
-<div class="viewcode-block" id="flatten"><a class="viewcode-back" href="../../gomath.html#gomath.util.flatten">[docs]</a><span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">ls</span><span class="p">):</span>
+<div class="viewcode-block" id="flatten"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.flatten">[docs]</a><span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">ls</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;nested list flatten&#39;&#39;&#39;</span>
 	<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ls</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
 		<span class="k">if</span> <span class="n">ls</span> <span class="o">==</span> <span class="p">[]:</span>
@@ -65,7 +65,7 @@
 	<span class="k">else</span><span class="p">:</span> <span class="c">#atom atom+atom=list</span>
 		<span class="k">return</span> <span class="p">[</span><span class="n">ls</span><span class="p">]</span>
 		</div>
-<div class="viewcode-block" id="nearchoice"><a class="viewcode-back" href="../../gomath.html#gomath.util.nearchoice">[docs]</a><span class="k">def</span> <span class="nf">nearchoice</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">sample</span><span class="p">):</span>
+<div class="viewcode-block" id="nearchoice"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.nearchoice">[docs]</a><span class="k">def</span> <span class="nf">nearchoice</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">sample</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	choice near value</span>
 <span class="sd">	key is number type only.</span>
@@ -82,7 +82,7 @@
 	<span class="sd">&#39;&#39;&#39;read csv file&#39;&#39;&#39;</span>
 	<span class="k">pass</span>
 
-<div class="viewcode-block" id="rands"><a class="viewcode-back" href="../../gomath.html#gomath.util.rands">[docs]</a><span class="k">def</span> <span class="nf">rands</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+<div class="viewcode-block" id="rands"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.rands">[docs]</a><span class="k">def</span> <span class="nf">rands</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;make random list&#39;&#39;&#39;</span>
 	<span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
 		<span class="n">size</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span>
@@ -95,7 +95,7 @@
 	
 	<span class="k">return</span> <span class="n">rlst</span>
 </div>
-<div class="viewcode-block" id="normalize_formula"><a class="viewcode-back" href="../../gomath.html#gomath.util.normalize_formula">[docs]</a><span class="k">def</span> <span class="nf">normalize_formula</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<div class="viewcode-block" id="normalize_formula"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.normalize_formula">[docs]</a><span class="k">def</span> <span class="nf">normalize_formula</span><span class="p">(</span><span class="n">form</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;make 1 for simultanious linear equations&#39;&#39;&#39;</span>
 	<span class="n">coef</span> <span class="o">=</span> <span class="n">form</span><span class="p">[</span><span class="n">target</span><span class="p">]</span>
 	<span class="n">coeflst</span> <span class="o">=</span> <span class="p">[]</span>
@@ -113,7 +113,7 @@
 			
 	<span class="k">return</span> <span class="n">coeflst</span>
 		</div>
-<div class="viewcode-block" id="subtraction_formulas"><a class="viewcode-back" href="../../gomath.html#gomath.util.subtraction_formulas">[docs]</a><span class="k">def</span> <span class="nf">subtraction_formulas</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<div class="viewcode-block" id="subtraction_formulas"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.subtraction_formulas">[docs]</a><span class="k">def</span> <span class="nf">subtraction_formulas</span><span class="p">(</span><span class="n">formulas</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;make 0 for simultanious linear equations&#39;&#39;&#39;</span>
 	<span class="n">orgfm</span> <span class="o">=</span> <span class="n">formulas</span><span class="p">[</span><span class="n">target</span><span class="p">]</span>
 	<span class="n">coeflst</span> <span class="o">=</span> <span class="p">[]</span>
@@ -131,7 +131,7 @@
 					
 	<span class="k">return</span> <span class="n">coeflst</span>
 	</div>
-<div class="viewcode-block" id="sleq"><a class="viewcode-back" href="../../gomath.html#gomath.util.sleq">[docs]</a><span class="k">def</span> <span class="nf">sleq</span><span class="p">(</span><span class="n">formulas</span><span class="p">):</span>
+<div class="viewcode-block" id="sleq"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.sleq">[docs]</a><span class="k">def</span> <span class="nf">sleq</span><span class="p">(</span><span class="n">formulas</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	simultanious linear equations </span>
 <span class="sd">	formura length 2 (so 2 dimention), should be inverse matrix use. </span>
@@ -148,11 +148,11 @@
 	
 	<span class="k">return</span> <span class="n">equations</span>
 </div>
-<div class="viewcode-block" id="makeformatlist"><a class="viewcode-back" href="../../gomath.html#gomath.util.makeformatlist">[docs]</a><span class="k">def</span> <span class="nf">makeformatlist</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">initnum</span><span class="p">):</span>
+<div class="viewcode-block" id="makeformatlist"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.makeformatlist">[docs]</a><span class="k">def</span> <span class="nf">makeformatlist</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">initnum</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;make adapt size and filled initnum list&#39;&#39;&#39;</span>
 	<span class="k">return</span> <span class="p">[</span><span class="n">initnum</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span>
 </div>
-<div class="viewcode-block" id="compose"><a class="viewcode-back" href="../../gomath.html#gomath.util.compose">[docs]</a><span class="k">def</span> <span class="nf">compose</span><span class="p">(</span><span class="o">*</span><span class="n">funcs</span><span class="p">):</span>
+<div class="viewcode-block" id="compose"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.compose">[docs]</a><span class="k">def</span> <span class="nf">compose</span><span class="p">(</span><span class="o">*</span><span class="n">funcs</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;function compose&#39;&#39;&#39;</span>
 	<span class="k">def</span> <span class="nf">compFn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 		<span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
@@ -162,13 +162,13 @@
 
 	<span class="k">return</span> <span class="n">compFn</span>
 	</div>
-<div class="viewcode-block" id="readcsv"><a class="viewcode-back" href="../../gomath.html#gomath.util.readcsv">[docs]</a><span class="k">def</span> <span class="nf">readcsv</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<div class="viewcode-block" id="readcsv"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.readcsv">[docs]</a><span class="k">def</span> <span class="nf">readcsv</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	read csv file and return list </span>
 <span class="sd">	&#39;&#39;&#39;</span>
 	<span class="k">pass</span>
 </div>
-<div class="viewcode-block" id="discriminant"><a class="viewcode-back" href="../../gomath.html#gomath.util.discriminant">[docs]</a><span class="k">def</span> <span class="nf">discriminant</span><span class="p">(</span><span class="n">formula</span><span class="p">):</span>
+<div class="viewcode-block" id="discriminant"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.discriminant">[docs]</a><span class="k">def</span> <span class="nf">discriminant</span><span class="p">(</span><span class="n">formula</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	discriminant of quadratic equation</span>
 <span class="sd">	return real root number</span>
@@ -179,7 +179,7 @@
 	
 	<span class="k">return</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
 </div>
-<div class="viewcode-block" id="makelist"><a class="viewcode-back" href="../../gomath.html#gomath.util.makelist">[docs]</a><span class="k">def</span> <span class="nf">makelist</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">initvalue</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="makelist"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.makelist">[docs]</a><span class="k">def</span> <span class="nf">makelist</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">initvalue</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	make standard list requested length</span>
 <span class="sd">	[object]*length is all value equal object.</span>
@@ -190,7 +190,7 @@
 	
 	<span class="k">return</span> <span class="n">lst</span>
 	</div>
-<div class="viewcode-block" id="swap"><a class="viewcode-back" href="../../gomath.html#gomath.util.swap">[docs]</a><span class="k">def</span> <span class="nf">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="viewcode-block" id="swap"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.swap">[docs]</a><span class="k">def</span> <span class="nf">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	value swap function</span>
 <span class="sd">	&#39;&#39;&#39;</span>
@@ -200,7 +200,7 @@
 	
 	<span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="tarai"><a class="viewcode-back" href="../../gomath.html#gomath.util.tarai">[docs]</a><span class="k">def</span> <span class="nf">tarai</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div class="viewcode-block" id="tarai"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.tarai">[docs]</a><span class="k">def</span> <span class="nf">tarai</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Tarai function.(Takeuchi function)</span>
 <span class="sd">	Used at benchmark.</span>
@@ -210,7 +210,7 @@
 	<span class="k">else</span><span class="p">:</span>
 		<span class="k">return</span> <span class="n">tarai</span><span class="p">(</span><span class="n">tarai</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">),</span> <span class="n">tarai</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">x</span><span class="p">),</span> <span class="n">tarai</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
 	</div>
-<div class="viewcode-block" id="newton_raphson"><a class="viewcode-back" href="../../gomath.html#gomath.util.newton_raphson">[docs]</a><span class="k">def</span> <span class="nf">newton_raphson</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">repeat</span><span class="p">):</span>
+<div class="viewcode-block" id="newton_raphson"><a class="viewcode-back" href="../../pheasant.html#pheasant.util.newton_raphson">[docs]</a><span class="k">def</span> <span class="nf">newton_raphson</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">repeat</span><span class="p">):</span>
 	<span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">	Iteration method to calculate near solution.</span>
 <span class="sd">	root: Origin of square root.</span>
@@ -265,7 +265,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">gomath  documentation</a> &raquo;</li>
+        <li><a href="../../index.html">pheasant  documentation</a> &raquo;</li>
           <li><a href="../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>
