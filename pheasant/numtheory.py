@@ -323,7 +323,7 @@ def addchain(n):
 		res.append(n)
 		
 	return res[::-1]
-	
+
 if __name__ == '__main__':
 	print("algebra module load")
 

@@ -48,6 +48,23 @@ class TestCoodinateTransform(unittest.TestCase):
 		#res = gm.polar2rectangular(4.0, 3.14159)
 		#self.assertEqual(res, (-4.000000, 1.1094401e-05))
 
+class TestPythagoreanTheorem(unittest.TestCase):
+	'''
+	Pythagorean theorem function test class.
+	'''
+	def test_pythagonum(self):
+		'''
+		Test pythagonum function.
+		'''
+		res = gm.pythagonum(2,1)
+		self.assertEqual(res, (3,4,5))
+		res = gm.pythagonum(17,10)
+		self.assertEqual(res, (189,340,389))
+		res = gm.pythagonum(26,23)
+		self.assertEqual(res, (147,1196,1205))
+		res = gm.pythagonum(4,2)
+		self.assertEqual(res, ())
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

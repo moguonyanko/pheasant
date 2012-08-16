@@ -3,6 +3,8 @@
 
 import math
 
+import pheasant.numtheory as nt
+
 def heron(a, b, c):
 	'''
 	Calculate area by heron method.
@@ -24,6 +26,15 @@ def polar2rectangular(r, rad):
 	rad: radian value
 	'''
 	return (r*math.cos(rad), r*math.sin(rad))
+
+def pythagonum(m, n):
+	'''
+	Calculate pythagorean number.
+	'''
+	if nt.coprimep(m, n) and nt.odd(m-n):
+		return (m**2-n**2, 2*m*n, m**2+n**2)
+	else:
+		return ()
 
 if __name__ == '__main__':
 	print("geometry module load")
