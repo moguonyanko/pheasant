@@ -121,7 +121,18 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 			chk3[p] = 0
 		chk3[2] = 8
 		
-		self.assertEqual(res3, chk3)		
+		self.assertEqual(res3, chk3)
+	
+	def test_congruencep(self):
+		'''
+		Test numbers congruence.
+		'''
+		res = nt.congruencep(32, 2, 2)
+		self.assertEqual(res, True)
+		res1 = nt.congruencep(21, 6, 15)
+		self.assertEqual(res1, True)
+		res1 = nt.congruencep(21, 6, 6)
+		self.assertEqual(res1, False)
 		
 class TestIterationMethodTest(unittest.TestCase):
 	'''

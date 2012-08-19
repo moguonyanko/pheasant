@@ -350,6 +350,12 @@ def primedecomp(n):
 			n = n/p
 	
 	return res
+	
+def congruencep(a, b, divisor):
+	'''
+	Check given numbers are congruence or not congruence.
+	'''
+	return a%divisor == b%divisor
 
 if __name__ == '__main__':
 	print("algebra module load")
