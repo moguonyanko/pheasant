@@ -245,7 +245,7 @@ def zeta(exp):
 	#TODO: Infinity stream implement?
 	pass
 	
-def primep(n):
+def prime(n):
 	'''
 	Caluculate prime number length under "n" by Eratosthenes sieve.
 	n: under n prime number detect and return.
@@ -266,7 +266,7 @@ def primep(n):
 		i += 1
 	
 	return prime
-	
+
 def coprimep(a, b):
 	'''
 	Check on coprimep.
@@ -334,6 +334,22 @@ def addchain(n):
 		res.append(n)
 		
 	return res[::-1]
+
+def primedecomp(n):
+	'''
+	Prime factor decompose.
+	'''
+	res = {}
+	ps = prime(n)
+		
+	for p in ps:
+		if not p in res: 
+			res[p] = 0
+		while n%p == 0:
+			res[p] += 1 
+			n = n/p
+	
+	return res
 
 if __name__ == '__main__':
 	print("algebra module load")

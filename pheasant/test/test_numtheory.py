@@ -46,13 +46,13 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		res = nt.coprimep(2,10)
 		self.assertEqual(res, False)
 	
-	def test_primep(self):
+	def test_prime(self):
 		'''
 		Test for prime number check function.
 		'''
-		res = nt.primep(11)
+		res = nt.prime(11)
 		self.assertEqual(res, [2,3,5,7,11])
-		#res = al.primep(1000000)
+		#res = al.prime(1000000)
 		#self.assertEqual(len(res), 78498)
 			
 	def test_euler_totient(self):
@@ -70,6 +70,58 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		
 		res = nt.indeq(terms)
 		self.assertEqual(res, (334,-335))		
+		
+	def test_primedecomp(self):
+		'''
+		Test prime factor decompose function.
+		'''
+		res = nt.primedecomp(10)
+		chk = {
+			2 : 1,
+			3 : 0,
+			5 : 1,
+			7 : 0
+		}
+		
+		self.assertEqual(res, chk)		
+		
+		n = 25574
+		res1 = nt.primedecomp(n)
+		chk1 = {}
+		ps = nt.prime(n)
+		for p in ps:
+			chk1[p] = 0
+		chk1[2] = 1
+		chk1[19] = 1
+		chk1[673] = 1
+
+		self.assertEqual(res1, chk1)		
+
+		#Pass test but too late.
+		'''
+		n2 = 120240
+		res2 = nt.primedecomp(n2)
+		chk2 = {}
+		ps2 = nt.prime(n2)
+		for p in ps2:
+			chk2[p] = 0
+		chk2[2] = 4
+		chk2[3] = 2
+		chk2[5] = 1
+		chk2[167] = 1
+		
+		self.assertEqual(res2, chk2)		
+		'''
+
+		n3 = 256
+		res3 = nt.primedecomp(n3)
+		chk3 = {}
+		ps3 = nt.prime(n3)
+		for p in ps3:
+			chk3[p] = 0
+		chk3[2] = 8
+		
+		self.assertEqual(res3, chk3)		
 		
 class TestIterationMethodTest(unittest.TestCase):
 	'''
