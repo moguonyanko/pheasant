@@ -93,7 +93,7 @@ def newton_raphson(root, start, repeat):
 
 def gcd(a, b):
 	'''
-	Calculate gcd.
+	Calculate greatest common divisor.
 	'''
 	#TODO: If a or b is negative, value is undefined.
 	if b == 0:
@@ -103,6 +103,17 @@ def gcd(a, b):
 		if (not (a<0 and b<0)) and (a<0 or b<0):
 			x *= -1
 		return gcd(b, x)
+		
+def lcm(a, b):
+	'''
+	Calculate least common multiple.
+	'''
+	if a%b == 0: 
+		return a
+	elif b%a == 0: 
+		return b
+	else:
+		return a*b/gcd(a, b)
 		
 def indeq(terms):
 	'''

@@ -12,11 +12,22 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 	'''
 	def test_gcd(self):
 		'''
-		Test of greatest common divisor.
+		Test of greatest common divisor function.
 		'''
 		res = nt.gcd(10, 8)
 		
 		self.assertEqual(res, 2)
+	
+	def test_lcm(self):
+		'''
+		Test of least common multiple function.
+		'''
+		res = nt.lcm(10, 5)
+		self.assertEqual(res, 10)
+		res1 = nt.lcm(5, 10)
+		self.assertEqual(res1, 10)
+		res2 = nt.lcm(12, 18)
+		self.assertEqual(res2, 36)
 		
 	def test_reduct(self):
 		'''
