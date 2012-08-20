@@ -31,16 +31,30 @@ class Symbol(object):
 		else:
 			object.__setattr__(self, key, value)			
 
-def variablep(x):
-	'''
-	Is x a variable (a symbol begining with ?) ?
-	'''
-	pass
-	
 def natp(n):
 	'''
 	Is n Natural Number?.
 	'''
+	if n < 0: return False
+	elif n == 0:	return True
+	else: return natp(n-1)
+
+def unify(u, v):
+	'''
+	Unification substitution.
+	'''
+	def occursp(u, v):
+		pass
+
+	def sigma(u, v, s):
+		pass
+
+	def try_subst(u, v, s, ks, kf):
+		pass	
+	
+	def uni(u, v, s, ks, kf):
+		pass
+		
 	pass
 
 if __name__ == '__main__':
