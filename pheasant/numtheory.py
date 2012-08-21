@@ -356,6 +356,20 @@ def congruencep(a, b, divisor):
 	Check given numbers are congruence or not congruence.
 	'''
 	return a%divisor == b%divisor
+	
+def primep(n):
+	'''
+	Is the number prime?
+	Because use Fermat test, would be determine pseudo prime number.
+	'''
+	if n <= 1: return False
+	if n == 2: return True
+	#repcoount = 1000
+		
+	a = n-2
+	if coprimep(a, n) == False: return False
+	
+	return congruencep(a**(n-1), 1, n)
 
 if __name__ == '__main__':
 	print("algebra module load")

@@ -133,6 +133,25 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		self.assertEqual(res1, True)
 		res1 = nt.congruencep(21, 6, 6)
 		self.assertEqual(res1, False)
+	
+	def test_primep(self):
+		'''
+		Test prime number check function.
+		'''
+		res = nt.primep(2)
+		self.assertEqual(res, True)
+		res = nt.primep(3)
+		self.assertEqual(res, True)
+		res = nt.primep(-1)
+		self.assertEqual(res, False)
+		res = nt.primep(1)
+		self.assertEqual(res, False)
+		res = nt.primep(17)
+		self.assertEqual(res, True)
+		res = nt.primep(31)
+		self.assertEqual(res, True)
+		res = nt.primep(101)
+		self.assertEqual(res, True)
 		
 class TestIterationMethodTest(unittest.TestCase):
 	'''
