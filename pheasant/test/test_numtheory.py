@@ -134,9 +134,10 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		res1 = nt.congruencep(21, 6, 6)
 		self.assertEqual(res1, False)
 	
-	def test_primep(self):
+	def test_primep_fermat(self):
 		'''
 		Test prime number check function.
+		Use fermat method.
 		'''
 		res = nt.primep(2)
 		self.assertEqual(res, True)
@@ -144,13 +145,28 @@ class TestPrimeNumberFunctions(unittest.TestCase):
 		self.assertEqual(res, True)
 		res = nt.primep(-1)
 		self.assertEqual(res, False)
+		res = nt.primep(0)
+		self.assertEqual(res, False)
 		res = nt.primep(1)
+		self.assertEqual(res, False)
+		res = nt.primep(51)
 		self.assertEqual(res, False)
 		res = nt.primep(17)
 		self.assertEqual(res, True)
 		res = nt.primep(31)
 		self.assertEqual(res, True)
 		res = nt.primep(101)
+		self.assertEqual(res, True)
+		res = nt.primep(561) #pseudo prime number
+		self.assertEqual(res, True)
+		
+	def test_primep_rabin(self):
+		'''
+		Test prime number check function.
+		This method use Rabin-Miller primality test.
+		'''
+		mode = "rabin"
+		res = nt.primep(2, mode)
 		self.assertEqual(res, True)
 		
 class TestIterationMethodTest(unittest.TestCase):

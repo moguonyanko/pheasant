@@ -158,25 +158,6 @@ def tarai(x, y, z):
 		return y
 	else:
 		return tarai(tarai(x-1,y,z), tarai(y-1,z,x), tarai(z-1,x,y))
-	
-def newton_raphson(root, start, repeat):
-	'''
-	Iteration method to calculate near solution.
-	root: Origin of square root.
-	start: Repeat start value.
-	repeat: Repeat limit.
-	'''
-	#TODO:Square root caluculation only.
-	def func(x):
-		return 1/2*(x+root/x)
-
-	res = None
-	testx = start
-	for i in range(repeat):
-		res = func(testx)
-		testx = res
-	
-	return res
 
 #Entry point
 if __name__ == '__main__':

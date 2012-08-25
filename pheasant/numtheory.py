@@ -357,19 +357,37 @@ def congruencep(a, b, divisor):
 	'''
 	return a%divisor == b%divisor
 	
-def primep(n):
+	
+	
+def primep(n, mode="fermat"):
 	'''
 	Is the number prime?
-	Because use Fermat test, would be determine pseudo prime number.
+	n: Target number.
+	mode: Test mode, default mode is fermat.
 	'''
-	if n <= 1: return False
-	if n == 2: return True
-	#repcoount = 1000
+	def fermat(n):
+		if n <= 1: return False
+		if n == 2: return True
+		#repcoount = 1000
 		
-	a = n-2
-	if coprimep(a, n) == False: return False
+		a = n-2
+		if coprimep(a, n) == False: return False
 	
-	return congruencep(a**(n-1), 1, n)
+		return congruencep(a**(n-1), 1, n)
+
+	def rabin(n):
+		pass
+	
+	def aks(n):
+		pass
+	
+	chkfns = {
+		"fermat" : fermat,
+		"rabin" : rabin,
+		"aks" : aks
+	}
+	
+	return chkfns[mode](n)
 
 if __name__ == '__main__':
 	print("algebra module load")
