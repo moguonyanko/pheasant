@@ -365,9 +365,10 @@ def primep(n, mode="fermat"):
 	n: Target number.
 	mode: Test mode, default mode is fermat.
 	'''
+	if n <= 1: return False
+	if n == 2: return True
+	
 	def fermat(n):
-		if n <= 1: return False
-		if n == 2: return True
 		#repcoount = 1000
 		
 		a = n-2
@@ -376,7 +377,8 @@ def primep(n, mode="fermat"):
 		return congruencep(a**(n-1), 1, n)
 
 	def rabin(n):
-		pass
+		#TODO: implement
+		pass		
 	
 	def aks(n):
 		pass
