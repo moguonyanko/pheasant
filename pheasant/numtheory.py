@@ -357,7 +357,18 @@ def congruencep(a, b, divisor):
 	'''
 	return a%divisor == b%divisor
 	
+def expop(n):
+	'''
+	Is n exponential number?
+	This test practice in integer number fields.
+	'''
+	if n <= 0: return False
 	
+	x = math.ceil(math.sqrt(n))
+	for i in range(x):
+		if n == ((i+1)**2): return True
+	
+	return False	
 	
 def primep(n, mode="fermat"):
 	'''

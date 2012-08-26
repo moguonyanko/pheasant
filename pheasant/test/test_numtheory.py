@@ -396,6 +396,23 @@ class TestNumericalSequence(unittest.TestCase):
 		chk = [1,2,4,5,10,11,22,44,45]
 		
 		self.assertEqual(res, chk)
+		
+	def test_expop(self):
+		'''
+		Test expop function.
+		'''
+		res = nt.expop(4)
+		self.assertEqual(res, True)
+		res = nt.expop(100)
+		self.assertEqual(res, True)
+		res = nt.expop(101)
+		self.assertEqual(res, False)
+		res = nt.expop(998001)
+		self.assertEqual(res, True)
+		res = nt.expop(0)
+		self.assertEqual(res, False)
+		res = nt.expop(-1)
+		self.assertEqual(res, False)
 
 if __name__ == '__main__':
 	print(__file__)
