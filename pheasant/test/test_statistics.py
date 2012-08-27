@@ -618,6 +618,42 @@ class TestProbability(unittest.TestCase):
 		'''
 		pass
 		
+	def test_estimate(self):
+		'''
+		Probability class estimate test.
+		'''
+		fm = None
+		
+		def probfn(x):
+			a = nt.Term(3/4, 1)
+			b = nt.Term(-3/4*x**2, 1)
+			fm = nt.Formula([a, b])
+			return fm.calc()
+
+		pb = ts.Probability(probfn)
+			
+		res = pb.estimate()
+		self.assertEqual(round(res), 1)
+	
+	def test_probability_and(self):
+		'''
+		Test "and" special method in Probability class.
+		'''
+		fn1 = lambda x: 1/2
+		fn2 = lambda x: 2/5
+			
+		p1 = ts.Probability(fn1)
+		p2 = ts.Probability(fn2)
+		
+		res = p1 and p2
+		self.assertEqual(res.estimate(), 1/5)
+	
+	def test_condprob(self):
+		'''
+		Conditional probability function test.
+		'''
+		pass
+		
 #Entry point
 if __name__ == '__main__':
 	print(__file__)

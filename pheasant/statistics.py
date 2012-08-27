@@ -670,6 +670,40 @@ def maxlikelihood():
 	Maximum Likelihood Estimate.
 	'''
 	pass
+	
+class Probability():
+	'''
+	Probability expection class.
+	'''
+	DEFAULT_UPPER = 1
+	DEFAULT_LOWER = -1
+	
+	def __init__(self, probfn):
+		'''
+		Initialize probability density function.
+		'''
+		self.probfn = probfn
+	
+	def estimate(self, upper=DEFAULT_UPPER, lower=DEFAULT_LOWER):
+		'''
+		Estimate probability.
+		'''
+		return probability(self.probfn, upper, lower)
+	
+	def __and__(self, target):
+		'''
+		Probability production.
+		'''
+		def newfn(x):
+			return self.probfn(x)*target.probfn(x)
+		
+		return Probability(newfn)
+
+def condprob(p1, p2):
+	'''
+	Calculate conditional probability.
+	'''
+	pass
 
 #Entry point
 if __name__ == '__main__':
