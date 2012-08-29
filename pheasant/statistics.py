@@ -671,9 +671,9 @@ def maxlikelihood():
 	'''
 	pass
 	
-class Probability():
+class ProbDist():
 	'''
-	Probability expection class.
+	Probability distribution expection class.
 	'''
 	DEFAULT_UPPER = 1
 	DEFAULT_LOWER = -1
@@ -683,27 +683,60 @@ class Probability():
 		Initialize probability density function.
 		'''
 		self.probfn = probfn
+
+	def __and__(self, target):
+		'''
+		Express multiplication theorem.
+		"target" is necessary to be calculate conditional probability.
+		'''
+		return type(self)(lambda x: self.probfn(x)*target.probfn(x))
 	
-	def estimate(self, upper=DEFAULT_UPPER, lower=DEFAULT_LOWER):
+	def __or__(self, target):
+		'''
+		Express addition theorem.
+		'''
+		#TODO: correspond exclusive case 
+		return type(self)(lambda x: self.probfn(x)+target.probfn(x))
+	
+class ContProbDist(ProbDist):
+	'''
+	Continuous probability class.
+	'''
+	def estimate(self, upper=ProbDist.DEFAULT_UPPER, lower=ProbDist.DEFAULT_LOWER):
 		'''
 		Estimate probability.
 		'''
 		return probability(self.probfn, upper, lower)
-	
-	def __and__(self, target):
-		'''
-		Probability production.
-		'''
-		def newfn(x):
-			return self.probfn(x)*target.probfn(x)
 		
-		return Probability(newfn)
+class DiscProbDist(ProbDist):
+	'''
+	Discreate probability class.
+	'''
+	def estimate(self, upper=ProbDist.DEFAULT_UPPER, lower=ProbDist.DEFAULT_LOWER):
+		return self.probfn(None)
 
 def condprob(p1, p2):
 	'''
 	Calculate conditional probability.
 	'''
 	pass
+
+class ProbDistFactory():
+	'''
+	Probability distribution object factory.
+	'''
+	@classmethod
+	def create(cls, target):
+		if target == "STDNORM":
+			def probfn(x):
+				'''
+				Probability density function of standard normal distribution.
+				'''
+				pass
+			
+			return ContProbDist(probfn)
+		else:
+			pass
 
 #Entry point
 if __name__ == '__main__':

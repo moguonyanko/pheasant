@@ -630,29 +630,49 @@ class TestProbability(unittest.TestCase):
 			fm = nt.Formula([a, b])
 			return fm.calc()
 
-		pb = ts.Probability(probfn)
+		pb = ts.ContProbDist(probfn)
 			
 		res = pb.estimate()
 		self.assertEqual(round(res), 1)
 	
 	def test_probability_and(self):
 		'''
-		Test "and" special method in Probability class.
+		Test "&" special method in Probability class.
 		'''
 		fn1 = lambda x: 1/2
+		fn2 = lambda x: 2/5 #Conditional probability
+			
+		p1 = ts.DiscProbDist(fn1)
+		p2 = ts.DiscProbDist(fn2)
+		
+		res = p1 & p2
+		self.assertEqual(1/5, res.estimate())
+
+	def test_probability_or(self):
+		'''
+		Test "|" special method in Probability class.
+		'''
+		fn1 = lambda x: 1/5
 		fn2 = lambda x: 2/5
 			
-		p1 = ts.Probability(fn1)
-		p2 = ts.Probability(fn2)
+		p1 = ts.DiscProbDist(fn1)
+		p2 = ts.DiscProbDist(fn2)
 		
-		res = p1 and p2
-		self.assertEqual(res.estimate(), 1/5)
+		res = p1 | p2
+		self.assertEqual(3/5, round(res.estimate(), 1))
 	
 	def test_condprob(self):
 		'''
 		Conditional probability function test.
 		'''
 		pass
+		
+	def test_ProbabilityFactory_create(self):
+		'''
+		ProbabilityFactory create test.
+		'''
+		res = ts.ProbDistFactory.create("STDNORM")
+		self.assertEqual(ts.ContProbDist, type(res))
 		
 #Entry point
 if __name__ == '__main__':
