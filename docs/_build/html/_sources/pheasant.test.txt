@@ -1,14 +1,6 @@
 test Package
 ============
 
-:mod:`test_algebra` Module
---------------------------
-
-.. automodule:: pheasant.test.test_algebra
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 :mod:`test_algorithm` Module
 ----------------------------
 
@@ -45,6 +37,22 @@ test Package
 ------------------------
 
 .. automodule:: pheasant.test.test_logic
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_numtheory` Module
+----------------------------
+
+.. automodule:: pheasant.test.test_numtheory
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_settheory` Module
+----------------------------
+
+.. automodule:: pheasant.test.test_settheory
     :members:
     :undoc-members:
     :show-inheritance:

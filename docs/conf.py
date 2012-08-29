@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # pheasant documentation build configuration file, created by
-# sphinx-quickstart on Fri Aug 17 01:20:00 2012.
+# sphinx-quickstart on Thu Aug 30 02:03:51 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #

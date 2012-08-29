@@ -56,9 +56,6 @@
             
   <div class="section" id="pheasant-package">
 <h1>pheasant Package<a class="headerlink" href="#pheasant-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="algebra-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">algebra</span></tt> Module<a class="headerlink" href="#algebra-module" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="algorithm-module">
 <h2><tt class="xref py py-mod docutils literal"><span class="pre">algorithm</span></tt> Module<a class="headerlink" href="#algorithm-module" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -94,28 +91,8 @@ fn: Differentiate target function.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-pheasant.geometry">
-<span id="geometry-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">geometry</span></tt> Module<a class="headerlink" href="#module-pheasant.geometry" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="pheasant.geometry.heron">
-<tt class="descclassname">pheasant.geometry.</tt><tt class="descname">heron</tt><big>(</big><em>a</em>, <em>b</em>, <em>c</em><big>)</big><a class="reference internal" href="_modules/pheasant/geometry.html#heron"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.geometry.heron" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate area by heron method.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pheasant.geometry.polar2rectangular">
-<tt class="descclassname">pheasant.geometry.</tt><tt class="descname">polar2rectangular</tt><big>(</big><em>r</em>, <em>rad</em><big>)</big><a class="reference internal" href="_modules/pheasant/geometry.html#polar2rectangular"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.geometry.polar2rectangular" title="Permalink to this definition">¶</a></dt>
-<dd><p>Polar to rectangular coordinate transform.
-r: polar coordinates value
-rad: radian value</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pheasant.geometry.trianglep">
-<tt class="descclassname">pheasant.geometry.</tt><tt class="descname">trianglep</tt><big>(</big><em>a</em>, <em>b</em>, <em>c</em><big>)</big><a class="reference internal" href="_modules/pheasant/geometry.html#trianglep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.geometry.trianglep" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check triangle formation condition satisfied.</p>
-</dd></dl>
-
+<div class="section" id="geometry-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">geometry</span></tt> Module<a class="headerlink" href="#geometry-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="linear-module">
 <h2><tt class="xref py py-mod docutils literal"><span class="pre">linear</span></tt> Module<a class="headerlink" href="#linear-module" title="Permalink to this headline">¶</a></h2>
@@ -143,11 +120,17 @@ rad: radian value</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="pheasant.logic.variablep">
-<tt class="descclassname">pheasant.logic.</tt><tt class="descname">variablep</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="_modules/pheasant/logic.html#variablep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.logic.variablep" title="Permalink to this definition">¶</a></dt>
-<dd><p>Is x a variable (a symbol begining with ?) ?</p>
+<dt id="pheasant.logic.unify">
+<tt class="descclassname">pheasant.logic.</tt><tt class="descname">unify</tt><big>(</big><em>u</em>, <em>v</em><big>)</big><a class="headerlink" href="#pheasant.logic.unify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unification substitution.</p>
 </dd></dl>
 
+</div>
+<div class="section" id="numtheory-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">numtheory</span></tt> Module<a class="headerlink" href="#numtheory-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pheasant.settheory">
+<span id="settheory-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">settheory</span></tt> Module<a class="headerlink" href="#module-pheasant.settheory" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="statistics-module">
 <h2><tt class="xref py py-mod docutils literal"><span class="pre">statistics</span></tt> Module<a class="headerlink" href="#statistics-module" title="Permalink to this headline">¶</a></h2>
@@ -192,15 +175,6 @@ return real root number</p>
 <dd><p>choice near value
 key is number type only.
 but should be modified algorithm.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="pheasant.util.newton_raphson">
-<tt class="descclassname">pheasant.util.</tt><tt class="descname">newton_raphson</tt><big>(</big><em>root</em>, <em>start</em>, <em>repeat</em><big>)</big><a class="reference internal" href="_modules/pheasant/util.html#newton_raphson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.util.newton_raphson" title="Permalink to this definition">¶</a></dt>
-<dd><p>Iteration method to calculate near solution.
-root: Origin of square root.
-start: Repeat start value.
-repeat: Repeat limit.</p>
 </dd></dl>
 
 <dl class="function">
@@ -258,12 +232,13 @@ Used at benchmark.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pheasant.test.html">test Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-algebra-module"><tt class="docutils literal"><span class="pre">test_algebra</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-algorithm-module"><tt class="docutils literal"><span class="pre">test_algorithm</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_calculus"><tt class="docutils literal"><span class="pre">test_calculus</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_geometry"><tt class="docutils literal"><span class="pre">test_geometry</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-geometry-module"><tt class="docutils literal"><span class="pre">test_geometry</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-linear-module"><tt class="docutils literal"><span class="pre">test_linear</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_logic"><tt class="docutils literal"><span class="pre">test_logic</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-numtheory-module"><tt class="docutils literal"><span class="pre">test_numtheory</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_settheory"><tt class="docutils literal"><span class="pre">test_settheory</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-statistics-module"><tt class="docutils literal"><span class="pre">test_statistics</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_util"><tt class="docutils literal"><span class="pre">test_util</span></tt> Module</a></li>
 </ul>
@@ -282,12 +257,13 @@ Used at benchmark.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">pheasant Package</a><ul>
-<li><a class="reference internal" href="#algebra-module"><tt class="docutils literal"><span class="pre">algebra</span></tt> Module</a></li>
 <li><a class="reference internal" href="#algorithm-module"><tt class="docutils literal"><span class="pre">algorithm</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-pheasant.calculus"><tt class="docutils literal"><span class="pre">calculus</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-pheasant.geometry"><tt class="docutils literal"><span class="pre">geometry</span></tt> Module</a></li>
+<li><a class="reference internal" href="#geometry-module"><tt class="docutils literal"><span class="pre">geometry</span></tt> Module</a></li>
 <li><a class="reference internal" href="#linear-module"><tt class="docutils literal"><span class="pre">linear</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-pheasant.logic"><tt class="docutils literal"><span class="pre">logic</span></tt> Module</a></li>
+<li><a class="reference internal" href="#numtheory-module"><tt class="docutils literal"><span class="pre">numtheory</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pheasant.settheory"><tt class="docutils literal"><span class="pre">settheory</span></tt> Module</a></li>
 <li><a class="reference internal" href="#statistics-module"><tt class="docutils literal"><span class="pre">statistics</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-pheasant.util"><tt class="docutils literal"><span class="pre">util</span></tt> Module</a></li>
 <li><a class="reference internal" href="#subpackages">Subpackages</a><ul>

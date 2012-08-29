@@ -1,14 +1,6 @@
 pheasant Package
 ================
 
-:mod:`algebra` Module
----------------------
-
-.. automodule:: pheasant.algebra
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 :mod:`algorithm` Module
 -----------------------
 
@@ -45,6 +37,22 @@ pheasant Package
 -------------------
 
 .. automodule:: pheasant.logic
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`numtheory` Module
+-----------------------
+
+.. automodule:: pheasant.numtheory
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`settheory` Module
+-----------------------
+
+.. automodule:: pheasant.settheory
     :members:
     :undoc-members:
     :show-inheritance:
