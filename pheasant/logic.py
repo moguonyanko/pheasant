@@ -20,23 +20,23 @@ class Symbol(object):
 		value: Include value in Symbol.
 		'''
 		self.value = value
-		
+
 	def __setattr__(self, key, value):
 		'''
 		Symbol value is constant.
-		Syntax error raise.
+		Raise syntax error.
 		'''
 		if hasattr(self, key):
 			raise AttributeError("Symbol value is constant.")
 		else:
-			object.__setattr__(self, key, value)			
+			object.__setattr__(self, key, value)
 
 def natp(n):
 	'''
 	Is n Natural Number?.
 	'''
 	if n < 0: return False
-	elif n == 0:	return True
+	elif n == 0: return True
 	else: return natp(n-1)
 
 def unify(u, v):
@@ -50,11 +50,11 @@ def unify(u, v):
 		pass
 
 	def try_subst(u, v, s, ks, kf):
-		pass	
-	
+		pass
+
 	def uni(u, v, s, ks, kf):
 		pass
-		
+
 	pass
 
 if __name__ == '__main__':
