@@ -158,6 +158,20 @@ def tarai(x, y, z):
 		return y
 	else:
 		return tarai(tarai(x-1,y,z), tarai(y-1,z,x), tarai(z-1,x,y))
+		
+def zipter(ls1, ls2, func=None):
+	'''
+	Operate as "zip" and "filter".
+	'''
+	res = zip(ls1, ls2)
+	if func == None:
+		return list(res)
+	else: 
+		_res = []
+		for a, b in res:
+			if func(a) and func(b):
+				_res.append((a,b))
+		return _res
 
 #Entry point
 if __name__ == '__main__':

@@ -24,24 +24,41 @@ class TestRands(unittest.TestCase):
 		res = ut.rands(501,979,self.rsize)
 		self.assertEqual(len(res), self.rsize)
 
-class TestMakeList(unittest.TestCase):
+class TestMakeCollection(unittest.TestCase):
 	'''
-	This is utility of making list.
+	This is utility of making collection.
 	'''
 	def test_makeformatlist(self):
-		'''test make format list'''
+		'''
+		Test make format list.
+		'''
 		res = ut.makeformatlist(3, 0)
 		chk = [0,0,0]
 		self.assertEqual(res, chk)
 	
 	def test_makelist(self):
 		'''
-		test make array 1 dimention
+		Test make array 1 dimention.
 		'''
 		res1 = ut.makelist(10)
 		self.assertEqual(len(res1), 10)
 		res2 = ut.makelist(100,0)
 		self.assertEqual(len(res2), 100)
+		
+	def test_zipter(self):
+		'''
+		Test zip and filter function.
+		'''
+		ls1 = [1,2,3,4]
+		ls2 = [1,2,3,4]
+		
+		res = ut.zipter(ls1, ls2)
+		chk = [(1,1),(2,2),(3,3),(4,4)]
+		self.assertEqual(chk, res)
+		
+		res2 = ut.zipter(ls1, ls2, lambda x: x % 2 != 0)
+		chk2 = [(1,1),(3,3)]
+		self.assertEqual(chk2, res2)
 
 class TestCompose(unittest.TestCase):
 	'''
