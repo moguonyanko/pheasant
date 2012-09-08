@@ -389,8 +389,19 @@ class TestPermutations(unittest.TestCase):
 		
 	def test_factorial(self):
 		'''testfactorial'''
-		res = ts.factorial(4)
-		self.assertEqual(res, 24)
+		res1 = ts.factorial(1)
+		self.assertEqual(1, res1)
+		res2 = ts.factorial(2)
+		self.assertEqual(2, res2)
+		res3 = ts.factorial(3)
+		self.assertEqual(6, res3)
+		res4 = ts.factorial(4)
+		self.assertEqual(24, res4)
+		res10 = ts.factorial(10)
+		self.assertEqual(3628800, res10)
+		#TODO: return inf
+		#res1 = ts.factorial(228)
+		#self.assertEqual(1.4730562568E+440, res1)
 
 class TestCombinations(unittest.TestCase):
 	'''Test for combinations calculate function.'''
@@ -673,6 +684,22 @@ class TestProbability(unittest.TestCase):
 		'''
 		res = ts.ProbDistFactory.create("STDNORM")
 		self.assertEqual(ts.ContProbDist, type(res))
+		
+class TestFisher(unittest.TestCase):
+	'''
+	Test class for Fisher's exact test.
+	'''
+	def test_fisher_test(self):
+		'''
+		Fisher's exact test check.
+		'''
+		maledat = lr.Vector([3,1])
+		femaledat = lr.Vector([2,4])
+		
+		testmat = lr.Matrix([maledat,femaledat])
+		
+		res = ts.fisher_test(testmat)
+		self.assertEqual(0.5238, res)
 		
 #Entry point
 if __name__ == '__main__':

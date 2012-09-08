@@ -686,7 +686,7 @@ class Matrix():
 		egvecs = self.eigen()
 		return sum([egvalue for egvalue in egvecs])		
 
-def hooktail_jacobi(mat):
+def jacobi(mat):
 	'''
 	Caluclate matrix eigen value and vector by Jacobi method.
 	mat: Symmetry matrix. If that is not symmetry, raise ValueError.
@@ -749,7 +749,8 @@ def hooktail_jacobi(mat):
 		eigs[mat[(i,i)]] = eigmat[i]
 	
 	return eigs
-		
+
+'''		
 def jacobi(mat):
 	if mat.symmetryp() == False:
 		raise ValueError("Matrix is not symmetry!")
@@ -763,6 +764,7 @@ def jacobi(mat):
 	maxEle = mat.maxElement()
 	
 	pass
+'''
 		
 def einheit(dim):
 	'''make identity matrix'''

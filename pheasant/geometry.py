@@ -36,6 +36,20 @@ def pythagonum(m, n):
 	else:
 		return ()
 
+class CoordinateTransformer():
+	'''
+	Coordinate transformation class.
+	'''
+	@classmethod
+	def geo2rect(cls, lon, lat, elheight):
+		'''
+		Convert from geographic coodinates to rectangular coodinates.
+		lon: Longitude
+		lat: Latitude
+		elheight: Ellipsoidal height
+		'''
+		pass
+
 if __name__ == '__main__':
 	print("geometry module load")
 

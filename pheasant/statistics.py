@@ -472,6 +472,11 @@ def factorial(num):
 	calculate factorial
 	not recursive structure
 	'''
+	if num == 0:
+		return 1
+	elif num < 0:
+		raise ValueError("negative number given")
+	
 	return permutate(num, num)
 	
 def combinate(left, right):
@@ -737,6 +742,25 @@ class ProbDistFactory():
 			return ContProbDist(probfn)
 		else:
 			pass
+
+def fisher_test(mat):
+	'''
+	Fisher's exact test.
+	'''
+	if mat.dim() == [2,2]:
+		a = mat[(0,0)]
+		b = mat[(0,1)]
+		c = mat[(1,0)]
+		d = mat[(1,1)]
+		n = a+b+c+d
+		
+		nume = factorial(a+b)*factorial(c+d)*factorial(a+c)*factorial(b+d)
+		deno = factorial(n)*factorial(a)*factorial(b)*factorial(c)*factorial(d)
+		
+		return nume/deno
+		
+	else:
+		raise ValueError("Sorry, deal 2x2 dimention data only.")
 
 #Entry point
 if __name__ == '__main__':

@@ -65,6 +65,16 @@ class TestPythagoreanTheorem(unittest.TestCase):
 		res = gm.pythagonum(4,2)
 		self.assertEqual(res, ())
 
+class TestCoordinateTransformation(unittest.TestCase):
+	'''
+	Coordinate transfomation test class.
+	'''
+	def test_geo2rect(self):
+		'''
+		Test convertion function for geographic coodinates to rectangular coodinates.
+		'''
+		pass
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
