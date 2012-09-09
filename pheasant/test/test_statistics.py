@@ -397,6 +397,12 @@ class TestPermutations(unittest.TestCase):
 		self.assertEqual(6, res3)
 		res4 = ts.factorial(4)
 		self.assertEqual(24, res4)
+		res5 = ts.factorial(5)
+		self.assertEqual(120, res5)
+		res6 = ts.factorial(6)
+		self.assertEqual(720, res6)
+		res7 = ts.factorial(7)
+		self.assertEqual(5040, res7)
 		res10 = ts.factorial(10)
 		self.assertEqual(3628800, res10)
 		#TODO: return inf

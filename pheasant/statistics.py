@@ -754,6 +754,9 @@ def fisher_test(mat):
 		d = mat[(1,1)]
 		n = a+b+c+d
 		
+		#nume = (factorial(a+c)/(factorial(a)*factorial(c)))*(factorial(b+d)/(factorial(b)*factorial(d)))
+		#deno = factorial(n)/(factorial(a+b)*factorial(c+d))
+				
 		nume = factorial(a+b)*factorial(c+d)*factorial(a+c)*factorial(b+d)
 		deno = factorial(n)*factorial(a)*factorial(b)*factorial(c)*factorial(d)
 		
