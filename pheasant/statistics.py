@@ -743,24 +743,41 @@ class ProbDistFactory():
 		else:
 			pass
 
+class ResultStat():
+	'''
+	The result of statistics.
+	'''
+	pass
+
+def get_cross_prob(mat):
+	'''
+	Calculate cross statistics map probabillity.
+	'''
+	a = mat[(0,0)]
+	b = mat[(0,1)]
+	c = mat[(1,0)]
+	d = mat[(1,1)]
+	
+	n = a+b+c+d
+		
+	nume = factorial(a+b)*factorial(c+d)*factorial(a+c)*factorial(b+d)
+	deno = factorial(n)*factorial(a)*factorial(b)*factorial(c)*factorial(d)
+		
+	return nume/deno
+
 def fisher_test(mat):
 	'''
 	Fisher's exact test.
 	'''
+	#TODO: implement
 	if mat.dim() == [2,2]:
-		a = mat[(0,0)]
-		b = mat[(0,1)]
-		c = mat[(1,0)]
-		d = mat[(1,1)]
-		n = a+b+c+d
+		basep = get_cross_prob(mat)
 		
-		#nume = (factorial(a+c)/(factorial(a)*factorial(c)))*(factorial(b+d)/(factorial(b)*factorial(d)))
-		#deno = factorial(n)/(factorial(a+b)*factorial(c+d))
-				
-		nume = factorial(a+b)*factorial(c+d)*factorial(a+c)*factorial(b+d)
-		deno = factorial(n)*factorial(a)*factorial(b)*factorial(c)*factorial(d)
+		allps = []
+		#for i in range(n):
+		#return nume/deno
 		
-		return nume/deno
+		pass
 		
 	else:
 		raise ValueError("Sorry, deal 2x2 dimention data only.")

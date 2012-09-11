@@ -370,6 +370,16 @@ class TestMatrix(unittest.TestCase):
 		m3 = lr.Matrix([v4,v5,v6])
 	
 		self.assertEqual(m1, m3)
+		
+	def test_sum_elements(self):	
+		'''
+		Get sum of matrix elements test.
+		'''
+		v1 = lr.Vector([3,1])
+		v2 = lr.Vector([2,4])
+		testmat = lr.Matrix([v1,v2])
+
+		self.assertEqual(10, testmat.sum_elements())
 						
 class TestDetMatrix(unittest.TestCase):
 	'''

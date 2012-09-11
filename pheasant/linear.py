@@ -684,8 +684,22 @@ class Matrix():
 		Trace of matrix.
 		'''
 		egvecs = self.eigen()
-		return sum([egvalue for egvalue in egvecs])		
-
+		return sum([egvalue for egvalue in egvecs])	
+	
+	def sum_elements(self):
+		'''
+		Calculate sum of elements.
+		'''
+		r = len(self)
+		c = len(self[0])
+		
+		res = []
+		for i in range(r):
+			for j in range(c):
+				res.append(self[(i, j)])
+		
+		return sum(res)
+		
 def jacobi(mat):
 	'''
 	Caluclate matrix eigen value and vector by Jacobi method.

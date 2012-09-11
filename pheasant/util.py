@@ -173,6 +173,19 @@ def zipter(ls1, ls2, func=None):
 				_res.append((a,b))
 		return _res
 
+def numdigits(n):
+	'''
+	Get number of digits.
+	Minus sign is not count.
+	I wish I add "len" method to int class.
+	'''
+	if n == 0: 
+		return 1
+	elif n < 0:
+		return int(math.log10(abs(n))+1)
+	else:	
+		return int(math.log10(n)+1)
+
 #Entry point
 if __name__ == '__main__':
 	print("util module load")

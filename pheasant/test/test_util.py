@@ -76,7 +76,7 @@ class TestCompose(unittest.TestCase):
 		res = resfn(2)
 		self.assertEqual(res, 8)
 		
-class TestNearChoice(unittest.TestCase):
+class TestNearValue(unittest.TestCase):
 	'''
 	Near value return function test class.
 	'''
@@ -93,6 +93,15 @@ class TestNearChoice(unittest.TestCase):
 		}
 		res = ut.nearchoice(target, sample)
 		self.assertEqual(res, "Hairegu")
+		
+	def test_digitnum(self):
+		'''
+		Test get number of digits function.
+		'''
+		self.assertEqual(5, ut.numdigits(12345))
+		self.assertEqual(1, ut.numdigits(0))
+		self.assertEqual(1, ut.numdigits(-1))
+		self.assertEqual(1, ut.numdigits(+1))
 
 class TestBenchMark(unittest.TestCase):
 	'''
