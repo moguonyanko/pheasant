@@ -79,6 +79,21 @@ class TestDifferentiate(unittest.TestCase):
 			
 		r = 2 #Convenient value for round...
 		self.assertEqual(round(res, r), round(chk, r))
+		
+class TestSpecialFunctions(unittest.TestCase):
+	'''
+	Special functions test class.
+	'''
+	def test_gamma(self):
+		'''
+		Gamma function test.
+		'''
+		self.assertEqual(1, round(cl.gamma(2)))
+		self.assertEqual(2, round(cl.gamma(3)))
+		self.assertEqual(6, round(cl.gamma(4)))
+		self.assertEqual(24, round(cl.gamma(5)))
+		#self.assertEqual(6227020800, round(cl.gamma(14)))
+		#self.assertEqual(math.sqrt(math.pi), cl.gamma(1/2))
 
 #Entry point
 if __name__ == '__main__':

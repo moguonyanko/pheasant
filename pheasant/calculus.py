@@ -56,6 +56,27 @@ def trapezoid(upper, lower, divnum, func):
 	s = deltax * ((func(upper)+func(lower))/2.0+s)
 	
 	return s
+	
+def gamma(z):
+	'''
+	Gamma function.
+	Fractorial generalization.
+	Value is approximated by Stirling's approximation.
+	'''
+	#TODO: improvement precision
+	pi = math.pi
+	e = math.exp(1)
+	
+	a = math.sqrt(2*pi/z)
+	b = 1/e
+	c = 12*z - 1/(10*z)
+	
+	return a*(b*(z+(1/c)))**z
+	
+#	def func(t):
+#		return math.exp(-t)*t**(z-1)
+	
+#	return simpson(func, 1, 0)
 
 #Entry point
 if __name__ == '__main__':
