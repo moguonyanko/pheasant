@@ -14,6 +14,7 @@ ${PYPATH} `pwd`/test_logic.py
 ${PYPATH} `pwd`/test_settheory.py
 ${PYPATH} `pwd`/test_numtheory.py
 ${PYPATH} `pwd`/test_linear.py
+${PYPATH} `pwd`/test_grptheory.py
 ${PYPATH} `pwd`/test_calculus.py
 ${PYPATH} `pwd`/test_geometry.py
 ${PYPATH} `pwd`/test_algorithm.py
