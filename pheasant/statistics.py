@@ -782,6 +782,14 @@ def fisher_test(mat):
 	else:
 		raise ValueError("Sorry, deal 2x2 dimention data only.")
 
+def twotermprob(maxtrynum, risenum, prob):
+	'''
+	Two term probability.
+	'''
+	p = prob**risenum
+	q = (1-risenum)**(maxtrynum-risenum)
+	return combinate(maxtrynum, risenum) * p * q
+	
 #Entry point
 if __name__ == '__main__':
 	print("statistics module load")

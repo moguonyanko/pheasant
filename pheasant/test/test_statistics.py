@@ -691,6 +691,13 @@ class TestProbability(unittest.TestCase):
 		res = ts.ProbDistFactory.create("STDNORM")
 		self.assertEqual(ts.ContProbDist, type(res))
 		
+	def test_twotermprob(self):
+		'''
+		Two term probability test.
+		'''
+		res = ts.twotermprob(prob=0.01, maxtrynum=100, risenum=2)
+		self.assertEqual(0.1848, res)
+		
 class TestFisher(unittest.TestCase):
 	'''
 	Test class for Fisher's exact test.
