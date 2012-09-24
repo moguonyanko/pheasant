@@ -785,9 +785,13 @@ def fisher_test(mat):
 def twotermprob(maxtrynum, risenum, prob):
 	'''
 	Two term probability.
+	Raise ValueError when prob < 0 or 1 < prob.
 	'''
+	if prob < 0 or 1 < prob:
+		raise ValueError("Invalid probability value given!")
+	
 	p = prob**risenum
-	q = (1-risenum)**(maxtrynum-risenum)
+	q = (1-prob)**(maxtrynum-risenum)
 	return combinate(maxtrynum, risenum) * p * q
 	
 #Entry point

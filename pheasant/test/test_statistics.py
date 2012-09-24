@@ -696,7 +696,14 @@ class TestProbability(unittest.TestCase):
 		Two term probability test.
 		'''
 		res = ts.twotermprob(prob=0.01, maxtrynum=100, risenum=2)
-		self.assertEqual(0.1848, res)
+		self.assertEqual(round(0.1848, 3), round(res, 3))
+
+	def test_error_twotermprob(self):
+		'''
+		Two term probability error test.
+		'''
+		self.assertRaises(ValueError, ts.twotermprob, prob=2, maxtrynum=100, risenum=2)
+		self.assertRaises(ValueError, ts.twotermprob, prob=-1, maxtrynum=100, risenum=2)
 		
 class TestFisher(unittest.TestCase):
 	'''
