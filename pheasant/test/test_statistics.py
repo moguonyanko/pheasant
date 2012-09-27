@@ -727,6 +727,26 @@ class TestFisher(unittest.TestCase):
 		#TODO: implement now.
 		#res = ts.fisher_test(self.testmat)
 		#self.assertEqual(0.5238, res)
+
+class TestRandomWalker(unittest.TestCase):
+	'''
+	RandomWalker test class.
+	'''
+	def test_path_len(self):
+		'''
+		Path check function.
+		'''
+		limit = 10
+		walker = ts.RandomWalker(limit)
+		for i in range(limit):
+			walker.walk()
+			
+		overwalker = ts.RandomWalker(limit)
+		for i in range(limit+100):
+			overwalker.walk()
+			
+		self.assertEqual(limit, len(walker.path))
+		self.assertEqual(limit, len(overwalker.path))
 		
 #Entry point
 if __name__ == '__main__':

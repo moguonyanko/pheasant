@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import unittest
 import math
+import random
 import fractions as fr
 
 import pheasant.util as ut
@@ -793,6 +793,51 @@ def twotermprob(maxtrynum, risenum, prob):
 	p = prob**risenum
 	q = (1-prob)**(maxtrynum-risenum)
 	return combinate(maxtrynum, risenum) * p * q
+
+class RandomWalker():
+	'''
+	This class express random walk.
+	'''
+	x = 0
+	y = 0
+	delta = 1
+	
+	def __init__(self, limit):
+		self.limit = limit
+		self.path = []
+	
+	def walk(self):
+		'''
+		Random walk.
+		'''
+		if len(self.path) < self.limit:
+			self.x += self.delta
+			
+			chkv = random.randint(1, 10)%2
+			if chkv == 0: 
+				self.y += self.delta
+			else:
+				self.y -= self.delta
+			
+			self.path.append((self.x, self.y))
+		else:
+			pass
+	
+	def __str__(self):
+		'''
+		Return path string.
+		'''
+		#TODO: String concat too many.
+		pathstr = ""
+		prey = 0
+		for x, y in self.path:
+			if prey < y:
+				pathstr += "/"
+			else:
+				pathstr += "\\"
+			prey = y
+		
+		return pathstr
 	
 #Entry point
 if __name__ == '__main__':
