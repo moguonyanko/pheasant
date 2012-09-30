@@ -43,52 +43,54 @@
 		/* TODO:implement */
 	}
 				
-	function Point(p){
-		Point.prototype.draw = function(){
-			ctx.beginPath();
-			var radius = 5,
-			endang = Math.PI*2;
-						
-			ctx.arc(p[0], p[1], radius, 0, endang, false);
-			ctx.fill();						
-		};
+	function Point(point){
+		this.point = point
 	}
-				
-	function Polygon(segments){
-		Polygon.prototype.draw = function(){
-			ctx.beginPath();
+	Point.prototype.draw = function(){
+		ctx.beginPath();
+		var radius = 5,
+		endang = Math.PI*2;
 						
-			for(var i = 0, lim = segments.length; i<lim; i++){
-				var seg = segments[i],
-				type = seg[seg.length-1];
-							
-				var x = seg[0],
-				y = seg[1];
-				switch(type){
-					case MOVETO:
-						ctx.moveTo(x, y);
-						break;
-					case LINETO:
-						ctx.lineTo(x, y);
-						break;
-					case QUADTO:
-						ctx.lineTo(seg[2], seg[3], x, y);
-						break;
-					case CUBICTO:
-						ctx.bezierCurveTo(seg[2], seg[3], seg[4], seg[5], x, y);
-						break;
-					case CLOSE:
-						ctx.closePath(x, y);
-						break;
-					default:
-						ctx.lineTo(x, y);
-				}							
-			}
+		ctx.arc(this.point[0], this.point[1], radius, 0, endang, false);
+		ctx.fill();						
+	};
 			
-			ctx.stroke();
-		};
+	function Polygon(segments){
+		this.segments = segments;
 	}
-				
+	Polygon.prototype.draw = function(){
+		ctx.beginPath();
+						
+		for(var i = 0, lim = this.segments.length; i<lim; i++){
+			var seg = this.segments[i],
+			type = seg[seg.length-1];
+							
+			var x = seg[0],
+			y = seg[1];
+			switch(type){
+				case MOVETO:
+					ctx.moveTo(x, y);
+					break;
+				case LINETO:
+					ctx.lineTo(x, y);
+					break;
+				case QUADTO:
+					ctx.lineTo(seg[2], seg[3], x, y);
+					break;
+				case CUBICTO:
+					ctx.bezierCurveTo(seg[2], seg[3], seg[4], seg[5], x, y);
+					break;
+				case CLOSE:
+					ctx.closePath(x, y);
+					break;
+				default:
+					ctx.lineTo(x, y);
+			}							
+		}
+			
+		ctx.stroke();
+	};
+			
 	function init(e){
 		cvs = doc.querySelector("canvas");
 		if(!cvs || !cvs.getContext){
