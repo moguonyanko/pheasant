@@ -1,7 +1,9 @@
 #!/bin/sh
 
-PYTHONPATH=${PYTHONPATH}:~/src/
+PYTHONPATH=${PYTHONPATH}:`pwd`/../..
 export PYTHONPATH
+
+#echo $PYTHONPATH
 
 PYPATH=`which python3`
 
