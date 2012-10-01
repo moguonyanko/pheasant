@@ -599,6 +599,15 @@ class TestBayes(unittest.TestCase):
 		
 		self.assertEqual(round(res,2), round(0.205,2))
 		
+	def test_law_of_total(self):
+		'''
+		Law of total probability function test.
+		'''
+		probs = [(0.2,0.05),(0.3,0.01),(0.5,0.06)]
+		res = ts.law_of_total(probs)
+		
+		self.assertEqual(0.043, res)
+		
 class TestProbability(unittest.TestCase):
 	'''
 	Test class of function find to probability. 

@@ -838,6 +838,12 @@ class RandomWalker():
 			prey = y
 		
 		return pathstr
+
+def law_of_total(probs):
+	'''
+	Law of total probability.
+	'''
+	return sum([pa*pab for pa, pab in probs])
 	
 #Entry point
 if __name__ == '__main__':
