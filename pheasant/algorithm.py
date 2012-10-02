@@ -535,6 +535,26 @@ def tsp(rts):
 	'''
 	#TODO: Implement now.
 	pass
+
+##
+# 最強最速アルゴリズマー養成講座（著 高橋直大氏）を参考にした，
+# Pythonによる練習コード
+##
+def thePouring(capas, bottles, fromIds, toIds):
+	'''
+	P.53 KiwiJuice
+	'''
+	size = len(fromIds)
+	for i in range(size):
+		fromId = fromIds[i]
+		toId = toIds[i]
+		
+		move_vol = min(bottles[fromId], capas[toId]-bottles[toId])
+
+		bottles[fromId] -= move_vol
+		bottles[toId] += move_vol
+	
+	return bottles
 	
 #Entry point
 if __name__ == '__main__':

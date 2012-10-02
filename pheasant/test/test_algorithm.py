@@ -241,6 +241,20 @@ class TestGCD(unittest.TestCase):
 		'''
 		res = al.gcd(206, 40)
 		self.assertEqual(res, 2)
+
+class AlgorithmerPracticeTest(unittest.TestCase):
+	'''
+	最強最速アルゴリズマー養成講座（著 高橋直大氏）に記載されている
+	サンプルコードを元にした練習コードをテストするクラスです。
+	'''
+	def test_thePouring(self):
+		capas = [700000, 800000, 900000, 1000000]
+		bottles = [478478, 478478, 478478, 478478]
+		fromIds = [2, 3, 2, 0, 1]
+		toIds = [0, 1, 1, 3, 2]
+		
+		res = al.thePouring(capas, bottles, fromIds, toIds)
+		self.assertEqual([0, 156956, 900000, 856956], res)
 		
 if __name__ == '__main__':
 	print(__file__)
