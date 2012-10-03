@@ -540,21 +540,45 @@ def tsp(rts):
 # 最強最速アルゴリズマー養成講座（著 高橋直大氏）を参考にした，
 # Pythonによる練習コード
 ##
-def thePouring(capas, bottles, fromIds, toIds):
-	'''
-	P.53 KiwiJuice
-	'''
-	size = len(fromIds)
-	for i in range(size):
-		fromId = fromIds[i]
-		toId = toIds[i]
-		
-		move_vol = min(bottles[fromId], capas[toId]-bottles[toId])
 
-		bottles[fromId] -= move_vol
-		bottles[toId] += move_vol
+class KiwiJuiceEasy():
+	'''
+	P.53 シミュレーション
+	'''
+	def thePouring(self, capas, bottles, fromIds, toIds):
+		size = len(fromIds)
+		for i in range(size):
+			fromId = fromIds[i]
+			toId = toIds[i]
+		
+			move_vol = min(bottles[fromId], capas[toId]-bottles[toId])
+
+			bottles[fromId] -= move_vol
+			bottles[toId] += move_vol
 	
-	return bottles
+		return bottles
+
+class InterestingParty():
+	'''
+	P.71 全探索
+	'''
+	def bestInvitation(self, first, second):
+		dic = {}
+		rng = range(len(first))
+		
+		for i in rng:
+			dic[first[i]] = 0	
+			dic[second[i]] = 0	
+		
+		for i in rng:
+			dic[first[i]] = dic[first[i]]+1	
+			dic[second[i]] = dic[second[i]]+1
+		
+		ans = 0
+		for key in dic:
+			if ans < dic[key]: ans = dic[key]
+	
+		return ans
 	
 #Entry point
 if __name__ == '__main__':

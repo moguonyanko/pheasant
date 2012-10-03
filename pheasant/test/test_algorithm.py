@@ -253,8 +253,19 @@ class AlgorithmerPracticeTest(unittest.TestCase):
 		fromIds = [2, 3, 2, 0, 1]
 		toIds = [0, 1, 1, 3, 2]
 		
-		res = al.thePouring(capas, bottles, fromIds, toIds)
+		kiwi = al.KiwiJuiceEasy()
+		
+		res = kiwi.thePouring(capas, bottles, fromIds, toIds)
 		self.assertEqual([0, 156956, 900000, 856956], res)
+	
+	def test_bestInvitation(self):
+		first = ["snakes","programming","cobra","monty"]
+		second = ["python","python","anaconda","python"]
+		
+		party = al.InterestingParty()
+		
+		res = party.bestInvitation(first, second)
+		self.assertEqual(3, res)
 		
 if __name__ == '__main__':
 	print(__file__)
