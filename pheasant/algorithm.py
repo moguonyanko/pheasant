@@ -579,7 +579,35 @@ class InterestingParty():
 			if ans < dic[key]: ans = dic[key]
 	
 		return ans
-	
+
+class Cryptography():
+	'''
+	P.77 全探索
+	'''
+	def first_encrypt(self, numbers):
+		ans = 0
+		rng = range(len(numbers))
+		for i in rng:
+			seki = 1
+			for j in rng:
+				if i == j: #自分のターンなら自分に1足して掛ける。つまりここは1足す項を探すためのループ。
+					seki *= (numbers[j]+1)
+				else:
+					seki *= numbers[j]
+			
+			ans = max(ans, seki)
+		
+		return ans
+
+	def encrypt(self, numbers):
+		rng = range(len(numbers))
+		nums = sorted(numbers)
+		seki = 1
+		nums[0] = nums[0]+1 #最小値+1が最大の増加率を導く。
+		for i in rng: seki *= nums[i]
+		
+		return seki
+			
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")

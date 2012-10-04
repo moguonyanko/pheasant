@@ -242,7 +242,7 @@ class TestGCD(unittest.TestCase):
 		res = al.gcd(206, 40)
 		self.assertEqual(res, 2)
 
-class AlgorithmerPracticeTest(unittest.TestCase):
+class AlgorithmerTrainingTest(unittest.TestCase):
 	'''
 	最強最速アルゴリズマー養成講座（著 高橋直大氏）に記載されている
 	サンプルコードを元にした練習コードをテストするクラスです。
@@ -266,6 +266,17 @@ class AlgorithmerPracticeTest(unittest.TestCase):
 		
 		res = party.bestInvitation(first, second)
 		self.assertEqual(3, res)
+		
+	def test_encrypt(self):
+		numbers = [1,2,3,1,1,3]
+		crypt = al.Cryptography()
+		res = crypt.encrypt(numbers)
+		self.assertEqual(36, res)
+		
+		numbers2 = [1,1,1,1]
+		crypt = al.Cryptography()
+		res2 = crypt.encrypt(numbers2)
+		self.assertEqual(2, res2)
 		
 if __name__ == '__main__':
 	print(__file__)
