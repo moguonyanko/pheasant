@@ -584,7 +584,7 @@ class Cryptography():
 	'''
 	P.77 全探索
 	'''
-	def first_encrypt(self, numbers):
+	def encrypt_V1(self, numbers):
 		ans = 0
 		rng = range(len(numbers))
 		for i in rng:
@@ -607,6 +607,49 @@ class Cryptography():
 		for i in rng: seki *= nums[i]
 		
 		return seki
+
+class InterestingDigits():
+	'''
+	P.88 全探索
+	'''
+	def digits(self, base):
+		res = set()
+		rng = range(base)
+		
+		n = 2
+		while n < base:
+			ok = True
+			for k1 in rng:
+				for k2 in rng:
+					for k3 in rng:
+						#10進数表記に変換して，nの倍数かどうかと各桁の和がnの倍数でないかどうかを確認する。
+						if (k1 + k2*base + k3*base*base) % n == 0 and (k1 + k2 + k3) % n != 0:
+							ok = False
+							break
+					if ok == False: break
+				if ok == False: break
+			if ok == True: res.add(n)
+			n += 1
+			
+		return res
+
+	def digits_V2(self, base):
+		'''
+		求めるnはbaseを法として1と合同な数字である。
+		従って，
+			1≡n(mod base)
+		ここで左辺を右辺に移行して
+			0≡n-1(mod base)
+		となる。n-1はbaseを法として0と合同なので
+		n-1はbaseの倍数だと分かる。
+		'''
+		res = set()
+		n = 2
+		while n < base:
+			if (base-1) % n == 0: res.add(n) #TODO: 何故nで割るのか？
+			n += 1
+		
+		return res
 			
 #Entry point
 if __name__ == '__main__':

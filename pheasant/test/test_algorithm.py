@@ -277,7 +277,16 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		crypt = al.Cryptography()
 		res2 = crypt.encrypt(numbers2)
 		self.assertEqual(2, res2)
+	
+	def test_digits(self):
+		intdg = al.InterestingDigits()
 		
+		res1 = intdg.digits(10)
+		self.assertEqual({3,9}, res1)
+		
+		res2 = intdg.digits(26)
+		self.assertEqual({5,25}, res2)
+	
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
