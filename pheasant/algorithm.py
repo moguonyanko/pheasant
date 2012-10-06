@@ -650,6 +650,29 @@ class InterestingDigits():
 			n += 1
 		
 		return res
+
+class ThePalindrome():
+	'''
+	P.95 全探索
+	回文になる場合の，最小の文字数を返します。
+	'''
+	def find(self, s):
+		size = len(s)
+		rng = range(size)
+		
+		for i in rng:
+			matchflag = True
+			for j in rng:
+				opposite_index = i - j - 1
+				#比較する文字を1つずつずらすことで「1文字追加される」という処理を表現している。
+				#「1文字追加される」ことで反対側の文字が存在するようになる。
+				if opposite_index < size and s[j] != s[opposite_index]:
+					matchflag = False
+					break
+			
+			if matchflag == True: return i+size
+		
+		return size*2-1 #両端から突き合わせたが全く一致しなかった。最長の回文の文字数を返す。
 			
 #Entry point
 if __name__ == '__main__':

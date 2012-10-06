@@ -287,6 +287,18 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		res2 = intdg.digits(26)
 		self.assertEqual({5,25}, res2)
 	
+	def test_find(self):
+		tpl = al.ThePalindrome()
+		
+		res = tpl.find("abab")
+		self.assertEqual(5, res)
+		
+		res1 = tpl.find("abacaba")
+		self.assertEqual(7, res1)
+
+		res2 = tpl.find("qwerty")
+		self.assertEqual(11, res2)
+	
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
