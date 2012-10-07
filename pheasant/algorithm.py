@@ -673,7 +673,57 @@ class ThePalindrome():
 			if matchflag == True: return i+size
 		
 		return size*2-1 #両端から突き合わせたが全く一致しなかった。最長の回文の文字数を返す。
+
+class FriendScore():
+	'''
+	P.104
+	全探索
+	'''
+	def highestScore_V1(self, friends):
+		rng = range(len(friends[0]))
+		friend_key = "Y"
+		
+		max_friend_count = 0
+		for i in rng:
+			cnt = 0
 			
+			for j in rng:
+				if i == j: continue #自分自身を友人として数えない。
+				
+				if friends[i][j] == friend_key:
+					cnt += 1
+				else:
+					for k in rng:
+						if friends[j][k] == friend_key and friends[k][i] == friend_key:
+							cnt += 1
+							break
+							
+			max_friend_count = max(max_friend_count, cnt)
+		
+		return max_friend_count
+
+	def highestScore(self, friends):
+		is_friends = "Y"
+		
+		max_friend_count = 0
+		for i, user_i in enumerate(friends):
+			cnt = 0
+			
+			for j, user_j in enumerate(friends):
+				if user_i == user_j: continue #自分自身を友人として数えない。
+				
+				if user_i[j] == is_friends:
+					cnt += 1
+				else:
+					for k, user_k in enumerate(friends):
+						if user_i[k] == user_k[i] == is_friends:
+							cnt += 1
+							break
+							
+			max_friend_count = max(max_friend_count, cnt)
+		
+		return max_friend_count
+		
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")

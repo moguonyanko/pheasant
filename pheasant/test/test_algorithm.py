@@ -298,6 +298,20 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 
 		res2 = tpl.find("qwerty")
 		self.assertEqual(11, res2)
+
+	def test_hightestScore(self):
+		hs = al.FriendScore()
+		
+		friend_info = [
+			"NYNNN",
+			"YNYNN",
+			"NYNYN",
+			"NNYNY",
+			"NNNYN"
+		]
+		
+		res = hs.highestScore(friend_info)
+		self.assertEqual(4, res)
 	
 if __name__ == '__main__':
 	print(__file__)
