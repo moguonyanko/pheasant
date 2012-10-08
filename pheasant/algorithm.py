@@ -723,6 +723,47 @@ class FriendScore():
 			max_friend_count = max(max_friend_count, cnt)
 		
 		return max_friend_count
+
+class CrazyBot():
+	'''
+	P.129 全探索
+	'''
+	def __init__(self):
+		self.direct = 4
+		capacity = 100
+	
+		self.grid = {}
+		for column_num in range(capacity): #正方形という設定
+			column = [False]*capacity
+			self.grid[column_num] = column
+		
+		self.vx = [1, -1, 0, 0]
+		self.vy = [0, 0, 1, -1]
+		self.prob = [0.0]*self.direct
+		
+	def getProbability(self, n, east, west, south, north):
+		directs = [east, west, south, north]
+
+		for i, d in enumerate(directs):
+			self.prob[i] = d/100.0
+		
+		firstx = firsty = 50
+		
+		return self.__dfs(firstx, firsty, n)
+	
+	def __dfs(self, x, y, n):
+		if self.grid[x][y] == True: return 0 #1度通った場所なので確率0を返す。
+		if n == 0: return 1 #もう歩けない。TODO: ここで1を返して良い理屈は？
+		
+		self.grid[x][y] = True
+		ret = 0
+		
+		for i in range(self.direct):#4方向にロボットを動かしてそれぞれの確率を足し込んでいく。
+			ret += self.__dfs(x+self.vx[i], y+self.vy[i], n-1) * self.prob[i]
+		
+		self.grid[x][y] = False #別のルート探索で通れるよう，より浅いところに上がってくるときにフラグを戻しておく。
+		
+		return ret
 		
 #Entry point
 if __name__ == '__main__':

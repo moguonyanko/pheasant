@@ -312,6 +312,12 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		
 		res = hs.highestScore(friend_info)
 		self.assertEqual(4, res)
+		
+	def test_getProbability(self):
+		cb = al.CrazyBot()
+		
+		res = cb.getProbability(2,25,25,25,25)
+		self.assertEqual(0.75, res)
 	
 if __name__ == '__main__':
 	print(__file__)
