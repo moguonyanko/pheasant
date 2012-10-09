@@ -318,6 +318,21 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		
 		res = cb.getProbability(2,25,25,25,25)
 		self.assertEqual(0.75, res)
+
+	def test_longestPath(self):
+		mm = al.MazeMaker()
+		maze = [
+			"...",
+			"...",
+			"..."
+		]
+		startRow = 0
+		startCol = 1
+		moveRow = [1,0,-1,0]
+		moveCol = [0,1,0,-1]
+		
+		res = mm.longestPath(maze, startRow, startCol, moveRow, moveCol)
+		self.assertEqual(3, res)
 	
 if __name__ == '__main__':
 	print(__file__)

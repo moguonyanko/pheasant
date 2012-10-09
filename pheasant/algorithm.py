@@ -765,6 +765,63 @@ class CrazyBot():
 		
 		return ret
 		
+class MazeMaker():
+	'''
+	P.139 全探索
+	'''
+	def isStep(self, nextX, nextY, width, height, board, maze):
+		'''
+		Check valid step.
+		'''
+		in_width = 0 <= nextX and nextX < width
+		if in_width == False: 	return False
+
+		in_height = 0 <= nextY and nextY < height
+		if in_height == False: return False
+		
+		can_through = board[nextY][nextX] == -1 and maze[nextY][nextX] == "."
+		if can_through == False: return False
+		
+		return True
+
+	def longestPath(self, maze, startRow, startCol, moveRow, moveCol):
+		width = len(maze[0])
+		height = len(maze)
+		board = [-1]*height
+		for i in range(width):
+			board[i] = [-1]*width
+		
+		board[startRow][startCol] = 0
+		
+		queueX = qu.Queue()
+		queueY = qu.Queue()
+		queueX.put(startCol)
+		queueY.put(startRow)
+		
+		rowrng = range(len(moveRow))
+		while queueX.empty() == False:
+			x = queueX.get()
+			y = queueY.get()
+		
+			for i in rowrng:
+				nextX = x + moveCol[i]
+				nextY = y + moveRow[i]
+				
+				if self.isStep(nextX, nextY, width, height, board, maze):
+					board[nextY][nextX] = board[y][x] + 1 #有効なステップならば歩数として数えてboradに追加する。
+					queueX.put(nextX)
+					queueY.put(nextY)
+			
+		max_step = 0
+
+		for i in range(height):
+			for j in range(width):
+				if maze[i][j] == "." and board[i][j] == -1: #通れるが−1，つまり到達できないマスがあった。
+					return -1
+				max_step = max(max_step, board[i][j])			
+		
+		return max_step
+		
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")
