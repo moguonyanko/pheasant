@@ -330,9 +330,21 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		startCol = 1
 		moveRow = [1,0,-1,0]
 		moveCol = [0,1,0,-1]
-		
 		res = mm.longestPath(maze, startRow, startCol, moveRow, moveCol)
 		self.assertEqual(3, res)
+
+		maze2 = [
+			"X.X",
+			"...",
+			"XXX",
+			"X.X"
+		]
+		startRow2 = 0
+		startCol2 = 1
+		moveRow2 = [1,0,-1,0]
+		moveCol2 = [0,1,0,-1]
+		res2 = mm.longestPath(maze2, startRow2, startCol2, moveRow2, moveCol2)
+		self.assertEqual(-1, res2)
 	
 if __name__ == '__main__':
 	print(__file__)
