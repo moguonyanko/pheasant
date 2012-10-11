@@ -185,6 +185,17 @@ def numdigits(n):
 		return int(math.log10(abs(n))+1)
 	else:	
 		return int(math.log10(n)+1)
+		
+def makeMatrixArray(width, height, initValue=0):
+	'''
+	Make two-dimensional array.
+	'''
+	#TODO: Need multiple dementional array.
+	marr = [initValue]*height
+	for i in range(width):
+		marr[i] = [initValue]*width	
+		
+	return marr
 
 #Entry point
 if __name__ == '__main__':

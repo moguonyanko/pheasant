@@ -773,23 +773,15 @@ class MazeMaker():
 		'''
 		Check valid step.
 		'''
-		in_width = 0 <= nextX and nextX < width
-		if in_width == False: 	return False
-
-		in_height = 0 <= nextY and nextY < height
-		if in_height == False: return False
-		
-		can_through = board[nextY][nextX] == -1 and maze[nextY][nextX] == "."
-		if can_through == False: return False
+		if 0 <= nextX and nextX < width and 0 <= nextY and nextY < height and board[nextY][nextX] == -1 and maze[nextY][nextX] == ".": 	
+			return False
 		
 		return True
 
 	def longestPath(self, maze, startRow, startCol, moveRow, moveCol):
 		width = len(maze[0])
 		height = len(maze)
-		board = [-1]*height
-		for i in range(width):
-			board[i] = [-1]*width
+		board = ut.makeMatrixArray(width, height, initValue=-1)
 		
 		board[startRow][startCol] = 0
 		
@@ -807,7 +799,7 @@ class MazeMaker():
 				nextX = x + moveCol[i]
 				nextY = y + moveRow[i]
 				
-				if self.isStep(nextX, nextY, width, height, board, maze):
+				if 0 <= nextX and nextX < width and 0 <= nextY and nextY < height and board[nextY][nextX] == -1 and maze[nextY][nextX] == ".": 	
 					board[nextY][nextX] = board[y][x] + 1 #有効なステップならば歩数として数えてboradに追加する。
 					queueX.put(nextX)
 					queueY.put(nextY)
