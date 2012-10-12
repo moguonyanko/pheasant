@@ -781,7 +781,7 @@ class MazeMaker():
 	def longestPath(self, maze, startRow, startCol, moveRow, moveCol):
 		width = len(maze[0])
 		height = len(maze)
-		board = ut.makeMatrixArray(width, height, initValue=-1)
+		board = ut.makeArray((width, height), initValue=-1)
 		
 		board[startRow][startCol] = 0
 		

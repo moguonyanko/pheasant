@@ -3,6 +3,7 @@
 
 import random
 import math
+import copy
 
 def flatten(ls):
 	'''nested list flatten'''
@@ -186,14 +187,17 @@ def numdigits(n):
 	else:	
 		return int(math.log10(n)+1)
 		
-def makeMatrixArray(width, height, initValue=0):
+def makeArray(dimention, initValue=None):
 	'''
 	Make two-dimensional array.
 	'''
-	#TODO: Need multiple dementional array.
-	marr = [initValue]*height
-	for i in range(width):
-		marr[i] = [initValue]*width	
+	#TODO: Two dimentional array only.
+	width, height = dimention
+	
+	marr = [None]*height
+	
+	for i in range(height):
+		marr[i] = [copy.deepcopy(initValue) for dummy in range(width)]
 		
 	return marr
 

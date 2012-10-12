@@ -117,6 +117,39 @@ class TestBenchMark(unittest.TestCase):
 		#res2 = ut.tarai(18, 12, 6)
 		#self.assertEqual(res2, 18)
 
+class TestArrayUtil(unittest.TestCase):
+	'''
+	Array utility function test class.
+	'''
+	def test_makeArray(self):
+		'''
+		Make array.
+		Can make multi dementional array too.
+		'''
+		res = ut.makeArray((2,2))
+		chk = [[None,None],[None,None]]
+		self.assertEqual(chk, res)
+
+		res2 = ut.makeArray((3,4), -1)
+		chk2 = [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]]
+		self.assertEqual(chk2, res2)
+
+		res3 = ut.makeArray((4,3), -1)
+		chk3 = [[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1]]
+		self.assertEqual(chk3, res3)
+
+		class Hoge():
+			foo = 0
+			
+			def __eq__(self, other):
+				return self.foo == other.foo
+		
+		hoge = Hoge()
+			
+		res4 = ut.makeArray((2,4), hoge)
+		chk4 = [[hoge,hoge],[hoge,hoge],[hoge,hoge],[hoge,hoge]]
+		self.assertEqual(chk4, res4)
+
 #Entry point
 if __name__ == '__main__':
 	print(__file__)
