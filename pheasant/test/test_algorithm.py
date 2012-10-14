@@ -346,6 +346,16 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		res2 = mm.longestPath(maze2, startRow2, startCol2, moveRow2, moveCol2)
 		self.assertEqual(-1, res2)
 	
+	def test_theNumber(self):
+		nm = al.NumberMagicEasy()
+		
+		answer = "YNYY"
+		res = nm.theNumber(answer)
+		self.assertEqual(5, res)
+
+		answer = "YYYYYYYYYYY"
+		self.assertRaises(KeyError, nm.theNumber, answer)
+	
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

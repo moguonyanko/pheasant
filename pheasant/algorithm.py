@@ -813,7 +813,44 @@ class MazeMaker():
 				max_step = max(max_step, board[i][j])			
 		
 		return max_step
+
+class NumberMagicEasy():
+	'''
+	P.151 全探索
+	'''
+	def __init__(self):
+		limit = 16
+		soldict = {}
+		solvalues = [
+			"YYYY",
+			"YYYN",
+			"YYNY",
+			"YYNN",
+			"YNYY",
+			"YNYN",
+			"YNNY",
+			"YNNN",
+			"NYYY",
+			"NYYN",
+			"NYNY",
+			"NYNN",
+			"NNYY",
+			"NNYN",
+			"NNNY",
+			"NNNN"
+		]
 		
+		for i in range(limit):
+			soldict[solvalues[i]] = i+1
+		
+		self.solution = soldict
+	
+	def theNumber(self, answer):
+		try:
+			return self.solution[answer]
+		except KeyError as ex:
+			raise KeyError("Cannot find your number.")
+			
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")
