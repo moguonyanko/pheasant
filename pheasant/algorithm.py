@@ -851,6 +851,22 @@ class NumberMagicEasy():
 		except KeyError as ex:
 			raise KeyError("Cannot find your number.")
 			
+class RouteSearchEasy():
+	'''
+	P.177 動的計画法・メモ化
+	'''
+	def calc(self, h, w):
+		dp = ut.makeArray((h+1, w+1), 0)
+		dp[0][0] =1
+		for i in range(h):
+			for j in range(w): #進み方が2通りあるので２通りの分岐を用意する。
+				if i != 0:
+					dp[i][j] += dp[i-1][j]
+				if j != 0:
+					dp[i][j] += dp[i][j-1]
+		
+		return dp[h][w]					
+			
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")

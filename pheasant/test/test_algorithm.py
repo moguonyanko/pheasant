@@ -356,6 +356,11 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		answer = "YYYYYYYYYYY"
 		self.assertRaises(KeyError, nm.theNumber, answer)
 	
+	def test_routecalc(self):
+		rt = al.RouteSearchEasy()
+		res = rt.calc(5, 4)
+		self.assertEqual(126, res)
+		
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
