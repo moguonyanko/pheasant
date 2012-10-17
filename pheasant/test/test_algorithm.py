@@ -357,9 +357,21 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		self.assertRaises(KeyError, nm.theNumber, answer)
 	
 	def test_routecalc(self):
-		rt = al.RouteSearchEasy()
-		res = rt.calc(5, 4)
+		maxW = 5
+		maxH = 4
+		rt = al.RouteSearchEasy(maxW, maxH)
+		res = rt.calc(maxW, maxH)
 		self.assertEqual(126, res)
+	
+	def test_knapsack_search(self):
+		ws = [3,4,1,2,3]
+		ps = [2,3,2,3,6]
+		maxW = 10
+		
+		knap = al.KnapsackSearch(ws, ps, maxW)
+		res = knap.calc()
+		
+		self.assertEqual(14, res)
 		
 if __name__ == '__main__':
 	print(__file__)

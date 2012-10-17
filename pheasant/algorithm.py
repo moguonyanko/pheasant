@@ -781,7 +781,7 @@ class MazeMaker():
 	def longestPath(self, maze, startRow, startCol, moveRow, moveCol):
 		width = len(maze[0])
 		height = len(maze)
-		board = ut.makeArray((width, height), initValue=-1)
+		board = ut.makeArray(width, height, initValue=-1)
 		
 		board[startRow][startCol] = 0
 		
@@ -855,17 +855,32 @@ class RouteSearchEasy():
 	'''
 	P.177 動的計画法・メモ化
 	'''
-	def calc(self, h, w):
-		dp = ut.makeArray((h+1, w+1), 0)
-		dp[0][0] =1
-		for i in range(h):
-			for j in range(w): #進み方が2通りあるので２通りの分岐を用意する。
-				if i != 0:
+	def __init__(self, h, w):
+		sizeW = w+1
+		sizeH = h+1
+		dp = ut.makeArray(width=sizeW, height=sizeH, initValue=0)
+		dp[0][0] = 1
+		for i in range(sizeH):
+			for j in range(sizeW): 
+				if i != 0: #上に進む
 					dp[i][j] += dp[i-1][j]
-				if j != 0:
+				if j != 0: #右に進む
 					dp[i][j] += dp[i][j-1]
 		
-		return dp[h][w]					
+		self.dp = dp
+	
+	def calc(self, h, w):
+		return self.dp[h][w]
+
+class KnapsackSearch():
+	'''
+	P.184 動的計画法・メモ化
+	'''
+	def __init__(self, ws, ps, maxW):
+		pass
+	
+	def calc(self):
+		pass
 			
 #Entry point
 if __name__ == '__main__':

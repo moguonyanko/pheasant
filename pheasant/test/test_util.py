@@ -126,15 +126,15 @@ class TestArrayUtil(unittest.TestCase):
 		Make array.
 		Can make multi dementional array too.
 		'''
-		res = ut.makeArray((2,2))
+		res = ut.makeArray(2, 2)
 		chk = [[None,None],[None,None]]
 		self.assertEqual(chk, res)
 
-		res2 = ut.makeArray((3,4), -1)
+		res2 = ut.makeArray(3, 4, -1)
 		chk2 = [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]]
 		self.assertEqual(chk2, res2)
 
-		res3 = ut.makeArray((4,3), -1)
+		res3 = ut.makeArray(4, 3, -1)
 		chk3 = [[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1]]
 		self.assertEqual(chk3, res3)
 
@@ -146,9 +146,13 @@ class TestArrayUtil(unittest.TestCase):
 		
 		hoge = Hoge()
 			
-		res4 = ut.makeArray((2,4), hoge)
+		res4 = ut.makeArray(width=2, height=4, initValue=hoge)
 		chk4 = [[hoge,hoge],[hoge,hoge],[hoge,hoge],[hoge,hoge]]
 		self.assertEqual(chk4, res4)
+		
+		self.assertRaises(ValueError, ut.makeArray, 0, 0)
+		self.assertRaises(ValueError, ut.makeArray, 1, 0)
+		self.assertRaises(ValueError, ut.makeArray, 0, 1)
 
 #Entry point
 if __name__ == '__main__':
