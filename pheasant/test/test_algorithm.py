@@ -369,7 +369,7 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		maxW = 10
 		
 		knap = al.KnapsackSearch(ws, ps, maxW)
-		res = knap.calc()
+		res = knap.getMaxPrecious()
 		
 		self.assertEqual(14, res)
 		

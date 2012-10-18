@@ -877,10 +877,22 @@ class KnapsackSearch():
 	P.184 動的計画法・メモ化
 	'''
 	def __init__(self, ws, ps, maxW):
-		pass
+		weightSize = len(ws)+1
+		maxSize = maxW+1
+		dp = ut.makeArray(weightSize, maxSize, 0)
+		
+		ret = 0
+		for i in range(weightSize):
+			for j in range(maxSize):
+				if j+ws[i] <= maxW:
+					dp[i+1][j+ws[i]] = max(dp[i+1][j+ws[i]], dp[i][j] + ps[j])
+					ret = max(dp[i+1][j+ws[i]], ret)
+		
+		self.maxPrecious = ret
+		self.dp = dp
 	
-	def calc(self):
-		pass
+	def getMaxPrecious(self):
+		return self.maxPrecious
 			
 #Entry point
 if __name__ == '__main__':
