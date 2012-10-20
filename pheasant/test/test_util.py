@@ -130,11 +130,11 @@ class TestArrayUtil(unittest.TestCase):
 		chk = [[None,None],[None,None]]
 		self.assertEqual(chk, res)
 
-		res2 = ut.makeArray(3, 4, -1)
+		res2 = ut.makeArray(4, 3, -1)
 		chk2 = [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]]
 		self.assertEqual(chk2, res2)
 
-		res3 = ut.makeArray(4, 3, -1)
+		res3 = ut.makeArray(3, 4, -1)
 		chk3 = [[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1]]
 		self.assertEqual(chk3, res3)
 
@@ -146,7 +146,7 @@ class TestArrayUtil(unittest.TestCase):
 		
 		hoge = Hoge()
 			
-		res4 = ut.makeArray(width=2, height=4, initValue=hoge)
+		res4 = ut.makeArray(4, 2, initValue=hoge)
 		chk4 = [[hoge,hoge],[hoge,hoge],[hoge,hoge],[hoge,hoge]]
 		self.assertEqual(chk4, res4)
 		

@@ -187,19 +187,19 @@ def numdigits(n):
 	else:	
 		return int(math.log10(n)+1)
 		
-def makeArray(width, height, initValue=None):
+def makeArray(column, row, initValue=None):
 	'''
 	Make two-dimensional array.
 	'''
 	#TODO: Two dimentional array only.
 	
-	if width == 0 or height == 0:
+	if column == 0 or row == 0:
 		raise ValueError("This function need size value that greater than zero.")
 	
-	marr = [None]*height
+	marr = [None]*column
 	
-	for i in range(height):
-		marr[i] = [copy.deepcopy(initValue) for dummy in range(width)]
+	for i in range(column):
+		marr[i] = [copy.deepcopy(initValue) for dummy in range(row)]
 		
 	return marr
 

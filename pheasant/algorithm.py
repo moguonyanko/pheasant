@@ -781,7 +781,7 @@ class MazeMaker():
 	def longestPath(self, maze, startRow, startCol, moveRow, moveCol):
 		width = len(maze[0])
 		height = len(maze)
-		board = ut.makeArray(width, height, initValue=-1)
+		board = ut.makeArray(height, width, initValue=-1)
 		
 		board[startRow][startCol] = 0
 		
@@ -858,7 +858,7 @@ class RouteSearchEasy():
 	def __init__(self, h, w):
 		sizeW = w+1
 		sizeH = h+1
-		dp = ut.makeArray(width=sizeW, height=sizeH, initValue=0)
+		dp = ut.makeArray(sizeH, sizeW, 0)
 		dp[0][0] = 1
 		for i in range(sizeH):
 			for j in range(sizeW): 
