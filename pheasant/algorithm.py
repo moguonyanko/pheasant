@@ -885,7 +885,7 @@ class KnapsackSearch():
 		for i in range(weightSize):
 			for j in range(maxSize):
 				if j+ws[i] <= maxW:
-					dp[i+1][j+ws[i]] = max(dp[i+1][j+ws[i]], dp[i][j] + ps[j])
+					dp[i+1][j+ws[i]] = max(dp[i+1][j+ws[i]], dp[i][j] + ps[j]) #ps[j]は確実にエラー。誤植？
 					ret = max(dp[i+1][j+ws[i]], ret)
 		
 		self.maxPrecious = ret
@@ -893,7 +893,37 @@ class KnapsackSearch():
 	
 	def getMaxPrecious(self):
 		return self.maxPrecious
+
+class CorporationSalary():
+	'''
+	P.193 動的計画法・メモ化
+	'''
+	def __init__(self, relations):
+		self.relations = relations
+		self.salaries = [0]*len(self.relations)
+
+	def totalSalary(self):
+		total = 0
+		for i, emp in enumerate(self.relations):
+			total += self.__getSalary(i)
+
+		return total
+
+	def __getSalary(self, i):
+		if self.salaries[i] == 0:
+			salary = 0
+			relation = self.relations[i]
 			
+			for j, char in enumerate(relation):
+				if relation[j] == "Y":
+					salary += self.__getSalary(j)
+			
+			if salary == 0: salary = 1
+			
+			self.salaries[i] = salary
+		
+		return self.salaries[i]
+	
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")
