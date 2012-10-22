@@ -924,6 +924,33 @@ class CorporationSalary():
 		
 		return self.salaries[i]
 	
+class BadNeighbors():
+	'''
+	P.204 動的計画法・メモ化
+	'''
+	def __init__(self, donations):
+		self.donations = donations
+		self.dp = [0]*len(donations)
+
+	def __calcDonation(self, donation, i, ans):
+		self.dp[i] = donation
+		if i > 0:
+			self.dp[i] = max(self.dp[i], self.dp[i-1])
+		if i > 1:
+			self.dp[i] = max(self.dp[i], self.dp[i-2]+donation)
+		
+		return max(ans, self.dp[i])
+	
+	def maxDonations(self):
+		ans0 = 0
+		ans1 = 0
+	
+		for i in range(len(self.donations)-1):
+			ans0 = self.__calcDonation(self.donations[i], i, ans0)
+			ans1 = self.__calcDonation(self.donations[i+1], i, ans1)
+				
+		return max(ans0, ans1)
+	
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")

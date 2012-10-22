@@ -384,6 +384,11 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		res2 = cs2.totalSalary()
 		self.assertEqual(4, res2)
 
+	def test_maxDonations(self):
+		donations = [1,2,3,4,5,1,2,3,4,5]
+		bn = al.BadNeighbors(donations)
+		res = bn.maxDonations()
+		self.assertEqual(16, res)
 		
 if __name__ == '__main__':
 	print(__file__)
