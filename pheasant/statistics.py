@@ -845,6 +845,15 @@ def law_of_total(probs):
 	'''
 	return sum([pa*pab for pa, pab in probs])
 	
+def pascal_triangle(size):
+	'''
+	Make Pascal's triangle.
+	'''
+	pass
+	#tri = [0]*size
+	#for n in range(size):	
+	#	for m in range(size):
+
 #Entry point
 if __name__ == '__main__':
 	print("statistics module load")

@@ -756,6 +756,15 @@ class TestRandomWalker(unittest.TestCase):
 			
 		self.assertEqual(limit, len(walker.path))
 		self.assertEqual(limit, len(overwalker.path))
+
+class PascalTriangle(unittest.TestCase):
+	'''
+	Pascal's triangle test class.
+	'''
+	def test_pascal_triangle(self):
+		chk = [[1],[1,1],[1,2,1]]
+		res = ts.pascal_triangle(3)
+		self.assertEqual(chk, res)
 		
 #Entry point
 if __name__ == '__main__':
