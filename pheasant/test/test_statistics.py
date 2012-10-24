@@ -762,9 +762,15 @@ class PascalTriangle(unittest.TestCase):
 	Pascal's triangle test class.
 	'''
 	def test_pascal_triangle(self):
-		chk = [[1],[1,1],[1,2,1]]
-		res = ts.pascal_triangle(3)
-		self.assertEqual(chk, res)
+		chk = [[1,0,0],[1,1,0],[1,2,1]]
+		res = ts.PascalTriangle(3)
+		#print(res)
+		self.assertEqual(chk, res.triangle)
+
+		chk2 = [[1,0,0,0,0],[1,1,0,0,0],[1,2,1,0,0],[1,3,3,1,0],[1,4,6,4,1]]
+		res2 = ts.PascalTriangle(5)
+		#print(res2)
+		self.assertEqual(chk2, res2.triangle)
 		
 #Entry point
 if __name__ == '__main__':

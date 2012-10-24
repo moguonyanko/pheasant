@@ -455,7 +455,11 @@ def z_test(sample, popmean, popvar):
 	return (statistic, abs(statistic)>zlim)
 	
 def permutate(left, right):
-	'''calculate permutations'''
+	'''
+	Calculate permutations.
+	'''
+	if left == 0 and right == 0: return 1
+	
 	if left <= 0 or right <= 0:
 		raise ValueError("require positive value")
 	elif left < right:
@@ -480,7 +484,9 @@ def factorial(num):
 	return permutate(num, num)
 	
 def combinate(left, right):
-	'''calculate combinations'''
+	'''
+	Calculate combinations.
+	'''
 	child = permutate(left, right)
 	mother = factorial(right)
 	
@@ -845,14 +851,41 @@ def law_of_total(probs):
 	'''
 	return sum([pa*pab for pa, pab in probs])
 	
-def pascal_triangle(size):
+class PascalTriangle():
 	'''
 	Make Pascal's triangle.
 	'''
-	pass
-	#tri = [0]*size
-	#for n in range(size):	
-	#	for m in range(size):
+	def __init__(self, size):
+		rg = range(size)
+		triangle = []
+	
+		for m in rg:
+			ele = []
+			for n in rg:
+				if n > m: 
+					ele.append(0)
+				elif n == 0:
+					ele.append(1)
+				else:
+					ele.append(int(combinate(m, n)))
+			triangle.append(ele)
+		
+		self.triangle = triangle
+	
+	def __str__(self):
+		strs = ""
+		comma = ","
+		rn = "\n"
+		
+		for ele in self.triangle:
+			els = []
+			for e in ele:
+				els.append(str(e))
+			
+			tmp = comma.join(els)
+			strs += tmp+rn
+		
+		return strs[0:len(strs)-1]
 
 #Entry point
 if __name__ == '__main__':

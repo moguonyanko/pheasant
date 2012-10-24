@@ -799,7 +799,8 @@ class MazeMaker():
 				nextX = x + moveCol[i]
 				nextY = y + moveRow[i]
 				
-				if 0 <= nextX and nextX < width and 0 <= nextY and nextY < height and board[nextY][nextX] == -1 and maze[nextY][nextX] == ".": 	
+				if 0 <= nextX and nextX < width and 0 <= nextY and \
+				nextY < height and board[nextY][nextX] == -1 and maze[nextY][nextX] == ".": 	
 					board[nextY][nextX] = board[y][x] + 1 #有効なステップならば歩数として数えてboradに追加する。
 					queueX.put(nextX)
 					queueY.put(nextY)
