@@ -390,6 +390,11 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		res = bn.maxDonations()
 		self.assertEqual(16, res)
 		
+	def test_howMany(self):
+		cm = al.ChessMetric()
+		res = cm.howMany(3, [0,0], [0,0], 2)	
+		self.assertEqual(5, res)
+	
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

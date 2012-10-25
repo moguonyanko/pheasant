@@ -951,6 +951,13 @@ class BadNeighbors():
 			ans1 = self.__calcDonation(self.donations[i+1], i, ans1)
 				
 		return max(ans0, ans1)
+
+class ChessMetric():
+	'''
+	P.213 動的計画法・メモ化
+	'''
+	def howMany(self, size, start, end, numMoves):
+		pass
 	
 #Entry point
 if __name__ == '__main__':
