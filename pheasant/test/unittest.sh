@@ -7,6 +7,11 @@ export PYTHONPATH
 
 PYPATH=`which python3`
 
+echo "Python version check..." 
+${PYPATH} -V
+
+echo "Start all test."
+
 cd test/
 
 ${PYPATH} `pwd`/test_util.py
@@ -20,3 +25,4 @@ ${PYPATH} `pwd`/test_geometry.py
 ${PYPATH} `pwd`/test_algorithm.py
 ${PYPATH} `pwd`/test_statistics.py
 
+echo "All test finished."

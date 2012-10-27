@@ -956,8 +956,43 @@ class ChessMetric():
 	'''
 	P.213 動的計画法・メモ化
 	'''
-	def howMany(self, size, start, end, numMoves):
-		pass
+	def __init__(self, boardsize, x_range, y_range, max_movenum=55):
+		self.size = boardsize
+		ways = ut.makeArray(boardsize, boardsize, 0)	
+		for i in range(len(ways)):
+			for j in range(len(ways[i])):
+				ways[i][j] = [0]*max_movenum
+		self.ways = ways
+		self.dx = x_range
+		self.dy = y_range
+
+	def howMany(self, start, end, numMoves):
+		if numMoves > len(self.ways[0][0]):
+			raise ValueError("Exceed max move limit!")
+	
+		sx = start[0]
+		sy = start[1]
+		ex = end[0]
+		ey = end[1]
+		
+		self.ways[sy][sx][0] = 1 #スタート地点の到達パターン数は1通り
+		boardrange = range(self.size) 
+		wayrange = range(len(self.dx))
+
+		for i in range(numMoves+1):
+			i += 1
+			for x in boardrange:
+				for y in boardrange:
+					for j in wayrange:
+						nx = x + self.dx[j]
+						ny = y + self.dy[j]
+						
+						if nx < 0 or ny < 0 or nx >= self.size or ny >= self.size: 
+							continue
+						else: #1つ前のマスまでの到達パターン数を足し込む。
+							self.ways[ny][nx][i] += self.ways[y][x][i-1]
+		
+		return self.ways[ex][ey][numMoves]
 	
 #Entry point
 if __name__ == '__main__':

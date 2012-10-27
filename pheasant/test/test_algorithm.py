@@ -391,10 +391,30 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		self.assertEqual(16, res)
 		
 	def test_howMany(self):
-		cm = al.ChessMetric()
-		res = cm.howMany(3, [0,0], [0,0], 2)	
-		self.assertEqual(5, res)
+		boradsize = 3
+		x_range = [1,1,1,0,-1,-1,-1,0,2,1,-1,-2,-2,-1,1,2]
+		y_range = [1,0,-1,-1,-1,0,1,1,-1,-2,-2,-1,1,2,2,1]
+		
+		cm1 = al.ChessMetric(boradsize, x_range, y_range)
+		res1 = cm1.howMany([0,0], [1,2], 1)	
+		self.assertEqual(1, res1)
 	
+		cm2 = al.ChessMetric(boradsize, x_range, y_range)
+		res2 = cm2.howMany([0,0], [2,2], 1)	
+		self.assertEqual(0, res2)
+
+		cm3 = al.ChessMetric(boradsize, x_range, y_range)
+		res3 = cm3.howMany([0,0], [0,0], 2)	
+		self.assertEqual(5, res3)
+		
+		#too late!
+		#boradsize = 100
+		#cm4 = al.ChessMetric(boradsize, x_range, y_range)
+		#res4 = cm4.howMany([0,0], [0,99], 50)	
+		#self.assertEqual(243097320072600, res4)
+		
+		self.assertRaises(ValueError, cm3.howMany, [0,0], [0,0], 56)
+		
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
