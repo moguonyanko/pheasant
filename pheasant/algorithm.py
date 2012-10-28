@@ -993,7 +993,23 @@ class ChessMetric():
 							self.ways[ny][nx][i] += self.ways[y][x][i-1]
 		
 		return self.ways[ex][ey][numMoves]
-	
+
+class HandsShaking():
+	'''
+	P.218 動的計画法・メモ化
+	'''
+	def countPerfect(self, n):
+		size = int(n/2)+1
+		dp = [0]*(size+1)
+		dp[0] = 1
+		
+		for i in range(size):
+			i += 1
+			for j in range(i):
+				dp[i] += dp[j] * dp[i-j-1] #カタラン数
+		
+		return dp[int(n/2)]		
+
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")

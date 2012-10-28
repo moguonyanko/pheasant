@@ -415,6 +415,15 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		
 		self.assertRaises(ValueError, cm3.howMany, [0,0], [0,0], 56)
 		
+	def test_countPerfect(self):
+		hs = al.HandsShaking()
+		
+		res2 = hs.countPerfect(4)	
+		self.assertEqual(2, res2)
+		
+		res3 = hs.countPerfect(8)	
+		self.assertEqual(14, res3)
+			
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
