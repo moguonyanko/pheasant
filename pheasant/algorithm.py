@@ -1010,6 +1010,20 @@ class HandsShaking():
 		
 		return dp[int(n/2)]		
 
+class ColorfulBoxesAndBalls():
+	'''
+	P.230 カラフルボックス＆ボール
+	'''
+	def getMaximum(self, numRed, numBlue, onlyRed, onlyBlue, bothColors):
+		ans = ut.getminsize()
+		comsize = min(numRed, numBlue)+1
+		
+		for i in range(comsize):
+			myscore = (numRed-i)*onlyRed + (numBlue-i)*onlyBlue + 2*i*bothColors
+			ans = max(ans, myscore)
+		
+		return ans	
+
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")

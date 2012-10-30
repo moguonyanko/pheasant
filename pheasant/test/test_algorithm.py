@@ -423,7 +423,16 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		
 		res3 = hs.countPerfect(8)	
 		self.assertEqual(14, res3)
-			
+	
+	def test_getMaximum(self):
+		cb = al.ColorfulBoxesAndBalls()
+		
+		res = cb.getMaximum(2,3,100,400,200)
+		self.assertEqual(1400, res)
+
+		res2 = cb.getMaximum(2,3,100,400,300)
+		self.assertEqual(1600, res2)
+		
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

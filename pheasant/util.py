@@ -4,6 +4,7 @@
 import random
 import math
 import copy
+import sys
 
 def flatten(ls):
 	'''nested list flatten'''
@@ -202,6 +203,12 @@ def makeArray(column, row, initValue=None):
 		marr[i] = [copy.deepcopy(initValue) for dummy in range(row)]
 		
 	return marr
+
+def getmaxsize():
+	return sys.maxsize
+
+def getminsize():
+	return -sys.maxsize-1
 
 #Entry point
 if __name__ == '__main__':

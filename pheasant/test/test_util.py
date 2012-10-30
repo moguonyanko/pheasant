@@ -154,6 +154,16 @@ class TestArrayUtil(unittest.TestCase):
 		self.assertRaises(ValueError, ut.makeArray, 1, 0)
 		self.assertRaises(ValueError, ut.makeArray, 0, 1)
 
+class TestMinMaxSize(unittest.TestCase):
+	'''
+	Min or max size test class.
+	'''
+	def test_getmaxsize(self):
+		self.assertEqual(2147483647, ut.getmaxsize())
+
+	def test_getminsize(self):
+		self.assertEqual(-2147483648, ut.getminsize())
+	
 #Entry point
 if __name__ == '__main__':
 	print(__file__)
