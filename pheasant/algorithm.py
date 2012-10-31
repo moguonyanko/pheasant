@@ -1024,6 +1024,13 @@ class ColorfulBoxesAndBalls():
 		
 		return ans	
 
+class StockHistory():
+	'''
+	P.244 貪欲法
+	'''
+	def maximumEarnings(self, initialInvestment, monthlyContribution, stockPrices):
+		pass
+
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")

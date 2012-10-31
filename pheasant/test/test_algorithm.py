@@ -432,6 +432,16 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 
 		res2 = cb.getMaximum(2,3,100,400,300)
 		self.assertEqual(1600, res2)
+
+	def test_maximumEarnings(self):
+		me = al.StockHistory()
+		
+		initialInvestment = 1000
+		monthlyContribution = 0
+		stockPrices = ["10 20 30", "15 24 32"]
+		
+		res = me.maximumEarnings(initialInvestment, monthlyContribution, stockPrices)
+		self.assertEqual(1500, res)
 		
 if __name__ == '__main__':
 	print(__file__)
