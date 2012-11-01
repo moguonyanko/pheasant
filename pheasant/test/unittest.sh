@@ -8,7 +8,7 @@ export PYTHONPATH
 PYPATH=`which python3`
 
 echo "Python version check..." 
-${PYPATH} -V
+${PYPATH} --version
 
 echo "Start all test."
 

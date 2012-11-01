@@ -1028,8 +1028,43 @@ class StockHistory():
 	'''
 	P.244 貪欲法
 	'''
-	def maximumEarnings(self, initialInvestment, monthlyContribution, stockPrices):
-		pass
+	def __init__(self, stockPrices):
+		separator = " "
+		self.month = len(stockPrices)
+		self.corp = len(stockPrices[0].split(separator))
+		self.prices = ut.makeArray(self.month, self.corp, 0)
+		
+		for i in range(self.month):
+			s = stockPrices[i].split(separator)
+			for j in range(self.corp):
+				self.prices[i][j] = int(s[j])
+	
+	def maximumEarnings(self, initialInvestment, monthlyContribution):
+		money = initialInvestment
+		maxVal = 0
+		proportion = [0.0]*(self.month-1)
+		buy = [False]*(self.month-1) #買う月に対応する要素はTrueになる。
+		
+		i = self.month-2 #最後の月から最初の月まで，利益の得られる月を探りながら遡っていく。
+		while 0 <= i:
+			for j in range(self.corp):
+				p = 1.0 * self.prices[self.month-1][j] / self.prices[i][j] - 1
+				
+				if 0 < p and maxVal < p: #利益の増加率が更新される月だけ買う。しかし 0 < p は不要では？
+					buy[i] = True
+					maxVal = p
+					proportion[i] = p
+			i -= 1 #最後の月から遡っていくのでデクリメントする。
+
+		profit = 0
+		for i, isBuy in enumerate(buy):
+			if isBuy == True: #買うと決めた月に現在の所持金を全額つぎ込む。
+				profit += money * proportion[i]
+				money = 0
+							
+			money += monthlyContribution
+		
+		return round(profit)
 
 #Entry point
 if __name__ == '__main__':

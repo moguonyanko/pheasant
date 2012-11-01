@@ -434,14 +434,27 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		self.assertEqual(1600, res2)
 
 	def test_maximumEarnings(self):
-		me = al.StockHistory()
-		
+		stockPrices = ["10 20 30", "15 24 32"]
+		me = al.StockHistory(stockPrices)
 		initialInvestment = 1000
 		monthlyContribution = 0
-		stockPrices = ["10 20 30", "15 24 32"]
+		res = me.maximumEarnings(initialInvestment, monthlyContribution)
+		self.assertEqual(500, res)
+
+		stockPrices = ["10", "9"]
+		me = al.StockHistory(stockPrices)
+		initialInvestment = 1000
+		monthlyContribution = 0
+		res2 = me.maximumEarnings(initialInvestment, monthlyContribution)
+		self.assertEqual(0, res2)
 		
-		res = me.maximumEarnings(initialInvestment, monthlyContribution, stockPrices)
-		self.assertEqual(1500, res)
+		stockPrices = ["40 50 60", "37 48 55", "100 48 50", "105 48 47", "110 50 52", 
+										"110 50 52", "110 51 54", "109 49 53"]
+		me = al.StockHistory(stockPrices)
+		initialInvestment = 100
+		monthlyContribution = 20
+		res3 = me.maximumEarnings(initialInvestment, monthlyContribution)
+		self.assertEqual(239, res3)
 		
 if __name__ == '__main__':
 	print(__file__)
