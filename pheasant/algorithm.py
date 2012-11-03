@@ -1026,7 +1026,7 @@ class ColorfulBoxesAndBalls():
 
 class StockHistory():
 	'''
-	P.244 貪欲法
+	P.244 株式投資シミュレーション
 	'''
 	def __init__(self, stockPrices):
 		separator = " "
@@ -1065,6 +1065,41 @@ class StockHistory():
 			money += monthlyContribution
 		
 		return round(profit)
+
+class BatchSystem():
+	'''
+	P.252 バッチシステム
+	'''
+	def schedule(self, duration, user):
+		taskSize = len(duration)
+		
+		jobTime = {user[n]:0 for n, userName in enumerate(user) if n < taskSize}
+		
+		for n in range(taskSize):
+			jobTime[user[n]] = jobTime[user[n]]+duration[n]	
+		
+		#jobTime = {user[n]:jobTime[user[n]]+duration[n] for n in range(taskSize)}
+		
+		done = [False]*taskSize
+		ans = [0]*taskSize
+		ansCount = 0
+		
+		while ansCount < taskSize:
+			next = ""
+			
+			for n in range(taskSize):
+				#未完了かつ次のユーザーのタスクより今のユーザーの残りタスクの方が
+				#待ち時間が短いならば今のユーザーをnextに設定しタスク処理を継続する。
+				if done[n] == False and (next == "" or jobTime.get(user[n]) < jobTime.get(next)):
+					next = user[n]
+			
+			for n in range(taskSize):
+				if user[n] == next:
+					done[n] = True
+					ans[ansCount] = n
+					ansCount += 1
+		
+		return ans	
 
 #Entry point
 if __name__ == '__main__':

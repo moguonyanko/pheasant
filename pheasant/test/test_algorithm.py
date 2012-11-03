@@ -455,6 +455,14 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		monthlyContribution = 20
 		res3 = me.maximumEarnings(initialInvestment, monthlyContribution)
 		self.assertEqual(239, res3)
+
+	def test_schedule(self):
+		bt = al.BatchSystem()
+		
+		duration = [400,100,100,100]
+		user = ["Danny Messer","Stella Bonasera","Stella Bonasera","Mac Taylor"]
+		res = bt.schedule(duration, user)
+		self.assertEqual([3,1,2,0], res)
 		
 if __name__ == '__main__':
 	print(__file__)
