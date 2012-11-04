@@ -464,6 +464,12 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		res = bt.schedule(duration, user)
 		self.assertEqual([3,1,2,0], res)
 		
+	def test_interestRate(self):
+		at = al.AutoLoad()
+		
+		res1 = at.interestRate(2000, 510, 4) 
+		self.assertEqual(round(9.5620546258368, 3), round(res1, 3))
+		
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

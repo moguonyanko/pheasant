@@ -1101,6 +1101,31 @@ class BatchSystem():
 		
 		return ans	
 
+class AutoLoad():
+	'''
+	P.264 自動車ローン
+	'''
+	def interestRate(self, price, montlyPayment, loanTerm):
+		balance = 0.0
+		high = 100
+		low = 0
+		mid = 0
+		
+		error_range = 1E-9
+		
+		while error_range < high-low and error_range < (high-low)/high:
+			balance = price
+			mid = (high + low) / 2 
+			
+			for j in range(loanTerm):
+				balance *= mid / 1200 + 1
+				balance -= montlyPayment
+				
+			if 0 < balance: high = mid
+			else: low = mid
+		
+		return mid
+
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")
