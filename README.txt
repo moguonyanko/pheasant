@@ -1,1 +1,1 @@
-Python library for work mathmatics.
+Python library for studying mathmatics.
