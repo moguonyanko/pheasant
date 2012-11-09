@@ -887,6 +887,22 @@ class PascalTriangle():
 		
 		return strs[0:len(strs)-1]
 
+class MarcovProcess():
+	'''
+	Marcov process class.
+	'''
+	def __init__(self, probdict):
+		'''
+		probdict: This dict is expressed {Matter:Probability}
+		'''
+		pass
+	
+	def chain(time):
+		'''
+		time: Probability check time.
+		'''
+		pass
+
 #Entry point
 if __name__ == '__main__':
 	print("statistics module load")

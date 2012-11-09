@@ -757,7 +757,7 @@ class TestRandomWalker(unittest.TestCase):
 		self.assertEqual(limit, len(walker.path))
 		self.assertEqual(limit, len(overwalker.path))
 
-class PascalTriangle(unittest.TestCase):
+class TestPascalTriangle(unittest.TestCase):
 	'''
 	Pascal's triangle test class.
 	'''
@@ -771,6 +771,16 @@ class PascalTriangle(unittest.TestCase):
 		res2 = ts.PascalTriangle(5)
 		#print(res2)
 		self.assertEqual(chk2, res2.triangle)
+		
+class TestMarcovProcess(unittest.TestCase):
+	'''
+	MarcovProcess test class.
+	'''
+	def test_marcov_chain(self):
+		'''
+		Marcov chain function test.
+		'''
+		pass
 		
 #Entry point
 if __name__ == '__main__':
