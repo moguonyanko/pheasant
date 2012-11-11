@@ -469,6 +469,20 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		
 		res1 = at.interestRate(2000, 510, 4) 
 		self.assertEqual(round(9.5620546258368, 3), round(res1, 3))
+	
+	def test_leastBorders(self):
+		cc = al.CirclesCountly()
+		
+		xs = [-3, 2, 2, 0, -4, 12, 12, 12]
+		ys = [-1, 2, 3, 1, 5, 1, 1, 1]
+		rs = [1, 3, 1, 7, 1, 1, 2, 3]
+		x1 = 2
+		y1 = 3
+		x2 = 13
+		y2 = 2
+		res = cc.leastBorders(xs, ys, rs, x1, y1, x2, y2)
+		
+		self.assertEqual(5, res)		
 		
 if __name__ == '__main__':
 	print(__file__)

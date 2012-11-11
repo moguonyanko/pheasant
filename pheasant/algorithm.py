@@ -1126,6 +1126,13 @@ class AutoLoad():
 		
 		return mid
 
+class CirclesCountly():
+	'''
+	P.272 円の国家群
+	'''
+	def leastBorders(self, x, y, R, x1, y1, x2, y2):
+		pass
+
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")
