@@ -1130,8 +1130,17 @@ class CirclesCountly():
 	'''
 	P.272 円の国家群
 	'''
-	def leastBorders(self, x, y, R, x1, y1, x2, y2):
-		pass
+	def __inside(self, x1, y1, x2, y2, r):
+		return (x1-x2)**2 + (y1-y2)**2 <= r**2
+	
+	def leastBorders(self, X, Y, R, x1, y1, x2, y2):
+		crossCount = 0
+		
+		for i, x in enumerate(X):
+			if self.__inside(X[i], Y[i], x1, y1, R[i]) != self.__inside(X[i], Y[i], x2, y2, R[i]):
+				crossCount += 1
+		
+		return crossCount
 
 #Entry point
 if __name__ == '__main__':
