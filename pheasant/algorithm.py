@@ -1141,7 +1141,57 @@ class CirclesCountly():
 				crossCount += 1
 		
 		return crossCount
+		
+class HamiltonPath():
 
+	TEST_MOD = 1000000007
+
+	'''
+	P.285 ハミルトン路
+	'''
+	def __init__(self, roads):
+		self.roads = roads
+		self.visited = [False]*len(roads)
+
+	def countPaths(self):
+		group = 0
+		free = 0
+		roadsize = len(self.roads)
+		
+		connect = [0]*roadsize
+		sumu = 1
+		
+		for i in range(roadsize):
+			y = 0
+			for j in range(len(self.roads[i])):
+				if self.roads[i][j] == "Y":
+					y += 1
+					if 2 < y:	return 0
+			connect[i] = y #接続数を保存する。
+			
+		for i in range(len(connect)):
+			if connect[i] == 0: #接続数がゼロであれば自由に回れる。
+				self.visited[i] = True
+				free += 1
+			elif connect[i] == 1 and self.visited[i] == False:
+				group += 1
+				self.dfs(i) #深さ優先探索で必ず回らなければならない都市を探す。
+		
+		for i in range(len(self.visited)):
+			if self.visited[i] == False: return 0 #回りきれなかった都市が存在した。
+		for i in range(group + free):
+			sumu = sumu * (i + 1) % self.TEST_MOD
+		for i in range(group):
+			sumu = sumu * 2 % self.TEST_MOD
+		
+		return int(sumu)
+	
+	def dfs(self, city):
+		self.visited[city] = True
+		for i in range(len(self.roads[city])):
+			if self.roads[city][i] == "Y" and self.visited[i] == False:
+				self.dfs(i)
+		
 #Entry point
 if __name__ == '__main__':
 	print("algorithm module load")

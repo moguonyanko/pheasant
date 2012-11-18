@@ -483,6 +483,20 @@ class AlgorithmerTrainingTest(unittest.TestCase):
 		res = cc.leastBorders(xs, ys, rs, x1, y1, x2, y2)
 		
 		self.assertEqual(5, res)		
+	
+	def test_countPaths(self):
+		roads = [
+			"NNNNNY",
+			"NNNNYN",
+			"NNNNYN",
+			"NNNNNN",
+			"NYYNNN",
+			"YNNNNY"
+		]
+		
+		hm = al.HamiltonPath(roads)
+		res = hm.countPaths()
+		self.assertEqual(24, res)		
 		
 if __name__ == '__main__':
 	print(__file__)
