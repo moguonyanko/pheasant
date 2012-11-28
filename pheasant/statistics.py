@@ -903,6 +903,45 @@ class MarcovProcess():
 		'''
 		pass
 
+class DistinctionAnalysis():
+	'''
+	Distinction analysis class.
+	'''
+	def __get_group_data(self, values):
+		n = len(values)
+		myu = mean(values)
+		s = sqsum(values)
+			
+		return (n, myu, s)
+			
+	def __init__(self, groups):
+		'''
+		Create distinction formula.
+		'''
+		datas = []
+		for grp in groups:
+			data = self.__get_group_data(grp)
+			datas.append(data)
+		
+		myumean = mean([datas[0][1], datas[1][1]])
+		v = (datas[0][2]+datas[1][2])/((datas[0][0]-1)+(datas[1][0]-1))
+		
+		def formula(x):
+			return (datas[0][1]-datas[1][1])/v * (x-myumean)
+		
+		self.formula = formula
+
+	def execute(self, target):
+		'''
+		Return group of belong target. 
+		'''
+		z = self.formula(target)
+		
+		if z >= 0:
+			return 0
+		else:
+			return 1
+	
 #Entry point
 if __name__ == '__main__':
 	print("statistics module load")

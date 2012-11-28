@@ -781,7 +781,22 @@ class TestMarcovProcess(unittest.TestCase):
 		Marcov chain function test.
 		'''
 		pass
+
+class TestDistinctionAnalysis(unittest.TestCase):
+	'''
+	Test class for distinction analysis.
+	'''
+	def test_distinction_analysis(self):
+		groups = [
+			[50,69,93,76,88], #idx0 healthy
+			[43,56,38,21,25]	#idx1 patient
+		]
 		
+		analyst = ts.DistinctionAnalysis(groups)
+		sampledata = 70
+		res = analyst.execute(sampledata)
+		self.assertEqual(0, res) #healthy
+
 #Entry point
 if __name__ == '__main__':
 	print(__file__)

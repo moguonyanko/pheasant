@@ -13,11 +13,7 @@ class Vector():
 	This class will be used Matrix.
 	'''
 	
-	'''
-	A significant figure,
-	suitably value set.
-	'''
-	SIGNIFICANT_FIGURE = 4
+	SIGNIFICANT_FIGURE = 4 #Significant figure
 	
 	def __init__(self, cols):
 		'''
@@ -720,8 +716,8 @@ def jacobi(mat):
 	testcounter = 0 #value check counter
 	while maxEle[2] >= EPS:
 	
-		if testcounter > 10: break
-		testcounter += 1
+		#if testcounter > 10: break
+		#testcounter += 1
 		
 		p = maxEle[0]
 		q = maxEle[1]
