@@ -786,16 +786,22 @@ class TestDistinctionAnalysis(unittest.TestCase):
 	'''
 	Test class for distinction analysis.
 	'''
+	
+	groups = [
+		[50,69,93,76,88], #idx0 healthy
+		[43,56,38,21,25]	#idx1 patient
+	]
+	
 	def test_distinction_analysis(self):
-		groups = [
-			[50,69,93,76,88], #idx0 healthy
-			[43,56,38,21,25]	#idx1 patient
-		]
-		
-		analyst = ts.DistinctionAnalysis(groups)
+		analyst = ts.DistinctionAnalysis(self.groups)
 		sampledata = 70
 		res = analyst.execute(sampledata)
 		self.assertEqual(0, res) #healthy
+	
+	def test_efficiency(self):
+		analyst = ts.DistinctionAnalysis(self.groups)
+		res = analyst.efficiency()
+		self.assertEqual(6.106, round(res, 3))
 
 #Entry point
 if __name__ == '__main__':

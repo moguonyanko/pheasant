@@ -907,40 +907,39 @@ class DistinctionAnalysis():
 	'''
 	Distinction analysis class.
 	'''
-	def __get_group_data(self, values):
-		n = len(values)
-		myu = mean(values)
-		s = sqsum(values)
-			
-		return (n, myu, s)
-			
+	
+	class __DistinctValue():
+		'''
+		Preserve value to distinct target group.
+		'''
+		def __init__(self, values):
+			self.size = len(values)
+			self.myu = mean(values)
+			self.dev = sqsum(values)
+				
 	def __init__(self, groups):
 		'''
 		Create distinction formula.
 		'''
-		datas = []
-		for grp in groups:
-			data = self.__get_group_data(grp)
-			datas.append(data)
-		
-		myumean = mean([datas[0][1], datas[1][1]])
-		v = (datas[0][2]+datas[1][2])/((datas[0][0]-1)+(datas[1][0]-1))
-		
-		def formula(x):
-			return (datas[0][1]-datas[1][1])/v * (x-myumean)
-		
-		self.formula = formula
+		self.datas = [self.__DistinctValue(values) for values in groups]
+		self.myumean = mean([self.datas[0].myu, self.datas[1].myu])
+		self.varia = (self.datas[0].dev+self.datas[1].dev)/((self.datas[0].size-1)+(self.datas[1].size-1))
+		self.formula = lambda x: (self.datas[0].myu-self.datas[1].myu)/self.varia * (x-self.myumean)
 
 	def execute(self, target):
 		'''
-		Return group of belong target. 
+		Return group index of belong target. 
 		'''
 		z = self.formula(target)
 		
-		if z >= 0:
-			return 0
-		else:
-			return 1
+		if z >= 0: return 0
+		else: return 1
+	
+	def efficiency(self):
+		'''
+		Get distinction efficiency.
+		'''
+		return (self.datas[0].myu-self.datas[1].myu)**2/self.varia
 	
 #Entry point
 if __name__ == '__main__':
