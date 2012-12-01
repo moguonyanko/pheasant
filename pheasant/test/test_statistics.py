@@ -802,7 +802,12 @@ class TestDistinctionAnalysis(unittest.TestCase):
 		analyst = ts.DistinctionAnalysis(self.groups)
 		res = analyst.efficiency()
 		self.assertEqual(6.106, round(res, 3))
-
+		
+	def test_is_contribute(self):
+		analyst = ts.DistinctionAnalysis(self.groups)
+		res = analyst.is_contribute()
+		self.assertEqual(True, res)
+		
 #Entry point
 if __name__ == '__main__':
 	print(__file__)

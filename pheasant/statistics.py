@@ -907,6 +907,8 @@ class DistinctionAnalysis():
 	'''
 	Distinction analysis class.
 	'''
+	value_num = 1 #One value only.
+	contribute_border = 2
 	
 	class __DistinctValue():
 		'''
@@ -940,6 +942,28 @@ class DistinctionAnalysis():
 		Get distinction efficiency.
 		'''
 		return (self.datas[0].myu-self.datas[1].myu)**2/self.varia
+	
+	def is_contribute(self):
+		'''
+		Is value contribute analysis?
+		'''
+		datas = [data for data in self.datas]
+		size0 = datas[0].size
+		size1 = datas[1].size
+		all_data_size = datas[0].size+datas[1].size
+		before_value_num = self.value_num-1
+		add_value_num = self.value_num
+		eff0 = self.efficiency()
+		eff1 = 0 #So deal one value only.
+		
+		nume = (all_data_size - before_value_num - add_value_num - 1) * size0 * size1 * (eff0 - eff1)
+		deno = add_value_num * ((all_data_size - 2) * all_data_size + size0 * size1 * before_value_num)
+	
+		f_value = nume/deno
+		
+		#print(f_value)
+	
+		return f_value >= self.contribute_border
 	
 #Entry point
 if __name__ == '__main__':
