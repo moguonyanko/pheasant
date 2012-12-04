@@ -7,7 +7,7 @@ setup(
 	name = "pheasant",
 	packages = ["pheasant","pheasant.const","pheasant.test"],
 	version = "0.1.1",
-	description = "Python library for work mathmatics",
+	description = "Python library for studying mathmatics",
 	author = "moguonyanko",
 	author_email = "moguo_50000_nyanko@yahoo.co.jp",
 	url = "",

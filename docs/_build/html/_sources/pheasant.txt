@@ -25,6 +25,14 @@ pheasant Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`grptheory` Module
+-----------------------
+
+.. automodule:: pheasant.grptheory
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`linear` Module
 --------------------
 

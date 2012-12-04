@@ -79,6 +79,14 @@ fn: Differentiate target function.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="pheasant.calculus.gamma">
+<tt class="descclassname">pheasant.calculus.</tt><tt class="descname">gamma</tt><big>(</big><em>z</em><big>)</big><a class="headerlink" href="#pheasant.calculus.gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gamma function.
+Fractorial generalization.
+Value is approximated by Stirling&#8217;s approximation.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="pheasant.calculus.simpson">
 <tt class="descclassname">pheasant.calculus.</tt><tt class="descname">simpson</tt><big>(</big><em>fn</em>, <em>upper</em>, <em>lower</em>, <em>divnum=1000</em><big>)</big><a class="reference internal" href="_modules/pheasant/calculus.html#simpson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.calculus.simpson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Definite integral by simpson method.</p>
@@ -93,6 +101,88 @@ fn: Differentiate target function.</p>
 </div>
 <div class="section" id="geometry-module">
 <h2><tt class="xref py py-mod docutils literal"><span class="pre">geometry</span></tt> Module<a class="headerlink" href="#geometry-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pheasant.grptheory">
+<span id="grptheory-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">grptheory</span></tt> Module<a class="headerlink" href="#module-pheasant.grptheory" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pheasant.grptheory.AlgebraicStructureFactory">
+<em class="property">class </em><tt class="descclassname">pheasant.grptheory.</tt><tt class="descname">AlgebraicStructureFactory</tt><a class="reference internal" href="_modules/pheasant/grptheory.html#AlgebraicStructureFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.AlgebraicStructureFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract Factory to make algebraic structure.</p>
+<dl class="method">
+<dt id="pheasant.grptheory.AlgebraicStructureFactory.create">
+<tt class="descname">create</tt><big>(</big><em>axiom</em>, <em>elements</em><big>)</big><a class="reference internal" href="_modules/pheasant/grptheory.html#AlgebraicStructureFactory.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.AlgebraicStructureFactory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>If elements satisfy axiom, make structure according to the axiom.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pheasant.grptheory.Axiom">
+<em class="property">class </em><tt class="descclassname">pheasant.grptheory.</tt><tt class="descname">Axiom</tt><a class="reference internal" href="_modules/pheasant/grptheory.html#Axiom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.Axiom" title="Permalink to this definition">¶</a></dt>
+<dd><p>An axiom, group, ring, field...</p>
+<dl class="method">
+<dt id="pheasant.grptheory.Axiom.define">
+<tt class="descname">define</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pheasant/grptheory.html#Axiom.define"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.Axiom.define" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get initializer of algebraic structure correspond to the axiom.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pheasant.grptheory.Axiom.satisfy">
+<tt class="descname">satisfy</tt><big>(</big><em>target</em><big>)</big><a class="reference internal" href="_modules/pheasant/grptheory.html#Axiom.satisfy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.Axiom.satisfy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is target satisfy the axiom?</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pheasant.grptheory.Element">
+<em class="property">class </em><tt class="descclassname">pheasant.grptheory.</tt><tt class="descname">Element</tt><a class="reference internal" href="_modules/pheasant/grptheory.html#Element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.Element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Element in group.</p>
+<dl class="method">
+<dt id="pheasant.grptheory.Element.operate">
+<tt class="descname">operate</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pheasant/grptheory.html#Element.operate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.Element.operate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carry out an operation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pheasant.grptheory.Field">
+<em class="property">class </em><tt class="descclassname">pheasant.grptheory.</tt><tt class="descname">Field</tt><a class="reference internal" href="_modules/pheasant/grptheory.html#Field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field expression class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pheasant.grptheory.Group">
+<em class="property">class </em><tt class="descclassname">pheasant.grptheory.</tt><tt class="descname">Group</tt><big>(</big><em>elements</em><big>)</big><a class="reference internal" href="_modules/pheasant/grptheory.html#Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Group expression class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pheasant.grptheory.GroupAxiom">
+<em class="property">class </em><tt class="descclassname">pheasant.grptheory.</tt><tt class="descname">GroupAxiom</tt><a class="reference internal" href="_modules/pheasant/grptheory.html#GroupAxiom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.GroupAxiom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pheasant.grptheory.Axiom" title="pheasant.grptheory.Axiom"><tt class="xref py py-class docutils literal"><span class="pre">pheasant.grptheory.Axiom</span></tt></a></p>
+<p>An group axiom.</p>
+<dl class="method">
+<dt id="pheasant.grptheory.GroupAxiom.define">
+<tt class="descname">define</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pheasant/grptheory.html#GroupAxiom.define"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.GroupAxiom.define" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get definition of algebraic structure, in a word Group class return.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pheasant.grptheory.GroupAxiom.satisfy">
+<tt class="descname">satisfy</tt><big>(</big><em>target</em><big>)</big><a class="reference internal" href="_modules/pheasant/grptheory.html#GroupAxiom.satisfy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.GroupAxiom.satisfy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is target satisfy group axiom?</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pheasant.grptheory.Ring">
+<em class="property">class </em><tt class="descclassname">pheasant.grptheory.</tt><tt class="descname">Ring</tt><a class="reference internal" href="_modules/pheasant/grptheory.html#Ring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.grptheory.Ring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ring expression class.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="linear-module">
 <h2><tt class="xref py py-mod docutils literal"><span class="pre">linear</span></tt> Module<a class="headerlink" href="#linear-module" title="Permalink to this headline">¶</a></h2>
@@ -131,6 +221,48 @@ fn: Differentiate target function.</p>
 </div>
 <div class="section" id="module-pheasant.settheory">
 <span id="settheory-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">settheory</span></tt> Module<a class="headerlink" href="#module-pheasant.settheory" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pheasant.settheory.Event">
+<em class="property">class </em><tt class="descclassname">pheasant.settheory.</tt><tt class="descname">Event</tt><big>(</big><em>elements</em><big>)</big><a class="reference internal" href="_modules/pheasant/settheory.html#Event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.settheory.Event" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is to express event in probability theory.</p>
+<dl class="method">
+<dt id="pheasant.settheory.Event.bijectp">
+<tt class="descname">bijectp</tt><big>(</big><em>target</em><big>)</big><a class="reference internal" href="_modules/pheasant/settheory.html#Event.bijectp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.settheory.Event.bijectp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is self and target bijection?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pheasant.settheory.Event.emptyp">
+<tt class="descname">emptyp</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pheasant/settheory.html#Event.emptyp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.settheory.Event.emptyp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is this event empty event?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pheasant.settheory.Event.exclusivep">
+<tt class="descname">exclusivep</tt><big>(</big><em>target</em><big>)</big><a class="reference internal" href="_modules/pheasant/settheory.html#Event.exclusivep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.settheory.Event.exclusivep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is self elements and target elements exclusive?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pheasant.settheory.Event.injectp">
+<tt class="descname">injectp</tt><big>(</big><em>target</em><big>)</big><a class="reference internal" href="_modules/pheasant/settheory.html#Event.injectp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.settheory.Event.injectp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is self and target injection?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pheasant.settheory.Event.surjectp">
+<tt class="descname">surjectp</tt><big>(</big><em>target</em><big>)</big><a class="reference internal" href="_modules/pheasant/settheory.html#Event.surjectp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.settheory.Event.surjectp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is self and target surjection?</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pheasant.settheory.exclusivep">
+<tt class="descclassname">pheasant.settheory.</tt><tt class="descname">exclusivep</tt><big>(</big><em>s1</em>, <em>s2</em><big>)</big><a class="reference internal" href="_modules/pheasant/settheory.html#exclusivep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.settheory.exclusivep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is s1 and s2 exclusive?</p>
+</dd></dl>
+
 </div>
 <div class="section" id="statistics-module">
 <h2><tt class="xref py py-mod docutils literal"><span class="pre">statistics</span></tt> Module<a class="headerlink" href="#statistics-module" title="Permalink to this headline">¶</a></h2>
@@ -154,6 +286,22 @@ return real root number</p>
 <dt id="pheasant.util.flatten">
 <tt class="descclassname">pheasant.util.</tt><tt class="descname">flatten</tt><big>(</big><em>ls</em><big>)</big><a class="reference internal" href="_modules/pheasant/util.html#flatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.util.flatten" title="Permalink to this definition">¶</a></dt>
 <dd><p>nested list flatten</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pheasant.util.getmaxsize">
+<tt class="descclassname">pheasant.util.</tt><tt class="descname">getmaxsize</tt><big>(</big><big>)</big><a class="headerlink" href="#pheasant.util.getmaxsize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pheasant.util.getminsize">
+<tt class="descclassname">pheasant.util.</tt><tt class="descname">getminsize</tt><big>(</big><big>)</big><a class="headerlink" href="#pheasant.util.getminsize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pheasant.util.makeArray">
+<tt class="descclassname">pheasant.util.</tt><tt class="descname">makeArray</tt><big>(</big><em>column</em>, <em>row</em>, <em>initValue=None</em><big>)</big><a class="headerlink" href="#pheasant.util.makeArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make two-dimensional array.</p>
 </dd></dl>
 
 <dl class="function">
@@ -181,6 +329,14 @@ but should be modified algorithm.</p>
 <dt id="pheasant.util.normalize_formula">
 <tt class="descclassname">pheasant.util.</tt><tt class="descname">normalize_formula</tt><big>(</big><em>form</em>, <em>target</em><big>)</big><a class="reference internal" href="_modules/pheasant/util.html#normalize_formula"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pheasant.util.normalize_formula" title="Permalink to this definition">¶</a></dt>
 <dd><p>make 1 for simultanious linear equations</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pheasant.util.numdigits">
+<tt class="descclassname">pheasant.util.</tt><tt class="descname">numdigits</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#pheasant.util.numdigits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get number of digits.
+Minus sign is not count.
+I wish I add &#8220;len&#8221; method to int class.</p>
 </dd></dl>
 
 <dl class="function">
@@ -222,6 +378,12 @@ but if LU resolve masterd, should be attempt to use it.</p>
 Used at benchmark.</p>
 </dd></dl>
 
+<dl class="function">
+<dt id="pheasant.util.zipter">
+<tt class="descclassname">pheasant.util.</tt><tt class="descname">zipter</tt><big>(</big><em>ls1</em>, <em>ls2</em>, <em>func=None</em><big>)</big><a class="headerlink" href="#pheasant.util.zipter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operate as &#8220;zip&#8221; and &#8220;filter&#8221;.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
@@ -235,10 +397,11 @@ Used at benchmark.</p>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-algorithm-module"><tt class="docutils literal"><span class="pre">test_algorithm</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_calculus"><tt class="docutils literal"><span class="pre">test_calculus</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-geometry-module"><tt class="docutils literal"><span class="pre">test_geometry</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_grptheory"><tt class="docutils literal"><span class="pre">test_grptheory</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-linear-module"><tt class="docutils literal"><span class="pre">test_linear</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_logic"><tt class="docutils literal"><span class="pre">test_logic</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-numtheory-module"><tt class="docutils literal"><span class="pre">test_numtheory</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_settheory"><tt class="docutils literal"><span class="pre">test_settheory</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-settheory-module"><tt class="docutils literal"><span class="pre">test_settheory</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#test-statistics-module"><tt class="docutils literal"><span class="pre">test_statistics</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pheasant.test.html#module-pheasant.test.test_util"><tt class="docutils literal"><span class="pre">test_util</span></tt> Module</a></li>
 </ul>
@@ -260,6 +423,7 @@ Used at benchmark.</p>
 <li><a class="reference internal" href="#algorithm-module"><tt class="docutils literal"><span class="pre">algorithm</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-pheasant.calculus"><tt class="docutils literal"><span class="pre">calculus</span></tt> Module</a></li>
 <li><a class="reference internal" href="#geometry-module"><tt class="docutils literal"><span class="pre">geometry</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pheasant.grptheory"><tt class="docutils literal"><span class="pre">grptheory</span></tt> Module</a></li>
 <li><a class="reference internal" href="#linear-module"><tt class="docutils literal"><span class="pre">linear</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-pheasant.logic"><tt class="docutils literal"><span class="pre">logic</span></tt> Module</a></li>
 <li><a class="reference internal" href="#numtheory-module"><tt class="docutils literal"><span class="pre">numtheory</span></tt> Module</a></li>

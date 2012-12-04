@@ -25,6 +25,14 @@ test Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`test_grptheory` Module
+----------------------------
+
+.. automodule:: pheasant.test.test_grptheory
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`test_linear` Module
 -------------------------
 
