@@ -494,8 +494,9 @@ class TestLUDecompose(unittest.TestCase):
 		chkml = lr.Matrix([chkv5,chkv6,chkv7,chkv8])		
 
 		#TODO:implement now.
-		#self.assertEqual(ml, chkml)
-		#self.assertEqual(mu, chkmu)
+		print(ml)
+		self.assertEqual(chkml, ml)
+		#self.assertEqual(chkmu, mu)
 
 class TestBaseExchange(unittest.TestCase):
 	'''

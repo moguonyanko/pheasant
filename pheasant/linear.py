@@ -799,17 +799,17 @@ def lu_decompose(mat):
 	#TODO: Not work.
 	rsiz = len(mat.rows)
 	csiz = len(mat[0].cols)
-	size = max(rsiz, csiz)
+	size = min(rsiz, csiz)
 	
-	for k in range(size):
+	for k in range(1, size):
 		x = 1.0/mat[(k,k)]
 		rowrng = range(k+1, rsiz)
 		colrng = range(k+1, csiz)
 		for i in rowrng:
 			mat[(i,k)] = mat[(i,k)]*x
-		for m in rowrng:
-			for n in colrng:
-				mat[(m,n)] = mat[(m,n)]-mat[(m,k)]*mat[(k,n)]
+		for i in rowrng:
+			for j in colrng:
+				mat[(i,j)] = mat[(i,j)]-mat[(i,k)]*mat[(k,j)]
 				
 	return (mat, mat)
 		
