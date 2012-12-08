@@ -410,7 +410,7 @@ class Matrix():
 			strs += str(row)
 		return strs
 		
-	def __round__(self, n):
+	def __round__(self, n=0):
 		'''
 		Matrix element round.
 		'''
@@ -811,8 +811,8 @@ def lu_decompose(mat):
 			for j in colrng:
 				mat[(i,j)] = mat[(i,j)]-mat[(i,k)]*mat[(k,j)]
 				
-	return (mat, mat)
-		
+	return mat
+	
 def spectral_decompose(mat):
 	'''
 	Matrix spectral decomposition.

@@ -478,25 +478,17 @@ class TestLUDecompose(unittest.TestCase):
 		m1 = lr.Matrix([v1,v2,v3,v4])
 		
 		res = lr.lu_decompose(m1)
-		ml = res[0]
-		mu = res[1]
 		
 		chkv1 = lr.Vector([8,2,6,7])
-		chkv2 = lr.Vector([0,3,5,8])
-		chkv3 = lr.Vector([0,0,4,9])
-		chkv4 = lr.Vector([0,0,0,8])
-		chkml = lr.Matrix([chkv1,chkv2,chkv3,chkv4])		
-		
-		chkv5 = lr.Vector([1,0,0,0])
-		chkv6 = lr.Vector([2,1,0,0])
-		chkv7 = lr.Vector([3,2,1,0])
-		chkv8 = lr.Vector([4,3,5,1])
-		chkml = lr.Matrix([chkv5,chkv6,chkv7,chkv8])		
+		chkv2 = lr.Vector([2,3,5,8])
+		chkv3 = lr.Vector([3,2,4,9])
+		chkv4 = lr.Vector([4,3,5,8])
+		chk = lr.Matrix([chkv1,chkv2,chkv3,chkv4])		
 
 		#TODO:implement now.
-		print(ml)
-		self.assertEqual(chkml, ml)
-		#self.assertEqual(chkmu, mu)
+		res = round(res)
+		print(res)
+		self.assertEqual(chk, res)
 
 class TestBaseExchange(unittest.TestCase):
 	'''

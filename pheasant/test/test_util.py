@@ -158,11 +158,23 @@ class TestMinMaxSize(unittest.TestCase):
 	'''
 	Min or max size test class.
 	'''
+	DEBIAN_32_MAX = 2147483647
+	DEBIAN_32_MIN = -2147483648
+	CENTOS_64_MAX = 9223372036854775807
+	CENTOS_64_MIN = -9223372036854775808
+	
+	MAXES = [DEBIAN_32_MAX, CENTOS_64_MAX]
+	MINES = [DEBIAN_32_MIN, CENTOS_64_MIN]
+	
 	def test_getmaxsize(self):
-		self.assertEqual(2147483647, ut.getmaxsize())
+		maxsize = ut.getmaxsize()
+		valid_result = maxsize in self.MAXES
+		self.assertEqual(True, valid_result)
 
 	def test_getminsize(self):
-		self.assertEqual(-2147483648, ut.getminsize())
+		maxsize = ut.getminsize()
+		valid_result = maxsize in self.MINES
+		self.assertEqual(True, valid_result)
 	
 #Entry point
 if __name__ == '__main__':
