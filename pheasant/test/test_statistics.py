@@ -807,6 +807,14 @@ class TestDistinctionAnalysis(unittest.TestCase):
 		analyst = ts.DistinctionAnalysis(self.groups)
 		res = analyst.is_contribute()
 		self.assertEqual(True, res)
+
+class TestLawOfLargeNumbers(unittest.TestCase):
+	'''
+	Test class for law of large numbers.
+	'''
+	
+	def test_law_of_large_numbers(self):
+		pass
 		
 #Entry point
 if __name__ == '__main__':

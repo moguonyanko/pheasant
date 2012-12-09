@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*
 
-#TODO:Not work at Python3.3.0
-
 def application(environ, start_response):
 	start_response('200 OK', [('Content-type', 'text/plain')])
 	return 'WelCome, Pheasant Public Searvice!'

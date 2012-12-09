@@ -964,6 +964,12 @@ class DistinctionAnalysis():
 		#print(f_value)
 	
 		return f_value >= self.contribute_border
+
+def law_of_large_numbers():
+	'''
+	Law of large numbers.
+	'''
+	pass
 	
 #Entry point
 if __name__ == '__main__':

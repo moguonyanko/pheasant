@@ -395,8 +395,6 @@ class Matrix():
 			
 		for i in range(rowlen):
 			if rows[i] != tarrows[i]:
-				print(rows[i])
-				print(tarrows[i])
 				return False
 		return True
 				
@@ -803,12 +801,10 @@ def lu_decompose(mat):
 	
 	for k in range(1, size):
 		x = 1.0/mat[(k,k)]
-		rowrng = range(k+1, rsiz)
-		colrng = range(k+1, csiz)
-		for i in rowrng:
+		for i in range(k+1, rsiz):
 			mat[(i,k)] = mat[(i,k)]*x
-		for i in rowrng:
-			for j in colrng:
+		for i in range(k+1, rsiz):
+			for j in range(k+1, csiz):
 				mat[(i,j)] = mat[(i,j)]-mat[(i,k)]*mat[(k,j)]
 				
 	return mat
@@ -871,7 +867,6 @@ def sweep_out(leftm, rightv):
 	newvs = leftm.rows + [rightv]
 	
 	mat = Matrix(newvs)
-	print(mat)
 	
 	i = 1
 	while i < msize:
