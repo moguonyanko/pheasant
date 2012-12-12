@@ -495,8 +495,9 @@ class TestLUDecompose(unittest.TestCase):
 		chk = lr.Matrix([chkv1,chkv2,chkv3,chkv4])		
 
 		#TODO:implement now.
-		res = round(res)
-		#self.assertEqual(chk, res)
+		print(res)
+		#res = round(res)
+		self.assertEqual(chk, res)
 
 class TestBaseExchange(unittest.TestCase):
 	'''
