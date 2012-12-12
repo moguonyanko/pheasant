@@ -811,6 +811,23 @@ def lu_decompose(mat):
 	csiz = len(mat[0].cols)
 	size = min(rsiz, csiz)
 	
+	if size == 0: 
+		raise ValueError("No size matrix can not decompose.")
+	
+	for i in range(1, size):
+		for j in range(i+1):
+			lu = mat[(i, j)]
+			for k in range(j):
+				lu -= mat[(i, k)]*mat[(k, j)]
+			mat[(i, j)] = lu
+	
+		for j in range(size):
+			lu = mat[(i, j)]	
+			for k in range(i):
+				lu -= mat[(i, k)]*mat[(k, j)]
+			mat[(i, j)] = lu/mat[(i, i)]
+
+	'''	
 	for k in range(1, size):
 		x = 1.0/mat[(k,k)]
 		for i in range(k+1, rsiz):
@@ -818,7 +835,8 @@ def lu_decompose(mat):
 		for i in range(k+1, rsiz):
 			for j in range(k+1, csiz):
 				mat[(i,j)] = mat[(i,j)]-mat[(i,k)]*mat[(k,j)]
-				
+	'''	
+			
 	return mat
 	
 def spectral_decompose(mat):
