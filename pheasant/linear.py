@@ -237,7 +237,7 @@ class Matrix():
 		'''
 		if isinstance(row_column, tuple):
 			return self.rows[row_column[1]][row_column[0]]
-		elif isinstance(row_column, int):
+		elif isinstance(row_column, int): #Get row.
 			return self.rows[row_column]
 		else:
 			raise ValueError(self.invalid_index_message)
@@ -508,7 +508,20 @@ class Matrix():
 		'''
 		return len(self.rows)
 		
-	def getcolumns(self):
+	def get_column(self, column_num):
+		'''
+		Get matrix column.
+		'''
+		res = []
+		
+		for row in self:
+			for n, col in enumerate(row):
+				if n == column_num:
+					res.append(col)
+		
+		return res		
+		
+	def get_columns(self):
 		'''
 		Return matrix elements by columns form.
 		'''
@@ -521,7 +534,7 @@ class Matrix():
 		Swap rows for indexes.
 		'''
 		if target == "column":
-			cols = self.getcolumns()
+			cols = self.get_columns()
 
 			#Swap matrix columns.		
 			tmp = cols[i]
@@ -530,8 +543,7 @@ class Matrix():
 			#TODO: Is need Vector create?
 			self[i] = Vector(cols[i])
 			self[j] = Vector(cols[j])
-		else: 
-			#Swap matrix rows.
+		else: #Swap matrix rows. 
 			tmp = self[i]
 			self[i] = self[j]
 			self[j] = tmp

@@ -98,9 +98,10 @@ class TestOrthogonalization(unittest.TestCase):
 		self.assertEqual(resv[1],normv2)
 		self.assertEqual(resv[2],normv3)
 
-class TestMatrix(unittest.TestCase):
+class TestMatrixBaseFunction(unittest.TestCase):
 	'''
 	Test for matrix class.
+	Matrix base functions are collected.
 	'''
 	def test_add(self):
 		'''test addition matrix'''
@@ -380,6 +381,14 @@ class TestMatrix(unittest.TestCase):
 		testmat = lr.Matrix([v1,v2])
 
 		self.assertEqual(10, testmat.sum_elements())
+	
+	def test_get_column(self):
+		v1 = lr.Vector([3,1,9])
+		v2 = lr.Vector([2,4,1])
+		v3 = lr.Vector([2,4,5])
+		testmat = lr.Matrix([v1,v2,v3])
+		
+		self.assertEqual([1,4,4], testmat.get_column(1))
 						
 class TestDetMatrix(unittest.TestCase):
 	'''
@@ -851,7 +860,7 @@ class TestSweepOut(unittest.TestCase):
 		'''
 		pass
 		
-class MatrixMinMaxTest(unittest.TestCase):
+class TestMatrixMinMax(unittest.TestCase):
 	'''
 	Matrix min max value function test class.
 	'''
