@@ -3,6 +3,7 @@
 
 import numbers
 import math
+import copy
 
 import pheasant.util as ut
 import pheasant.numtheory as nt
@@ -802,10 +803,12 @@ def det(mat):
 	'''
 	return mat.det()
 
-def lu_decompose(mat):
+def lu_decompose(m):
 	'''
 	LU-decomposition of matrix.
 	'''
+	mat = copy.deepcopy(m)
+	
 	#TODO: Not work.
 	rsiz = len(mat.rows)
 	csiz = len(mat[0].cols)
@@ -814,6 +817,7 @@ def lu_decompose(mat):
 	if size == 0: 
 		raise ValueError("No size matrix can not decompose.")
 	
+	'''
 	for i in range(1, size):
 		for j in range(i+1):
 			lu = mat[(i, j)]
@@ -828,14 +832,14 @@ def lu_decompose(mat):
 			mat[(i, j)] = lu/mat[(i, i)]
 
 	'''	
+	
 	for k in range(1, size):
 		x = 1.0/mat[(k,k)]
-		for i in range(k+1, rsiz):
+		for i in range(k+1, size):
 			mat[(i,k)] = mat[(i,k)]*x
-		for i in range(k+1, rsiz):
-			for j in range(k+1, csiz):
+		for i in range(k+1, size):
+			for j in range(k+1, size):
 				mat[(i,j)] = mat[(i,j)]-mat[(i,k)]*mat[(k,j)]
-	'''	
 			
 	return mat
 	

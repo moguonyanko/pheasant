@@ -480,11 +480,10 @@ class TestLUDecompose(unittest.TestCase):
 		test lu decompose
 		L and U each equal check.
 		'''
-		v1 = lr.Vector([8,2,6,7])
-		v2 = lr.Vector([16,7,17,22])
-		v3 = lr.Vector([24,12,32,46])
-		v4 = lr.Vector([32,17,59,105])
-		m1 = lr.Matrix([v1,v2,v3,v4])
+		v1 = lr.Vector([1,4,7])
+		v2 = lr.Vector([2,5,8])
+		v3 = lr.Vector([3,6,0])
+		m1 = lr.Matrix([v1,v2,v3])
 		
 		res = lr.lu_decompose(m1)
 		
@@ -495,8 +494,8 @@ class TestLUDecompose(unittest.TestCase):
 		chk = lr.Matrix([chkv1,chkv2,chkv3,chkv4])		
 
 		#TODO:implement now.
+		res = round(res)
 		print(res)
-		#res = round(res)
 		self.assertEqual(chk, res)
 
 class TestBaseExchange(unittest.TestCase):
