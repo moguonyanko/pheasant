@@ -14,7 +14,15 @@ class Vector():
 	This class will be used Matrix.
 	'''
 	
-	SIGNIFICANT_FIGURE = 4 #Significant figure
+	'''
+	Column values list as vector elements or matrix columns.
+	'''
+	cols = []
+	
+	'''
+	Significant figure.
+	'''
+	SIGNIFICANT_FIGURE = 4
 	
 	def __init__(self, cols):
 		'''
@@ -93,13 +101,19 @@ class Vector():
 		'''
 		If point value equal, vectors are equal.
 		'''
-		cmps = zip(self.cols, target.cols)
-		sg = self.SIGNIFICANT_FIGURE
-		for a,b in cmps:
-			if round(a, sg) != round(b, sg):
-				return False
-				
-		return True
+		if target == None: return False
+		
+		size = len(self.cols)
+		targetsize = len(target.cols)
+		if size > 0 and targetsize > 0 and size == targetsize:
+			cmps = zip(self.cols, target.cols)
+			sg = self.SIGNIFICANT_FIGURE
+			for a,b in cmps:
+				if round(a, sg) != round(b, sg):
+					return False
+			return True
+		else:
+			return False
 		
 	def __str__(self):
 		'''
@@ -206,6 +220,15 @@ class Matrix():
 	'''
 	Matrix class definition.
 	This is used to express linear mapping.
+	'''
+	
+	'''
+	Vector list as matrix rows.
+	'''
+	rows = []
+
+	'''
+	Exception messages.
 	'''
 	invalid_index_message = "Invarid index recieved."
 	
@@ -387,6 +410,8 @@ class Matrix():
 		'''
 		If rows equal, return true.
 		'''
+		if target == None: return False
+		
 		rows = self.rows
 		tarrows = target.rows
 		rowlen = len(rows)
@@ -397,6 +422,7 @@ class Matrix():
 		for i in range(rowlen):
 			if rows[i] != tarrows[i]:
 				return False
+				
 		return True
 				
 	def __str__(self):
@@ -419,6 +445,21 @@ class Matrix():
 			newrows.append(Vector([round(value, n) for value in row.cols]))
 			
 		return Matrix(newrows)
+		
+	def __len__(self):
+		'''		Matrix row length return.
+		'''
+		rowslen = len(self.rows)
+		
+		colslen = 0
+		try:
+			v1 = self[0]
+			if v1 != None: 
+				colslen = len(v1)
+		except IndexError as ex:
+			return 0
+		
+		return min(rowslen, colslen)
 		
 	def find(self, pred):
 		'''
@@ -481,6 +522,7 @@ class Matrix():
 		'''
 		rownum = len(self.rows)
 		colnum = len(self.rows[0].cols)
+		
 		return rownum == colnum
 		
 	def dim(self):
@@ -502,12 +544,6 @@ class Matrix():
 					return False	
 					
 		return True
-		
-	def __len__(self):
-		'''
-		Matrix row length return.
-		'''
-		return len(self.rows)
 		
 	def get_column(self, column_num):
 		'''
@@ -807,33 +843,17 @@ def lu_decompose(m):
 	'''
 	LU-decomposition of matrix.
 	'''
+	if m == None: 
+		raise ValueError("Matrix is none. Can not decompose matrix.")
+
+	size = len(m)
+	
+	if size <= 0:
+		raise ValueError("Matrix elements are empty. Can not decompose matrix.")
+	
 	mat = copy.deepcopy(m)
 	
-	#TODO: Not work.
-	rsiz = len(mat.rows)
-	csiz = len(mat[0].cols)
-	size = min(rsiz, csiz)
-	
-	if size == 0: 
-		raise ValueError("No size matrix can not decompose.")
-	
-	'''
-	for i in range(1, size):
-		for j in range(i+1):
-			lu = mat[(i, j)]
-			for k in range(j):
-				lu -= mat[(i, k)]*mat[(k, j)]
-			mat[(i, j)] = lu
-	
-		for j in range(size):
-			lu = mat[(i, j)]	
-			for k in range(i):
-				lu -= mat[(i, k)]*mat[(k, j)]
-			mat[(i, j)] = lu/mat[(i, i)]
-
-	'''	
-	
-	for k in range(1, size):
+	for k in range(size):
 		x = 1.0/mat[(k,k)]
 		for i in range(k+1, size):
 			mat[(i,k)] = mat[(i,k)]*x
