@@ -477,15 +477,15 @@ class TestLUDecompose(unittest.TestCase):
 	'''
 	def test_lu_decompose(self):
 		'''
-		test lu decompose
-		L and U each equal check.
+		Test LU decompose.
 		'''
 		v1 = lr.Vector([4,1,2])
 		v2 = lr.Vector([1,3,1])
 		v3 = lr.Vector([1,1,5])
 		m1 = lr.Matrix([v1,v2,v3])
 		
-		res = lr.lu_decompose(m1)
+		#res = lr.lu_decompose(m1)
+		res = m1.decomp()
 		
 		chkv1 = lr.Vector([4,0.25,0.5])
 		chkv2 = lr.Vector([1,2.75,0.18])

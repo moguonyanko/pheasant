@@ -447,7 +447,8 @@ class Matrix():
 		return Matrix(newrows)
 		
 	def __len__(self):
-		'''		Matrix row length return.
+		'''
+		Matrix row length return.
 		'''
 		rowslen = len(self.rows)
 		
@@ -742,6 +743,12 @@ class Matrix():
 				res.append(self[(i, j)])
 		
 		return sum(res)
+	
+	def decomp(self):
+		'''
+		Matrix decompose by LU decompose method.
+		'''
+		return lu_decompose(self)
 		
 def jacobi(mat):
 	'''
@@ -839,29 +846,48 @@ def det(mat):
 	'''
 	return mat.det()
 
-def lu_decompose(m):
+def make_empty_matrix(size, init_value=0):
+	'''
+	Utility function to make empty matrix.
+	'''
+	vs = []
+	for i in range(size):
+		vs.append(Vector([init_value]*size))
+	
+	_mat = Matrix(vs)
+	
+	return _mat
+
+def lu_decompose(mat):
 	'''
 	LU-decomposition of matrix.
 	'''
-	if m == None: 
+	if mat == None: 
 		raise ValueError("Matrix is none. Can not decompose matrix.")
 
-	size = len(m)
+	size = len(mat)
 	
 	if size <= 0:
 		raise ValueError("Matrix elements are empty. Can not decompose matrix.")
 	
-	mat = copy.deepcopy(m)
+	_mat = copy.deepcopy(mat) #Heavy process but making sure...
 	
 	for k in range(size):
-		x = 1.0/mat[(k,k)]
+		#Decompose L
+		#'reopposite' is the reciprocal of the opposite angle element.
+		#In L decomposition numerator is got at U decomposition once previous.
+		reopposite = 1.0/_mat[(k,k)] #TODO: Take account of pivot exchange.
 		for i in range(k+1, size):
-			mat[(i,k)] = mat[(i,k)]*x
-		for i in range(k+1, size):
-			for j in range(k+1, size):
-				mat[(i,j)] = mat[(i,j)]-mat[(i,k)]*mat[(k,j)]
+			_mat[(i,k)] = _mat[(i,k)]*reopposite
 			
-	return mat
+		#Decompose U
+		for i in range(k+1, size): #Loop of column.
+			for j in range(k+1, size): #Loop of row.
+				#Preserve the opposite angle element of U to original that.
+				#This '_mat[(i,j)]' is '_mat[(i,k)]' in next L decomposition.
+				_mat[(i,j)] = _mat[(i,j)]-_mat[(i,k)]*_mat[(k,j)]
+		
+	return _mat
 	
 def spectral_decompose(mat):
 	'''
