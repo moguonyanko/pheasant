@@ -876,7 +876,19 @@ def lu_decompose(mat):
 		#Decompose L
 		#'reopposite' is the reciprocal of the opposite angle element.
 		#In L decomposition numerator is got at U decomposition once previous.
-		reopposite = 1.0/_mat[(k,k)] #TODO: Take account of pivot exchange.
+		
+		#TODO: Take account of pivot exchange.
+		'''
+		mx = _mat[(k,k)]
+		mxcol = k
+		for m in range(k, size):
+			mx = max(mx, abs(_mat[(k,m)]))
+			maxcol = m
+			
+		_mat.swap(k, maxcol)
+		'''
+		
+		reopposite = 1.0/_mat[(k,k)]
 		for i in range(k+1, size):
 			_mat[(i,k)] = _mat[(i,k)]*reopposite
 			
