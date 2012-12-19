@@ -863,12 +863,12 @@ def lu_decompose(mat):
 	LU-decomposition of matrix.
 	'''
 	if mat == None: 
-		raise ValueError("Matrix is none. Can not decompose matrix.")
+		raise ValueError("Matrix is none. ")
 
 	size = len(mat)
 	
 	if size <= 0:
-		raise ValueError("Matrix elements are empty. Can not decompose matrix.")
+		raise ValueError("Matrix elements are empty. ")
 	
 	_mat = copy.deepcopy(mat) #Heavy process but making sure...
 	
@@ -879,15 +879,15 @@ def lu_decompose(mat):
 		
 		#TODO: Take account of pivot exchange.
 		'''
-		mx = _mat[(k,k)]
-		mxcol = k
+		maxcol = k
+		_max = _mat[(k,k)]
 		for m in range(k, size):
-			mx = max(mx, abs(_mat[(k,m)]))
-			maxcol = m
-			
+			if _max < abs(_mat[(k, m)]):
+				maxcol = m
+				_max = _mat[(k, m)]
+
 		_mat.swap(k, maxcol)
 		'''
-		
 		reopposite = 1.0/_mat[(k,k)]
 		for i in range(k+1, size):
 			_mat[(i,k)] = _mat[(i,k)]*reopposite
