@@ -565,15 +565,17 @@ class Matrix():
 		'''
 		rows = [v.cols for v in self]
 		
-		return list(zip(*rows))
+		return [list(r) for r in zip(*rows)]
 		
 	def swap(self, i, j, target="column"):
 		'''
-		Swap rows for indexes.
+		Swap by column or row index.
 		'''
+		if i == j: return
+		
 		if target == "column":
 			cols = self.get_columns()
-
+			
 			#Swap matrix columns.		
 			tmp = cols[i]
 			cols[i] = cols[j]
@@ -590,7 +592,6 @@ class Matrix():
 		'''
 		Caluculate determinant.
 		'''
-		#TODO: more than 3 dimention matrix
 		dimension = self.dim()
 		if dimension == [2,2]:
 			v1 = self.rows[0]
@@ -619,8 +620,15 @@ class Matrix():
 		
 			return A*y*c+B*z*a+C*x*b-A*z*b-B*x*c-C*y*a
 		
-		else:
-			pass
+		else:#TODO: Not work...
+			_mat = self.decomp()
+			
+			reop = []
+			for i, col in enumerate(_mat):
+				for j, ele in enumerate(col): 
+					if i == j: reop.append(ele)
+			
+			return ut.mac(reop)			
 			
 	def __eigen_2dim(self):
 		'''
@@ -873,31 +881,28 @@ def lu_decompose(mat):
 	_mat = copy.deepcopy(mat) #Heavy process but making sure...
 	
 	for k in range(size):
+		#Pivot exchange
+		maxcol = k
+		max_ele = _mat[(k, k)]
+		for m in range(k, size):
+			if max_ele < abs(_mat[(k, m)]):
+				maxcol = m
+				max_ele = _mat[(k, m)]
+		_mat.swap(k, maxcol)
+		
 		#Decompose L
 		#'reopposite' is the reciprocal of the opposite angle element.
 		#In L decomposition numerator is got at U decomposition once previous.
-		
-		#TODO: Take account of pivot exchange.
-		'''
-		maxcol = k
-		_max = _mat[(k,k)]
-		for m in range(k, size):
-			if _max < abs(_mat[(k, m)]):
-				maxcol = m
-				_max = _mat[(k, m)]
-
-		_mat.swap(k, maxcol)
-		'''
-		reopposite = 1.0/_mat[(k,k)]
+		reopposite = 1.0 / _mat[(k, k)]
 		for i in range(k+1, size):
-			_mat[(i,k)] = _mat[(i,k)]*reopposite
+			_mat[(i, k)] = _mat[(i, k)] * reopposite
 			
 		#Decompose U
 		for i in range(k+1, size): #Loop of column.
 			for j in range(k+1, size): #Loop of row.
 				#Preserve the opposite angle element of U to original that.
-				#This '_mat[(i,j)]' is '_mat[(i,k)]' in next L decomposition.
-				_mat[(i,j)] = _mat[(i,j)]-_mat[(i,k)]*_mat[(k,j)]
+				#This '_mat[(i, j)]' is '_mat[(i, k)]' in next L decomposition.
+				_mat[(i, j)] = _mat[(i, j)] - _mat[(i, k)] * _mat[(k, j)]
 		
 	return _mat
 	

@@ -5,6 +5,7 @@ import random
 import math
 import copy
 import sys
+import functools
 
 def flatten(ls):
 	'''nested list flatten'''
@@ -209,6 +210,12 @@ def getmaxsize():
 
 def getminsize():
 	return -sys.maxsize-1
+	
+def mac(ls):
+	'''
+	Multiply and accumulation.
+	'''
+	return functools.reduce(lambda a,b: a*b, ls)
 
 #Entry point
 if __name__ == '__main__':

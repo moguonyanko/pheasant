@@ -395,7 +395,9 @@ class TestDetMatrix(unittest.TestCase):
 	Test matrix determinent class.
 	'''
 	def test_det_dim2x2(self):
-		'''test determinent by diimention 2x2'''
+		'''
+		Test determinent by diimention 2x2.
+		'''
 		v1 = lr.Vector([3,-12])
 		v2 = lr.Vector([-2,8])
 		m1 = lr.Matrix([v1,v2])
@@ -404,7 +406,9 @@ class TestDetMatrix(unittest.TestCase):
 		self.assertEqual(detval, 0)
 
 	def test_det_dim3x3(self):
-		'''test determinent by diimention 3x3'''
+		'''
+		Test determinent by diimention 3x3.
+		'''
 		v1 = lr.Vector([2,3,-1])
 		v2 = lr.Vector([-1,1,-2])
 		v3 = lr.Vector([1,2,3])
@@ -412,6 +416,19 @@ class TestDetMatrix(unittest.TestCase):
 		
 		detval = lr.det(m1)
 		self.assertEqual(detval, 20)
+
+	def test_det_dim4x4(self):
+		v1 = lr.Vector([1,2,-3,2])
+		v2 = lr.Vector([2,0,2,4])
+		v3 = lr.Vector([-3,3,1,-1])
+		v4 = lr.Vector([1,4,3,2])
+
+		m1 = lr.Matrix([v1,v2,v3,v4])
+		
+		res = m1.det()
+		
+		#TODO: implement now.
+		#self.assertEqual(res, 200)
 
 class TestRotate(unittest.TestCase):
 	'''
@@ -493,7 +510,6 @@ class TestLUDecompose(unittest.TestCase):
 		chk = lr.Matrix([chkv1,chkv2,chkv3])		
 
 		res = round(res, 2)
-		#print(res)
 		self.assertEqual(chk, res)
 
 	def test_lu_decompose_none_error(self):

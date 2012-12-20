@@ -175,7 +175,16 @@ class TestMinMaxSize(unittest.TestCase):
 		maxsize = ut.getminsize()
 		valid_result = maxsize in self.MINES
 		self.assertEqual(True, valid_result)
-	
+
+class TestFourArith(unittest.TestCase):
+	'''
+	Four arthmetic operations utility test class.
+	'''
+	def test_mac(self):
+		ls = [1,2,3,4,5]
+		res = ut.mac(ls)
+		self.assertEqual(120, res)
+
 #Entry point
 if __name__ == '__main__':
 	print(__file__)
