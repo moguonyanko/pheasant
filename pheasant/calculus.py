@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import math
+import functools
 
 def simpson(fn, upper, lower, divnum=1000):
 	'''
@@ -35,10 +36,13 @@ def diffn(fn):
 	Make function to differentiate given function.
 	fn: Differentiate target function.
 	'''
-	def nowdiffn(x, dx):
-		return differentiate(fn, x, dx)
+	def _diffn(fn):
+		@functools.wraps(fn)
+		def __diffn(x, dx):
+			return differentiate(fn, x, dx)
+		return __diffn
 	
-	return nowdiffn
+	return _diffn
 	
 def trapezoid(upper, lower, divnum, func):
 	'''
