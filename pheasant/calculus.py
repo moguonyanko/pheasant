@@ -38,8 +38,8 @@ def diffn(fn):
 	'''
 	def _diffn(fn):
 		@functools.wraps(fn)
-		def __diffn(x, dx):
-			return differentiate(fn, x, dx)
+		def __diffn(*args, **kw):
+			return differentiate(fn, *args, **kw)
 		return __diffn
 	
 	return _diffn
