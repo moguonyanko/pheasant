@@ -401,6 +401,18 @@ def primep(n, mode="fermat"):
 	}
 	
 	return chkfns[mode](n)
+	
+def inversion(num):
+	'''
+	Calculate inversion number.
+	'''
+	#TODO: implement
+	nums = list(str(num))
+	numdict = {i:n for i, n in enumerate(nums)}
+	
+	numdict = sorted(numdict, reverse=True)	
+	
+	pass
 
 if __name__ == '__main__':
 	print("algebra module load")

@@ -31,11 +31,7 @@ def differentiate(fn, x, dx):
 	'''
 	return (fn(x+dx)-fn(x))/dx
 
-def diffn(fn):
-	'''
-	Make function to differentiate given function.
-	fn: Differentiate target function.
-	'''
+def decorator_diffn(fn):
 	def _diffn(fn):
 		@functools.wraps(fn)
 		def __diffn(*args, **kw):
@@ -43,6 +39,13 @@ def diffn(fn):
 		return __diffn
 	
 	return _diffn
+
+def diffn(fn):
+	'''
+	Make function to differentiate given function.
+	fn: Differentiate target function.
+	'''
+	return lambda prob, dx: differentiate(fn, prob, dx)
 	
 def trapezoid(upper, lower, divnum, func):
 	'''
