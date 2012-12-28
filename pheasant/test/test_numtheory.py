@@ -414,6 +414,17 @@ class TestNumericalSequence(unittest.TestCase):
 		res = nt.expop(-1)
 		self.assertEqual(res, False)
 
+class TestInversion(unittest.TestCase):
+	'''
+	Test inversion number function.
+	'''
+	def test_inversion(self):
+		res = nt.inversion(3421)		
+		self.assertEqual(5, res)
+
+		res2 = nt.inversion(365142)		
+		self.assertEqual(10, res2)
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

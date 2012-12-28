@@ -68,7 +68,9 @@ class TestDifferentiate(unittest.TestCase):
 			return 7*math.log(p)+3*math.log(1-p)
 			
 		testprob = 0.1	
-			
+		
+		#@cl.diffn(testfn)
+		#def resfn(x, dx):	pass
 		resfn = cl.diffn(testfn)
 		
 		def chkfn(p):
