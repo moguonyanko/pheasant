@@ -422,6 +422,9 @@ class TestInversion(unittest.TestCase):
 		res = nt.inversion(3421)		
 		self.assertEqual(5, res)
 
+		res2 = nt.inversion(365142)		
+		self.assertEqual(10, res2)
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

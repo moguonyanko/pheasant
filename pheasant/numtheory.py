@@ -406,13 +406,18 @@ def inversion(num):
 	'''
 	Calculate inversion number.
 	'''
-	#TODO: implement
 	nums = list(str(num))
-	numdict = {i:n for i, n in enumerate(nums)}
+	count = 0
 	
-	numdict = sorted(numdict, reverse=True)	
-	
-	pass
+	for i in range(len(nums)):
+		partnums = nums[: i+1]
+		target = int(partnums[i])
+		for now in partnums:
+			nownum = int(now)
+			if target < nownum:
+				count += 1
+
+	return count
 
 if __name__ == '__main__':
 	print("algebra module load")
