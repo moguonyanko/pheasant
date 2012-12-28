@@ -2,6 +2,7 @@
 COPYING.txt
 README.txt
 setup.py
+docs/index.html
 docs/_build/html/genindex.html
 docs/_build/html/index.html
 docs/_build/html/pheasant.const.html
@@ -12,11 +13,14 @@ docs/_build/html/search.html
 docs/_build/html/_modules/index.html
 docs/_build/html/_modules/pheasant/calculus.html
 docs/_build/html/_modules/pheasant/geometry.html
+docs/_build/html/_modules/pheasant/grptheory.html
 docs/_build/html/_modules/pheasant/logic.html
+docs/_build/html/_modules/pheasant/settheory.html
 docs/_build/html/_modules/pheasant/util.html
 docs/_build/html/_modules/pheasant/const/defstat.html
 docs/_build/html/_modules/pheasant/test/test_calculus.html
 docs/_build/html/_modules/pheasant/test/test_geometry.html
+docs/_build/html/_modules/pheasant/test/test_grptheory.html
 docs/_build/html/_modules/pheasant/test/test_logic.html
 docs/_build/html/_modules/pheasant/test/test_util.html
 docs/_build/html/_static/ajax-loader.gif
@@ -37,9 +41,11 @@ pheasant/__init__.py
 pheasant/algorithm.py
 pheasant/calculus.py
 pheasant/geometry.py
+pheasant/grptheory.py
 pheasant/linear.py
 pheasant/logic.py
 pheasant/numtheory.py
+pheasant/settheory.py
 pheasant/statistics.py
 pheasant/util.py
 pheasant/const/__init__.py
@@ -48,8 +54,10 @@ pheasant/test/__init__.py
 pheasant/test/test_algorithm.py
 pheasant/test/test_calculus.py
 pheasant/test/test_geometry.py
+pheasant/test/test_grptheory.py
 pheasant/test/test_linear.py
 pheasant/test/test_logic.py
 pheasant/test/test_numtheory.py
+pheasant/test/test_settheory.py
 pheasant/test/test_statistics.py
 pheasant/test/test_util.py
