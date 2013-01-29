@@ -185,6 +185,15 @@ class TestFourArith(unittest.TestCase):
 		res = ut.mac(ls)
 		self.assertEqual(120, res)
 
+class TestAssociationList(unittest.TestCase):
+	'''
+	Association list test class.
+	'''
+	def test_assoc(self):
+		alist = (("Yogore",100),("Goro",60),("Usao",0),("Monchi",50),("Kitezou",80))
+		res = ut.assoc("Usao", alist)
+		self.assertEqual(("Usao",0), res)
+
 #Entry point
 if __name__ == '__main__':
 	print(__file__)

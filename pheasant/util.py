@@ -217,6 +217,15 @@ def mac(ls):
 	'''
 	return functools.reduce(lambda a,b: a*b, ls)
 
+def assoc(var, alist):
+	'''
+	Association list search.
+	'''
+	for _var, _val in alist:
+		if _var == var: return (_var, _val)
+	
+	return None
+
 #Entry point
 if __name__ == '__main__':
 	print("util module load")
