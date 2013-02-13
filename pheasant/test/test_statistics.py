@@ -815,7 +815,27 @@ class TestLawOfLargeNumbers(unittest.TestCase):
 	
 	def test_law_of_large_numbers(self):
 		pass
+
+class TestBinomialDist(unittest.TestCase):
+	'''
+	Test class for binomial distribution.
+	'''
+	SIGFIG = 5
+	
+	def test_binomial_dist(self):
+		result = ts.binomial_dist(3, 1/3)
+		answer = {
+			0 : 8/27,
+			1: 12/27,
+			2 : 6/27,
+			3 : 1/27
+		}
 		
+		self.assertEqual(len(answer), len(result))
+		
+		for i in answer:
+			self.assertEqual(round(answer[i], self.SIGFIG), round(result[i], self.SIGFIG))
+	
 #Entry point
 if __name__ == '__main__':
 	print(__file__)

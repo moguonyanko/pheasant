@@ -460,8 +460,8 @@ def permutate(left, right):
 	'''
 	if left == 0 and right == 0: return 1
 	
-	if left <= 0 or right <= 0:
-		raise ValueError("require positive value")
+	if left < 0 or right < 0:
+		raise ValueError("require value greater then zero")
 	elif left < right:
 		raise ValueError("extract number is bigger than population size")
 		
@@ -970,6 +970,17 @@ def law_of_large_numbers():
 	Law of large numbers.
 	'''
 	pass
+
+def binomial_dist(n, p):
+	'''
+	Binomial distribution.
+	'''
+	result = {}
+	
+	for k in range(n+1):
+		result[k] = twotermprob(n, k, p)
+
+	return result
 	
 #Entry point
 if __name__ == '__main__':
