@@ -835,7 +835,27 @@ class TestBinomialDist(unittest.TestCase):
 		
 		for i in answer:
 			self.assertEqual(round(answer[i], self.SIGFIG), round(result[i], self.SIGFIG))
+
+class TestRegressionFormula(unittest.TestCase):
+	'''
+	Regression linear formula function test class.
+	'''
+	def test_cov(self):
+		xs = [4,5,5,6,6,7,8,8,9,10]
+		ys = [6,5,6,7,8,6,8,9,8,10]
+		
+		result = ts.cov(xs, ys)
+		self.assertEqual(22.6/10, result)
 	
+	def test_reg_form(self):
+		xs = [3,5,6,6,10]
+		ys = [4,6,5,7,8]
+		
+		form = ts.make_reg_form(xs, ys)
+		
+		result = form(9)
+		self.assertEqual(7.612, result)
+			
 #Entry point
 if __name__ == '__main__':
 	print(__file__)

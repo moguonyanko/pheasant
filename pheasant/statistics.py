@@ -981,6 +981,27 @@ def binomial_dist(n, p):
 		result[k] = twotermprob(n, k, p)
 
 	return result
+
+def cov(xs, ys):
+	'''
+	Calculate covariance.
+	'''
+	return prosum(xs, ys)/len(xs)
+
+def make_reg_form(xs, ys, form="single"):
+	'''
+	Make regression linear formula.
+	'''
+	mx = mean(xs)
+	my = mean(ys)
+	sxy = cov(xs, ys)
+	vx = samplevar(xs) #Not unbiasedvar, really? 
+	
+	#TODO: To modify as decorator.
+	def regform(x):
+		return sxy/vx*x - sxy/vx*mx + my
+	
+	return regform
 	
 #Entry point
 if __name__ == '__main__':
