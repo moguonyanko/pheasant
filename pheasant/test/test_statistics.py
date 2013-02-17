@@ -854,8 +854,17 @@ class TestRegressionFormula(unittest.TestCase):
 		form = ts.make_reg_form(xs, ys)
 		
 		result = form(9)
-		self.assertEqual(7.612, result)
+		self.assertEqual(round(7.612, 1), round(result, 1))
 			
+	def test_partialcor(self):
+		xs = [33,33,34,34,35,35,34,32,28,35,33,28,32,25,28,30,29,32,34,35]
+		ys = [22,26,27,28,28,27,28,25,24,24,26,25,23,22,21,23,23,25,26,27]
+		zs = [382,324,338,317,341,360,339,329,218,402,342,205,368,196,304,294,275,336,384,368]	
+	
+		result = ts.partialcor((xs, ys, zs), 0)
+		answer = -0.894
+		self.assertEqual(round(answer, 1), round(result, 1))
+	
 #Entry point
 if __name__ == '__main__':
 	print(__file__)

@@ -64,6 +64,12 @@ class Group():
 		Element list given.
 		'''
 		self.elements = elements	
+	
+	def permutation():
+		'''
+		Elements permutation.
+		'''
+		pass
 
 class Ring():
 	'''
@@ -77,4 +83,7 @@ class Field():
 	'''
 	pass
 
+#Entry point
+if __name__ == '__main__':
+	print(__file__+" module load")
 

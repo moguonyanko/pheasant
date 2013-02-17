@@ -156,12 +156,9 @@ def stderror(samples):
 
 def samplevar(samples):
 	'''sample variance'''
-	powall = 0
 	m = mean(samples)
-	for ele in samples:
-		powall = powall+((ele-m)**2)
-		
-	return powall/len(samples)
+	devpows = [(ele-m)**2 for ele in samples]
+	return sum(devpows)/len(samples)
 
 def samplesd(samples):
 	'''standard deviation'''
@@ -1002,6 +999,26 @@ def make_reg_form(xs, ys, form="single"):
 		return sxy/vx*x - sxy/vx*mx + my
 	
 	return regform
+
+def partialcor(samples, removeidx):
+	'''
+	Partial correlation.
+	'''
+	#TODO: When samples are three elements operate only.
+	xs = samples[0]
+	ys = samples[1]
+	zs = samples[2]
+	
+	xycor = cor(xs, ys)
+	xzcor = cor(xs, zs)
+	yzcor = cor(ys, zs)
+	
+	if removeidx == 0:
+		nume = yzcor - (xzcor*xycor)
+		deno = math.sqrt(1-xzcor**2) * math.sqrt(1-xycor**2)
+		return nume/deno
+	else:
+		pass
 	
 #Entry point
 if __name__ == '__main__':
