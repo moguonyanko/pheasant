@@ -864,6 +864,11 @@ class TestRegressionFormula(unittest.TestCase):
 		result = ts.partialcor((xs, ys, zs), 0)
 		answer = -0.894
 		self.assertEqual(round(answer, 1), round(result, 1))
+
+		result = ts.partialcor((xs, ys, zs), 1)
+		answer = 0.972
+		self.assertEqual(answer, result)
+		#self.assertEqual(round(answer, 1), round(result, 1))
 	
 #Entry point
 if __name__ == '__main__':

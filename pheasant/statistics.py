@@ -1013,12 +1013,32 @@ def partialcor(samples, removeidx):
 	xzcor = cor(xs, zs)
 	yzcor = cor(ys, zs)
 	
-	if removeidx == 0:
-		nume = yzcor - (xzcor*xycor)
-		deno = math.sqrt(1-xzcor**2) * math.sqrt(1-xycor**2)
-		return nume/deno
-	else:
-		pass
+	remove_sample = samples[removeidx]
+	residual_samples = [sample for sample in samples if remove_sample != sample]
+	remove_cors = [cor(remove_sample, sample) for sample in samples if remove_sample != sample]
+	
+	def _mul():
+		res = 1
+		for s in remove_cors:
+			res *= s
+		return res
+	
+	def _sqr():
+		res = 1
+		for s in remove_cors:
+			res *= math.sqrt(1-s**2)
+		return res
+	
+	nume = cor(residual_samples[0], residual_samples[1]) - _mul()
+	deno = _sqr()
+	return nume/deno
+	
+	#if removeidx == 0:
+	#	nume = yzcor - (xzcor*xycor)
+	#	deno = math.sqrt(1-xzcor**2) * math.sqrt(1-xycor**2)
+	#	return nume/deno
+	#else:
+	#	pass
 	
 #Entry point
 if __name__ == '__main__':
