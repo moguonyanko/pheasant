@@ -863,12 +863,19 @@ class TestRegressionFormula(unittest.TestCase):
 	
 		result = ts.partialcor((xs, ys, zs), 0)
 		answer = -0.894
+		#self.assertEqual(answer, result)
 		self.assertEqual(round(answer, 1), round(result, 1))
 
 		result = ts.partialcor((xs, ys, zs), 1)
 		answer = 0.972
-		self.assertEqual(answer, result)
-		#self.assertEqual(round(answer, 1), round(result, 1))
+		#self.assertEqual(answer, result)
+		self.assertEqual(round(answer, 2), round(result, 2))
+		
+	def test_partialcor_error(self):
+		xs = [1,2,3,4,5]
+		ys = [1,7,0,4,2]
+		
+		self.assertRaises(ValueError, ts.partialcor, (xs, ys), 1)
 	
 #Entry point
 if __name__ == '__main__':

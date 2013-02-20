@@ -4,6 +4,7 @@
 import math
 import random
 import fractions as fr
+import functools as ft
 
 import pheasant.util as ut
 import pheasant.linear as lr
@@ -1003,42 +1004,27 @@ def make_reg_form(xs, ys, form="single"):
 def partialcor(samples, removeidx):
 	'''
 	Partial correlation.
+	samples: Calculate samples, Need to more than 3 elements.
+	removeidx: Correlation remove target sample index at "samples" argument.
 	'''
-	#TODO: When samples are three elements operate only.
-	xs = samples[0]
-	ys = samples[1]
-	zs = samples[2]
+	#TODO: More than 4 elements is not checked operation.
 	
-	xycor = cor(xs, ys)
-	xzcor = cor(xs, zs)
-	yzcor = cor(ys, zs)
+	if len(samples) < 3: raise ValueError("require 3 samples at least.")
 	
 	remove_sample = samples[removeidx]
-	residual_samples = [sample for sample in samples if remove_sample != sample]
-	remove_cors = [cor(remove_sample, sample) for sample in samples if remove_sample != sample]
+	residual_samples = [sample for i, sample in enumerate(samples) if i != removeidx]
+	remove_cors = [cor(remove_sample, sample) for i, sample in enumerate(samples) if i != removeidx]
 	
-	def _mul():
-		res = 1
-		for s in remove_cors:
-			res *= s
-		return res
+	def rmcors_mul():
+		return ft.reduce(lambda x,y: x*y, remove_cors)
 	
-	def _sqr():
-		res = 1
-		for s in remove_cors:
-			res *= math.sqrt(1-s**2)
-		return res
+	def rmcors_sqr():
+		return ft.reduce(lambda x,y: x*math.sqrt(1-y**2), remove_cors, 1)
 	
-	nume = cor(residual_samples[0], residual_samples[1]) - _mul()
-	deno = _sqr()
+	nume = cor(residual_samples[0], residual_samples[1]) - rmcors_mul()
+	deno = rmcors_sqr()
+	
 	return nume/deno
-	
-	#if removeidx == 0:
-	#	nume = yzcor - (xzcor*xycor)
-	#	deno = math.sqrt(1-xzcor**2) * math.sqrt(1-xycor**2)
-	#	return nume/deno
-	#else:
-	#	pass
 	
 #Entry point
 if __name__ == '__main__':
