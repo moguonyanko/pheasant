@@ -1025,6 +1025,35 @@ def partialcor(samples, removeidx):
 	deno = rmcors_sqr()
 	
 	return nume/deno
+
+class RegressionAnalysis():
+    '''
+    Regression analysis executer.
+    '''
+    
+    def __init__(self, samples, removeidx=0):
+        '''
+        samples: Collection of analysis target samples.
+        '''
+        self.samples = samples
+        self.removeidx = removeidx
+    
+    def partialcor(self, removeidx=None):
+        '''
+        Partial correlation.
+        '''
+        rmidx = self.removeidx
+        
+        if removeidx != None:
+            rmidx = removeidx
+            
+        return partialcor(self.samples, rmidx)
+    
+    def partialreg(self):
+        '''
+        Partial regression coefficient.
+        '''
+        pass
 	
 #Entry point
 if __name__ == '__main__':
