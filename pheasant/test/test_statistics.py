@@ -845,7 +845,8 @@ class TestRegressionFormula(unittest.TestCase):
 	xs = [33,33,34,34,35,35,34,32,28,35,33,28,32,25,28,30,29,32,34,35]
 	ys = [22,26,27,28,28,27,28,25,24,24,26,25,23,22,21,23,23,25,26,27]
 	zs = [382,324,338,317,341,360,339,329,218,402,342,205,368,196,304,294,275,336,384,368]	
-	
+	samples = (xs, ys, zs)
+
 	def test_cov(self):
 		xs = [4,5,5,6,6,7,8,8,9,10]
 		ys = [6,5,6,7,8,6,8,9,8,10]
@@ -880,10 +881,23 @@ class TestRegressionFormula(unittest.TestCase):
 		self.assertRaises(ValueError, ts.partialcor, (xs, ys), 1)
 
 	def test_partialcor_class(self):
-		samples = (self.xs, self.ys, self.zs)
-		reg = ts.RegressionAnalysis(samples)
+		reg = ts.RegressionAnalysis(self.samples)
 		result = reg.partialcor() #Remove target is index 0 sample.
 		expect = -0.894
+		self.assertEqual(round(expect, 1), round(result, 1))
+		
+	def test_partialreg(self):
+		reg = ts.RegressionAnalysis(self.samples)
+		result = reg.partialreg() #Remove target is index 0 sample.
+		expect = -16.703
+		#self.assertEqual(expect, result)
+		self.assertEqual(round(expect, 1), round(result, 1))
+
+	def test_partialreg_standard(self):
+		reg = ts.RegressionAnalysis(self.samples)
+		result = reg.partialreg(standard=True)
+		expect = -0.623
+		#self.assertEqual(expect, result)
 		self.assertEqual(round(expect, 1), round(result, 1))
 
 #Entry point
