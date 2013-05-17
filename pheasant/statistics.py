@@ -1055,25 +1055,34 @@ class RegressionAnalysis():
         removeidx: Effect remove target index.
         standard: Is standardization?
         '''
-        #TODO: removeidx is not considered.
+        #TODO: How calculate condition at more than 3 samples?
         
-        a = self.samples[0]
-        b = self.samples[1]
-        y = self.samples[2]
+        rmidx = self.removeidx
+        if removeidx != None:
+            rmidx = removeidx
+
+        a = self.samples[rmidx]
+        
+        if rmidx == 0:
+            b = self.samples[1]
+            y = self.samples[2]
+        elif rmidx == 1:
+            b = self.samples[0]
+            y = self.samples[2]
+        else:
+            b = self.samples[0]
+            y = self.samples[1]
         
         ray = cor(a, y)
         rby = cor(b, y)
         rab = cor(a, b)
-        
-        ysd = sd(y)
-        bsd = sd(b)
         
         stdcoef =  ((rby - (ray * rab)) / (1 - rab**2))
         
         if standard == True: 
             return stdcoef
         else:
-            coef = stdcoef * (ysd / bsd)       
+            coef = stdcoef * (sd(y) / sd(b))       
             return coef
 	
 #Entry point
