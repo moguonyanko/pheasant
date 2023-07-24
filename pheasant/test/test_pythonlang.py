@@ -43,4 +43,28 @@ def test_match_sentense():
     case _:
       result = 'Child'
   assert result == 'Adult'
-   
+
+def test_default_function_args():
+  #デフォルト引数は後続の関数と共有される。事故を避けたければデフォルト引数には不変な値を指定する。
+  def addlist(v, list=[]):
+    list.append(v)
+    return list
+
+  addlist('foo')
+  addlist('bar')
+  l = addlist('baz')
+
+  assert ','.join(l) == 'foo,bar,baz'
+
+def test_dict_args():
+  def sample(**kv):
+    res = []
+    for key in kv: #key, valueでイテレートできない。
+      print(key)
+      res.append(key + '=' + kv[key])
+    return res
+  
+  #値が数値だとValueErrorになる。
+  result = sample(Math='90', English='78', Music='87')
+
+  assert ','.join(result) == 'Math=90,English=78,Music=87'
