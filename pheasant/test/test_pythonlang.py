@@ -42,4 +42,5 @@ def test_match_sentense():
       result = 'Adult'
     case _:
       result = 'Child'
+  assert result == 'Adult'
    
