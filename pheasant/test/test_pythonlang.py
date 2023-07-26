@@ -68,3 +68,14 @@ def test_dict_args():
   result = sample(Math='90', English='78', Music='87')
 
   assert ','.join(result) == 'Math=90,English=78,Music=87'
+
+def test_args_keywords():
+  #/の前にあるnameは位置専用引数、*の後ろにあるmessageはキーワード専用引数
+  def sample(name, /, id, *, message):
+    return '_'.join([name, id, message])
+
+  #sample(name='Mike', 'A01', message='Hello') #シンタックスエラー
+  #sample('Mike', id='A01', 'Hello') #シンタックスエラー
+  #sample('Mike', 'A01', 'Hello') #実行時エラー（TypeError）
+  result = sample('Mike', 'A01', message='Hello')
+  assert result == 'Mike_A01_Hello'
