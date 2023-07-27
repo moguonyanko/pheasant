@@ -79,3 +79,40 @@ def test_args_keywords():
   #sample('Mike', 'A01', 'Hello') #実行時エラー（TypeError）
   result = sample('Mike', 'A01', message='Hello')
   assert result == 'Mike_A01_Hello'
+
+def test_lambda():
+  def create_hello():
+    return lambda name: 'Hello,' + name
+  f = create_hello()
+  assert f('Taro') == 'Hello,Taro'
+
+def test_lambda_with_sort():
+  members = [('Taro', 21), ('Masao', 18), ('Mike', 43), ('Joe', 28), ('Usao', 30)]
+  #タプルの第2要素（年齢）でソート
+  members.sort(key=lambda member: member[1]) 
+  print(members)
+  assert members[0] == ('Masao', 18)
+
+def test_func_with_types():
+  def hello(name: str) -> str:
+    print(hello.__annotations__)
+    return 'Hello,' + name + '!'
+  assert hello('Masao') == 'Hello,Masao!'
+
+def test_list_naihou_hyouki():
+  result = [(x, x**2) for x in range(10) if x % 2 == 0 and x > 0]
+  assert result == [(2, 2**2), (4, 4**2), (6, 6**2), (8, 8**2)]
+
+def test_pack_to_tuple():
+  t = 1, 10, 100
+  assert t == (1, 10, 100)
+
+def test_unpack_from_tuple():
+  t = (100, 200, 300)
+  a, b, c = t
+  assert a + b + c == 600
+
+def test_jisho_naihou_hyouki():
+  #inの後ろのタプルはリストでもよい。
+  d = {name: len(name) for name in ('Masao', 'Jiro', 'Daigorou')}
+  assert d == {'Masao': 5, 'Jiro': 4, 'Daigorou': 8}
