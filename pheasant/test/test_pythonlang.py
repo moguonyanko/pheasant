@@ -3,10 +3,10 @@ Pythonの言語使用を学ぶためのスクリプトです。
 参考:
 https://docs.python.org/ja/3/tutorial/index.html
 '''
-from datetime import datetime
+from datetime import datetime as dt
 
 def test_gettime():
-  now = datetime.now()
+  now = dt.now()
   print(now)
   assert now != None
 
@@ -116,3 +116,12 @@ def test_jisho_naihou_hyouki():
   #inの後ろのタプルはリストでもよい。
   d = {name: len(name) for name in ('Masao', 'Jiro', 'Daigorou')}
   assert d == {'Masao': 5, 'Jiro': 4, 'Daigorou': 8}
+
+def test_zip_iterate():
+  a = [1, 2, 3]
+  b = ['Mike', 'Taro', 'Jiro']
+  result = []
+  for id, name in zip(a, b):
+    result.append(str(id) + ':' + name)
+  
+  assert '_'.join(result) == '1:Mike_2:Taro_3:Jiro'
