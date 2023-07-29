@@ -125,3 +125,22 @@ def test_zip_iterate():
     result.append(str(id) + ':' + name)
   
   assert '_'.join(result) == '1:Mike_2:Taro_3:Jiro'
+
+def test_formatted_string():
+  name = 'Mike'
+  age = 34
+  result = f'name={name},age={age}'
+  #以下だとname='Mike'になってしまう。ninattesimau.
+  #result = f'{name=},{age=}'
+
+  assert result == 'name=Mike,age=34'
+
+def test_formatted_table():
+  table = {
+    'Mike': 34,
+    'Taro': 21,
+    'Joe': 45
+  }
+  res = 'Mike: {Mike:d}, Taro: {Taro:d}, Joe: {Joe:d}'.format(**table)
+
+  assert res == 'Mike: 34, Taro: 21, Joe: 45'
