@@ -4,6 +4,7 @@ Pythonの言語使用を学ぶためのスクリプトです。
 https://docs.python.org/ja/3/tutorial/index.html
 '''
 from datetime import datetime as dt
+import os
 
 def test_gettime():
   now = dt.now()
@@ -144,3 +145,13 @@ def test_formatted_table():
   res = 'Mike: {Mike:d}, Taro: {Taro:d}, Joe: {Joe:d}'.format(**table)
 
   assert res == 'Mike: 34, Taro: 21, Joe: 45'
+
+def test_read_file():
+  print(os.getcwd())
+  #~でユーザーディレクトリを参照することはできない。
+  with open('/usr/local/var/www/index.php', encoding='utf-8') as f:
+    for line in f:
+      #endに改行を指定しなくても改行はそのまま読み込まれる。
+      print(line, end='')
+  #withでファイルはクローズされている。
+  assert f.closed == True
