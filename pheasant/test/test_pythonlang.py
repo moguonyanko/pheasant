@@ -155,3 +155,46 @@ def test_read_file():
       print(line, end='')
   #withでファイルはクローズされている。
   assert f.closed == True
+
+def test_raise_error_chaining():
+  def throw_error():
+    try :
+      open('this_is_nothing.txt')
+    except OSError as err:
+      #fromを介して翻訳元の例外を指定できる。翻訳元例外は隠蔽したい時もあるが調査には便利かもしれない。
+      raise RuntimeError('Cannot open file') from err
+
+  try:  
+    throw_error()
+  except FileNotFoundError as fe:
+    assert False
+  except RuntimeError as re:
+    #あくまでも送出されてくるのは翻訳後の例外である。fromを使ったからといって翻訳元の例外が来るわけではない。
+    assert True
+
+def test_throw_exceptiongroup():
+  def throw_error():
+    errs = [
+      #両者に共通する層があるならExceptionGroupを使うのではなく
+      #抽象的なクラスを定義してそれぞれに継承させた方がいい。
+      OSError('e1'), ValueError('e2')
+    ]  
+    raise ExceptionGroup('Multi error', errs)
+
+  try:
+    throw_error()
+  except Exception as e:
+    assert True
+
+  err_cnt = 0
+  try:
+    throw_error()
+  #例外の型はexcept*でもExceptionGroupのままだがExceptionGroupに含まれる全ての例外が捕捉される。
+  except* OSError as oe:
+    print(f'Catched {type(oe)}')
+    err_cnt += 1
+  except* ValueError as ve:
+    print(f'Catched {type(ve)}')
+    err_cnt += 1
+
+  assert err_cnt == 2
