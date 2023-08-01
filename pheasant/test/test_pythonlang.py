@@ -5,6 +5,7 @@ https://docs.python.org/ja/3/tutorial/index.html
 '''
 from datetime import datetime as dt
 import os
+from dataclasses import dataclass
 
 def test_gettime():
   now = dt.now()
@@ -198,3 +199,49 @@ def test_throw_exceptiongroup():
     err_cnt += 1
 
   assert err_cnt == 2
+
+def test_multi_extends():
+  class Base1():
+    id = 1
+  class Base2():
+    id = 2
+  class Base3():
+    id = 3
+
+  class Child(Base1, Base2, Base3): 
+    def __init__(self):
+      self.id = Base1.id + Base2.id + Base3.id
+
+  assert Child().id == 6
+
+def test_data_class():
+  @dataclass
+  class Member():
+    name: str
+    age: int
+
+  m = Member('Mike', 45)
+  assert m.name == 'Mike' and m.age == 45
+
+def test_custom_iterater():
+  class Upper:
+    def __init__(self, word: str):
+      self.word = word
+      self.index = 0
+
+    def __iter__(self):
+      return self
+    
+    def __next__(self):
+      if self.index == len(self.word):
+        raise StopIteration
+      s = self.word[self.index].upper()
+      self.index += 1
+      return s
+
+  u = Upper('hello') 
+  res = []
+  for w in u:
+    res.append(w)
+
+  assert ''.join(res) == 'HELLO'
