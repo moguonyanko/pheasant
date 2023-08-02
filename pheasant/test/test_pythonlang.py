@@ -245,3 +245,6 @@ def test_custom_iterater():
     res.append(w)
 
   assert ''.join(res) == 'HELLO'
+
+def test_generator_formula():
+  assert 55 == sum(x for x in range(1, 11))

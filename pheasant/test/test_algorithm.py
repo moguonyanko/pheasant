@@ -242,6 +242,87 @@ class TestGCD(unittest.TestCase):
 		res = al.gcd(206, 40)
 		self.assertEqual(res, 2)
 
+def test_two_opt():
+	'''
+	生成AIで作成したプログラム
+	'''
+	# 都市間の距離
+	dist = [
+			[0, 10, 15, 20],
+			[10, 0, 35, 25],
+			[15, 35, 0, 30],
+			[20, 25, 30, 0]
+	]
+
+	N = len(dist)
+
+	# 初期経路
+	route = list(range(N)) + [0] # 0 -> 1 -> 2 -> 3 -> 0
+
+	def calculate_distance(route):
+			# 経路の距離を計算
+			return sum(dist[route[i-1]][route[i]] for i in range(N))
+
+	def two_opt(route, i, j):
+			# 2-opt法で経路を更新
+			return route[:i] + route[i:j+1][::-1] + route[j+1:]
+
+	while True:
+			distance = calculate_distance(route)
+			updated = False
+
+			for i in range(1, N):
+					for j in range(i+1, N):
+							if j-i == 1: continue # 隣接しているエッジは無視
+
+							# 新しい経路の距離を計算
+							new_route = two_opt(route, i, j)
+							new_distance = calculate_distance(new_route)
+
+							# 新しい経路の方が短ければ更新
+							if new_distance < distance:
+									distance = new_distance
+									route = new_route
+									updated = True
+
+			# 経路が更新されなければ終了
+			if not updated:
+					break
+
+	print(route)
+	print(distance)
+
+def test_tsp_by_bitdp():
+	'''
+	生成AIで作成したプログラム
+	'''
+	N = 4
+	INF = float('inf')
+
+	# 都市間の距離
+	dist = [
+			[0, 10, 15, 20],
+			[10, 0, 35, 25],
+			[15, 35, 0, 30],
+			[20, 25, 30, 0]
+	]
+
+	# DPテーブルの初期化
+	dp = [[INF]*N for _ in range(1<<N)]
+	dp[0][0] = 0 # 最初に都市0にいる状態
+
+	# ビットDP
+	for bit in range(1<<N):
+			for i in range(N):
+					if not (bit >> i & 1): # まだ訪れていない都市について
+							for j in range(N):
+									if bit >> j & 1: # すでに訪れた都市から移動する
+											dp[bit|(1<<i)][i] = min(dp[bit|(1<<i)][i], dp[bit][j] + dist[j][i])
+
+	# 全都市を訪れた後に都市0に戻る最短距離
+	ans = min(dp[(1<<N)-1][i] + dist[i][0] for i in range(N))
+	print(ans)	
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
