@@ -6,6 +6,7 @@ https://docs.python.org/ja/3/tutorial/index.html
 from datetime import datetime as dt
 import os
 from dataclasses import dataclass
+import asyncio
 
 def test_gettime():
   now = dt.now()
@@ -248,3 +249,14 @@ def test_custom_iterater():
 
 def test_generator_formula():
   assert 55 == sum(x for x in range(1, 11))
+
+def test_coroutine():
+  '''
+  コルーチンを含む関数はデバッグできない？ブレークポイントで停止できない。
+  '''
+  async def sample():
+    print('HELLO')
+    await asyncio.sleep(1)
+    print('WORLD')
+
+  sample()
