@@ -251,12 +251,29 @@ def test_generator_formula():
   assert 55 == sum(x for x in range(1, 11))
 
 def test_coroutine():
-  '''
-  コルーチンを含む関数はデバッグできない？ブレークポイントで停止できない。
-  '''
   async def sample():
     print('HELLO')
+    #asyncio.sleepを使っているとブレークポイントで停止できない？
     await asyncio.sleep(1)
     print('WORLD')
 
   sample()
+
+def test_coroutine_awaitable():
+  async def plus():
+    return 1
+
+  async def inc(n: int):
+    return n + await plus()
+
+  assert asyncio.run(inc(10)) == 11
+
+def test_coroutine_awaitable_with_task():
+  async def plus():
+    return 1
+
+  async def inc(n: int):
+    task = asyncio.create_task(plus())
+    return n + await task
+
+  assert asyncio.run(inc(10)) == 11
