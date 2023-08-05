@@ -269,6 +269,8 @@ def test_coroutine_awaitable():
   assert asyncio.run(inc(10)) == 11
 
 def test_coroutine_awaitable_with_task():
+  # awaitの存在しない関数をasyncにすること自体は問題ない。
+  # プリミティブな数値などawaitを指定できないオブジェクトにawaitを指定するとエラーになる。
   async def plus():
     return 1
 
@@ -277,3 +279,18 @@ def test_coroutine_awaitable_with_task():
     return n + await task
 
   assert asyncio.run(inc(10)) == 11
+
+def test_asyncio_gather():
+  async def pow(n):
+    return n**2
+  
+  async def get_gather():
+    L = await asyncio.gather(
+      pow(2), pow(3), pow(4)
+    )
+    return L
+
+  result = asyncio.run(get_gather())
+  #awaitを指定してgatherしているので結果のリストが返ってくる。結果を取得する処理は不要である。
+  #assert sum(r.result() for r in result) == 29
+  assert sum(result) == 2**2 + 3**2 + 4**2
