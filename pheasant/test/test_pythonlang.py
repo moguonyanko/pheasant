@@ -294,3 +294,40 @@ def test_asyncio_gather():
   #awaitを指定してgatherしているので結果のリストが返ってくる。結果を取得する処理は不要である。
   #assert sum(r.result() for r in result) == 29
   assert sum(result) == 2**2 + 3**2 + 4**2
+
+def test_match_any_object():
+  class Car():
+    def __init__(self, name: str) -> None:
+      self.name = name
+
+  car = Car('MyCar')
+  result = False
+  match car.name:
+    case 'MyCar':
+      # オブジェクトを指定すると実行時エラーになってしまう。
+    # case Car('MyCar'):
+      result = True
+    case _:
+      result = False
+
+  assert result == True
+
+def test_multi_with():
+  text = []
+
+  class A():
+    def __enter__(x):
+      text.append('A')
+    def __exit__(*args):
+      text.append('a')
+
+  class B():
+    def __enter__(x):
+      text.append('B')
+    def __exit__(*args):
+      text.append('b')
+
+  with (A() as a, B() as b):
+    pass
+
+  assert ''.join(text) == 'ABba'
