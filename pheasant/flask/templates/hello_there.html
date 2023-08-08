@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flaskサンプルテンプレート</title>
+</head>
+
+<body>
+  {%if name %}
+  <strong>こんにちは, {{ name }}!</strong> 今は {{ date.strftime("%a曜日, %B %d日, %Y at %X") }} です。
+  {% else %}
+  あなたの名前はなんですか? URLの /hello/ の後に名前を入れてください。
+  {% endif %}
+</body>
+
+</html>
