@@ -5,13 +5,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flaskサンプルテンプレート</title>
+  <!-- pheasantwebappという名前をここに書きたくない。他の名前に変えた時に影響を受けてしまう。 -->
+  <link rel="stylesheet" type="text/css" href="/pheasantwebapp{{ url_for('static', filename='site.css')}}" />
 </head>
 
 <body>
   {%if name %}
-  <strong>こんにちは, {{ name }}!</strong> 今は {{ date.strftime("%a曜日, %B %d日, %Y at %X") }} です。
+  <span class="message">こんにちは, {{ name }}!</span> 今は {{ date.strftime("%a曜日, %B %d日, %Y at %X") }} です。
   {% else %}
-  あなたの名前はなんですか? URLの /hello/ の後に名前を入れてください。
+  <span class="message">あなたの名前はなんですか? URLの /hello/ の後に名前を入れてください。</span>
   {% endif %}
 </body>
 

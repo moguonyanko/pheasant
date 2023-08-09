@@ -12,9 +12,12 @@ import locale
 app = Flask(__name__)
 locale.setlocale(locale.LC_TIME, 'ja_JP.UTF-8')
 
-@app.route("/pheasant/")
+@app.route("/")
 def home():
-    return "こんにちは, Flask♪"
+    # return "こんにちは, Flask♪"
+    return render_template(
+        "index.html"
+    )
 
 # @app.route("/pheasant/hello/<name>")
 # def hello_there(name):
@@ -33,11 +36,15 @@ def home():
 #     content = "お世話になっております, " + clean_name + "! 今は" + formatted_now
 #     return content
 
-@app.route("/pheasant/hello/")
-@app.route("/pheasant/hello/<name>")
+@app.route("/hello/")
+@app.route("/hello/<name>")
 def hello_there(name = None):
     return render_template(
         "hello_there.html",
         name=name,
         date=datetime.now()
     )
+
+@app.route("/api/data")
+def get_data():
+    return app.send_static_file("data.json")
