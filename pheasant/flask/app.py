@@ -18,6 +18,7 @@ def home():
     return render_template(
         "index.html"
     )
+    # return render_template("home.html")
 
 # @app.route("/pheasant/hello/<name>")
 # def hello_there(name):
@@ -48,3 +49,11 @@ def hello_there(name = None):
 @app.route("/api/data")
 def get_data():
     return app.send_static_file("data.json")
+
+@app.route("/about/")
+def about():
+    return render_template("about.html")
+
+@app.route("/contact/")
+def contact():
+    return render_template("contact.html")
