@@ -7,6 +7,7 @@ from datetime import datetime as dt
 import os
 from dataclasses import dataclass
 import asyncio
+from collections import ChainMap
 
 def test_gettime():
   now = dt.now()
@@ -331,3 +332,11 @@ def test_multi_with():
     pass
 
   assert ''.join(text) == 'ABba'
+
+def test_create_ChainMap():
+  a = {'mike': 90, 'taro': 80}
+  b = {'joe': 95, 'jiro': 65}
+  result = ChainMap(a, b)
+  expected = {'mike': 90, 'taro': 80, 'joe': 95, 'jiro': 65}
+  #ChainMapとDictで型が違うが等しいと判定される。
+  assert result == expected
