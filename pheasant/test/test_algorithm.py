@@ -323,6 +323,20 @@ def test_tsp_by_bitdp():
 	ans = min(dp[(1<<N)-1][i] + dist[i][0] for i in range(N))
 	print(ans)	
 
+def test_recalc_teate():
+	rest = 3000
+	payment = 7
+	year = 0
+	while rest > 0:
+		for _ in range(12):
+			if rest < 0:
+				break
+			teate = al.recalc_teate(rest)
+			rest -= payment + teate
+		year += 1
+	print(year)
+	assert year <= 20
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

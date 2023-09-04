@@ -535,6 +535,20 @@ def tsp(rts):
 	'''
 	#TODO: Implement now.
 	pass
+
+def recalc_teate(current: int):
+	return current * 0.01
+
+class Loan():
+	'''
+	ローン支払いをシミュレーションするためのクラス（実装中）
+	'''
+	def __init__(self, loan, atama = 0, year = 35) -> None:
+		self.loan = loan - atama
+		self.year = year
+
+	def current_year_teate(self): 
+		return self.loan * 0.01
 		
 #Entry point
 if __name__ == '__main__':
