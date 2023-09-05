@@ -7,7 +7,8 @@ from datetime import datetime as dt
 import os
 from dataclasses import dataclass
 import asyncio
-from collections import ChainMap
+from collections import *
+import re
 
 def test_gettime():
   now = dt.now()
@@ -340,3 +341,21 @@ def test_create_ChainMap():
   expected = {'mike': 90, 'taro': 80, 'joe': 95, 'jiro': 65}
   #ChainMapとDictで型が違うが等しいと判定される。
   assert result == expected
+
+def test_create_Counter():
+  sample = '''
+    Python is a popular programming language because it is simple, readable, versatile, and supported by a large community.
+
+    I removed some of the details in order to keep the summary concise. I also changed the order of some of the points to improve the flow.
+
+    Here is another option:
+
+    Python is a powerful and versatile language that is easy to learn and use.
+
+    This is a more general summary that focuses on the key advantages of Python.
+'''
+  words = re.findall(r'\w+', sample)
+  cnt = Counter(words)
+  result = cnt.most_common(10)
+  least_element = result[:-len(result)-1:-1][0]
+  assert ('I', 2) == least_element
