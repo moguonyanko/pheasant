@@ -359,3 +359,11 @@ def test_create_Counter():
   result = cnt.most_common(10)
   least_element = result[:-len(result)-1:-1][0]
   assert ('I', 2) == least_element
+
+def test_create_deque():
+  d = deque(range(5))
+  result = []
+  for ele in d:
+    result.append(str(ele))
+  result = ''.join(result)
+  assert result == '01234'
