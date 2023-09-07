@@ -367,3 +367,11 @@ def test_create_deque():
     result.append(str(ele))
   result = ''.join(result)
   assert result == '01234'
+
+def test_create_defaultdict():
+  def default_func(v):
+    return lambda: v
+  d = defaultdict(default_func('Undefined'))
+  d.update(name='Mike', age=34)
+  result = '%(name)s is %(age)d years old, He like %(lang)s.' % d
+  assert result == 'Mike is 34 years old, He like Undefined.'
