@@ -375,3 +375,10 @@ def test_create_defaultdict():
   d.update(name='Mike', age=34)
   result = '%(name)s is %(age)d years old, He like %(lang)s.' % d
   assert result == 'Mike is 34 years old, He like Undefined.'
+
+def test_create_namedtaple():
+  Member = namedtuple('Member', ['name', 'age'])
+  m = Member('Mike', age=45)
+  assert f'{m.name} is {m.age} years old' == 'Mike is 45 years old'
+  _, age = m
+  assert age >= 20
