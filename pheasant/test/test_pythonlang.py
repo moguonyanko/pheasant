@@ -382,3 +382,12 @@ def test_create_namedtaple():
   assert f'{m.name} is {m.age} years old' == 'Mike is 45 years old'
   _, age = m
   assert age >= 20
+  assert getattr(m, 'name') == 'Mike'
+
+def test_sequencial_dict():
+  '''
+  Python3.7以降辞書のキーは要素を挿入した順序で返されることが保証されるようになった。
+  '''
+  d = {'b': 1, 'a': 2, 's': 3, 'e': 4}
+  s = ''.join(d.keys())
+  assert 'base' == s
