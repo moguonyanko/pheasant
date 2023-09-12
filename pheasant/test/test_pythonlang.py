@@ -8,6 +8,7 @@ import os
 from dataclasses import dataclass
 import asyncio
 from collections import *
+import heapq
 import re
 
 def test_gettime():
@@ -391,3 +392,20 @@ def test_sequencial_dict():
   d = {'b': 1, 'a': 2, 's': 3, 'e': 4}
   s = ''.join(d.keys())
   assert 'base' == s
+
+def test_format_with_list():
+  names = ['Python', 'Java', 'JavaScript']
+  #{}に変数が埋め込まれる。
+  result = ['{} Lang'.format(name) for name in names]
+  result = ','.join(result)
+  assert result == 'Python Lang,Java Lang,JavaScript Lang'
+
+def test_sort_by_heapq():
+  l = [7,6,2,4,1,8,3,5]
+  h = []
+  for v in l:
+    heapq.heappush(h, v)
+  #heapqを小さい方からpopするだけで昇順にソートされた結果が得られる。（ヒープソート）
+  #ただしsorted()と異なりステーブルソートではない。
+  result = [heapq.heappop(h) for _ in range(len(h))]
+  assert result == [1,2,3,4,5,6,7,8]
