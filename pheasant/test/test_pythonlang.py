@@ -10,6 +10,7 @@ import asyncio
 from collections import *
 import heapq
 import re
+from enum import Enum, auto
 
 def test_gettime():
   now = dt.now()
@@ -409,3 +410,21 @@ def test_sort_by_heapq():
   #ただしsorted()と異なりステーブルソートではない。
   result = [heapq.heappop(h) for _ in range(len(h))]
   assert result == [1,2,3,4,5,6,7,8]
+
+#参考
+#https://docs.python.org/ja/3/howto/enum.html#using-automatic-values
+class AutoWeekdayName(Enum):
+  def _generate_next_value_(name, start, count, last_values):
+    return name[0:3]
+  
+class WeekDay(AutoWeekdayName):
+  SUNDAY = auto()
+  MONDAY = auto()
+  TUESDAY = auto()
+  WEDNESDAY = auto()
+  THURSDAY = auto()
+  FRIDAY = auto()
+  SATURDAY = auto()
+
+def test_assign_enum_other_auto_names():
+  assert WeekDay.SUNDAY.value == 'SUN'
