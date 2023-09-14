@@ -10,7 +10,7 @@ import asyncio
 from collections import *
 import heapq
 import re
-from enum import Enum, auto
+from enum import Enum, IntEnum, IntFlag, Flag, auto
 
 def test_gettime():
   now = dt.now()
@@ -428,3 +428,34 @@ class WeekDay(AutoWeekdayName):
 
 def test_assign_enum_other_auto_names():
   assert WeekDay.SUNDAY.value == 'SUN'
+
+#IntEnumやIntFlagは非推奨
+
+def test_create_intenum():
+  class Status(IntEnum):
+    OK = 200
+    NOT_FOUND = 404
+  
+  def is_ok(status: Status):
+    return status <= 200
+
+  assert is_ok(Status.OK)
+
+def test_create_intflag():
+  class Climbing(IntFlag):
+    CLEAR = 10
+    ZONE = 5
+    FAIL = 0
+    CLEAR_AND_ZONE = CLEAR + ZONE
+
+  assert Climbing.FAIL < Climbing.CLEAR_AND_ZONE
+
+def test_create_flag():
+  class HSV(Flag):
+    H = auto()
+    S = auto()
+    V = auto()
+    BLACK = V == 0 #boolを混ぜてもエラーにならない
+  
+  red = HSV.H | HSV.S | HSV.V
+  assert bool(red)
