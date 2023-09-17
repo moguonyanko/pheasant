@@ -459,3 +459,24 @@ def test_create_flag():
   
   red = HSV.H | HSV.S | HSV.V
   assert bool(red)
+
+def test_create_custom_new_enum():
+  class Mark(Enum):
+    HAERT = auto()
+    CLUB = auto()
+    SPADE = auto()
+    DIAMOND = auto()
+
+  class Card(Enum):
+    JACK = (Mark.HAERT, 11)  
+    QUEEN = (Mark.DIAMOND, 12)
+    KING = (Mark.SPADE, 13)
+
+    def __init__(self, mark, number):
+      self.mark = mark
+      self.number = number
+    @property
+    def description(self):
+      return f'{self.mark}:{self.number}'
+
+  assert Card.KING.description == 'Mark.SPADE:13'
