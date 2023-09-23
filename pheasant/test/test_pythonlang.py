@@ -11,6 +11,7 @@ from collections import *
 import heapq
 import re
 from enum import Enum, IntEnum, IntFlag, Flag, auto
+import json
 
 def test_gettime():
   now = dt.now()
@@ -480,3 +481,10 @@ def test_create_custom_new_enum():
       return f'{self.mark}:{self.number}'
 
   assert Card.KING.description == 'Mark.SPADE:13'
+
+def test_dump_json():
+  src = {"name": "Mike", "age": 25, "favorite": ["Apple", "Orange"]}
+  dumpedJson = json.dumps(src)
+  assert "{\"name\": \"Mike\", \"age\": 25, \"favorite\": [\"Apple\", \"Orange\"]}" == dumpedJson
+  dist = json.loads(dumpedJson)
+  assert dist == src
