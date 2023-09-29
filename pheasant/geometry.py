@@ -50,6 +50,17 @@ class CoordinateTransformer():
 		'''
 		pass
 
+class Point():
+	def __init__(self, x=0, y=0):
+		self.x = x
+		self.y = y
+
+def get_distance(p1: Point, p2: Point):
+	'''
+	p1とp2の距離を計算します。
+	'''
+	return ((p2.x - p1.x) ** 2 + (p1.y - p2.y) ** 2) ** 0.5
+
 if __name__ == '__main__':
 	print("geometry module load")
 

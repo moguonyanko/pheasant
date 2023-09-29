@@ -75,6 +75,12 @@ class TestCoordinateTransformation(unittest.TestCase):
 		'''
 		pass
 
+def test_distance():
+	p1 = gm.Point(1, 1)
+	p2 = gm.Point(4, 5)
+	result = gm.get_distance(p1, p2)
+	assert result == 5
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
