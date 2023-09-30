@@ -81,6 +81,27 @@ def test_distance():
 	result = gm.get_distance(p1, p2)
 	assert result == 5
 
+def get_sample_line():
+	p1 = gm.Point(1, 3)
+	p2 = gm.Point(4, 9)
+	return gm.Line([p1, p2])
+
+def test_get_slope():
+	line = get_sample_line()
+	slope = gm.get_slope(line)
+	assert slope == 2
+
+def test_get_intercept():
+	line = get_sample_line()
+	intercept = gm.get_intercept(line)
+	assert intercept == 1
+
+def test_line_closspoint():
+	'''
+	TODO: implement
+	'''
+	pass
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()

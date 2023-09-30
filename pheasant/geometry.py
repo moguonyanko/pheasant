@@ -61,6 +61,34 @@ def get_distance(p1: Point, p2: Point):
 	'''
 	return ((p2.x - p1.x) ** 2 + (p1.y - p2.y) ** 2) ** 0.5
 
+class Line():
+	def __init__(self, points: [Point]):
+		self.points = points
+		self.first = points[0]
+		self.last = points[len(points) - 1]
+
+def get_slope(line: Line):
+	first = line.first
+	last = line.last
+	slope = (last.y - first.y) / (last.x - first.x)
+	return slope
+
+def get_intercept(line: Line, slope=None):
+	if (slope == None):
+		slope = get_slope(line)
+	first = line.first
+	intercept = first.y - slope * first.x
+	return intercept
+
+def get_line_closspoint(line1: Line, line2: Line) -> Point:
+	slope1 = get_slope(line1)
+	intercept1 = get_intercept(line1, slope1)
+	slope2 = get_slope(line2)
+	intercept2 = get_intercept(line2, slope2)
+	x = (intercept2 - intercept1) / (slope1 - slope2)
+	y = slope1 * x + intercept1
+	return Point(x, y)	
+
 if __name__ == '__main__':
 	print("geometry module load")
 
