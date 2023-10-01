@@ -54,6 +54,16 @@ class Point():
 	def __init__(self, x=0, y=0):
 		self.x = x
 		self.y = y
+	
+	def __eq__(self, other):
+		if not isinstance(other, Point):
+			return False
+		return self.x == other.x and self.y == other.y
+
+	#xとyは不変でないため__hash__を定義してはならない。
+	#https://docs.python.org/ja/3/reference/datamodel.html?highlight=__eq__#object.__eq__
+	# def __hash__(self):
+	# 	return hash(self.x, self.y)
 
 def get_distance(p1: Point, p2: Point):
 	'''
@@ -80,7 +90,7 @@ def get_intercept(line: Line, slope=None):
 	intercept = first.y - slope * first.x
 	return intercept
 
-def get_line_closspoint(line1: Line, line2: Line) -> Point:
+def get_line_crosspoint(line1: Line, line2: Line) -> Point:
 	slope1 = get_slope(line1)
 	intercept1 = get_intercept(line1, slope1)
 	slope2 = get_slope(line2)

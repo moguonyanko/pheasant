@@ -96,11 +96,11 @@ def test_get_intercept():
 	intercept = gm.get_intercept(line)
 	assert intercept == 1
 
-def test_line_closspoint():
-	'''
-	TODO: implement
-	'''
-	pass
+def test_line_crosspoint():
+	line1 = gm.Line([gm.Point(-1, -1), gm.Point(1, 1)])
+	line2 = gm.Line([gm.Point(1, -1), gm.Point(-1, 1)])
+	result = gm.get_line_crosspoint(line1, line2)
+	assert result == gm.Point(0, 0)
 
 if __name__ == '__main__':
 	print(__file__)
