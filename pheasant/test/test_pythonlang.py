@@ -488,3 +488,22 @@ def test_dump_json():
   assert "{\"name\": \"Mike\", \"age\": 25, \"favorite\": [\"Apple\", \"Orange\"]}" == dumpedJson
   dist = json.loads(dumpedJson)
   assert dist == src
+
+def test_generator():
+  def counter(max):
+    i = 0
+    while i < max:
+      p = (yield i)  
+      if p is None:
+        i += 1
+      else:
+        i = p #sendで受け取った値で更新する。
+  
+  ctr = counter(10)
+  next(ctr)
+  next(ctr)
+  a = next(ctr)
+  assert a == 2
+  ctr.send(7)
+  b = next(ctr)
+  assert b == 8
