@@ -12,6 +12,7 @@ import heapq
 import re
 from enum import Enum, IntEnum, IntFlag, Flag, auto
 import json
+from operator import itemgetter, attrgetter
 
 def test_gettime():
   now = dt.now()
@@ -507,3 +508,25 @@ def test_generator():
   ctr.send(7)
   b = next(ctr)
   assert b == 8
+
+def test_itemgetter():
+  sample = [('Foo', 23), ('Bar', 19), ('Baz', 32)]
+  result = sorted(sample, key=itemgetter(1))
+  assert result == [('Bar', 19), ('Foo', 23), ('Baz', 32)]
+
+def test_attrgetter():
+  class Student():
+    def __init__(self, name, score) -> None:
+      self.name = name
+      self.score = score
+
+    def __eq__(self, __value: object) -> bool:
+      if not isinstance(__value, Student):
+        return False
+      return self.name == __value.name and self.score == __value.score
+
+  students = [Student('Joe', 78), Student('Taro', 56), Student('Mike', 56)]
+  # attrgetterの第2引数でも降順でソートしたい場合は別にもう一回sortedを呼び出すしかないのか？
+  result = sorted(students, key=attrgetter('score', 'name'), reverse=True)
+  assert result == [Student('Joe', 78), Student('Taro', 56), Student('Mike', 56)]
+
