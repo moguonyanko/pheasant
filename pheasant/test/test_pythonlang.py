@@ -530,3 +530,9 @@ def test_attrgetter():
   result = sorted(students, key=attrgetter('score', 'name'), reverse=True)
   assert result == [Student('Joe', 78), Student('Taro', 56), Student('Mike', 56)]
 
+def test_key_function():
+  fruits = ['banana', 'apple', 'orange']
+  items = {'apple': 220, 'orange': 200, 'banana': 180}
+  #itemsの値に従ってソートしてくれる。
+  result = sorted(fruits, key=items.__getitem__)
+  assert result == ['banana', 'orange', 'apple']
