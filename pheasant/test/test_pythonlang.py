@@ -13,6 +13,7 @@ import re
 from enum import Enum, IntEnum, IntFlag, Flag, auto
 import json
 from operator import itemgetter, attrgetter
+import unicodedata
 
 def test_gettime():
   now = dt.now()
@@ -536,3 +537,10 @@ def test_key_function():
   #itemsの値に従ってソートしてくれる。
   result = sorted(fruits, key=items.__getitem__)
   assert result == ['banana', 'orange', 'apple']
+
+def test_unicode_category():
+  sample = '𩸽を𠮟る𠮷野家と髙﨑〜'
+  print()
+  for i, c in enumerate(sample):
+    print(i, c, unicodedata.category(c), end=' ')
+    print(unicodedata.name(c))  
