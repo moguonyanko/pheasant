@@ -14,6 +14,7 @@ from enum import Enum, IntEnum, IntFlag, Flag, auto
 import json
 from operator import itemgetter, attrgetter
 import unicodedata
+from typing import TypeAlias
 
 def test_gettime():
   now = dt.now()
@@ -544,3 +545,16 @@ def test_unicode_category():
   for i, c in enumerate(sample):
     print(i, c, unicodedata.category(c), end=' ')
     print(unicodedata.name(c))  
+
+MySampleCode: TypeAlias = list[int]
+
+def test_type_alias():
+  #type文は3.12から使用可能。
+  #type Id = [[str], [int], [str]]
+
+  def create_sample_code(values: [int]) -> MySampleCode:
+    return MySampleCode(values)
+
+  result = create_sample_code([1, 2, 3])
+  #あくまでも別名であって元の型のオブジェクトとの比較結果が変わるわけではない。
+  assert result == [1, 2, 3] 
