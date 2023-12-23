@@ -15,6 +15,7 @@ import json
 from operator import itemgetter, attrgetter
 import unicodedata
 from typing import TypeAlias
+from typing import NewType
 
 def test_gettime():
   now = dt.now()
@@ -558,3 +559,18 @@ def test_type_alias():
   result = create_sample_code([1, 2, 3])
   #あくまでも別名であって元の型のオブジェクトとの比較結果が変わるわけではない。
   assert result == [1, 2, 3] 
+
+def test_new_type():
+  MyCode = NewType('MyCode', int)
+
+  def add_my_code(code_a: MyCode, code_b: MyCode) -> MyCode:
+    return code_a + code_b
+  
+  result = add_my_code(MyCode(10), MyCode(20))
+  assert result == 30
+
+  StrMyCode = NewType('StrMyCode', MyCode)
+  #intを引数に取るMyCodeを基にしたStrMyCodeだがstrを渡して生成できる。
+  result = add_my_code(StrMyCode('A'), StrMyCode('B'))
+  assert result == 'AB'
+
