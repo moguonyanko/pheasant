@@ -4,6 +4,8 @@
 import math
 
 import pheasant.numtheory as nt
+import osmnx as ox
+import matplotlib.pyplot as plt
 
 def heron(a, b, c):
 	'''
@@ -99,6 +101,14 @@ def get_line_crosspoint(line1: Line, line2: Line) -> Point:
 	y = slope1 * x + intercept1
 	return Point(x, y)	
 
+'''
+参考:
+https://geoffboeing.com/2016/11/osmnx-python-street-networks/
+'''
+def plot_drive_graph(bbox: list[float]):
+	G = ox.graph_from_bbox(*bbox, network_type='drive')
+	G_projected = ox.project_graph(G)
+	ox.plot_graph(G_projected)
+
 if __name__ == '__main__':
 	print("geometry module load")
-

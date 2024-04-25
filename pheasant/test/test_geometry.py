@@ -5,6 +5,7 @@ import unittest
 import math
 
 import pheasant.geometry as gm
+import pytest
 
 class TestCalcArea(unittest.TestCase):
 	'''
@@ -102,7 +103,12 @@ def test_line_crosspoint():
 	result = gm.get_line_crosspoint(line1, line2)
 	assert result == gm.Point(0, 0)
 
+@pytest.mark.skip(reason='ウインドウが自動で閉じられないためスキップ')
+def test_plot_graph():
+	yokohama_bbox = [35.46537173052059, 35.44347093055431,
+					139.64015389192105, 139.62228254640752]
+	gm.plot_drive_graph(bbox=yokohama_bbox)	
+
 if __name__ == '__main__':
 	print(__file__)
 	unittest.main()
-
