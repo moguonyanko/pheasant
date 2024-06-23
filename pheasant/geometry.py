@@ -5,7 +5,6 @@ import math
 
 import pheasant.numtheory as nt
 import osmnx as ox
-import matplotlib.pyplot as plt
 
 def heron(a, b, c):
 	'''
