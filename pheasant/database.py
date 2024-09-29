@@ -33,5 +33,4 @@ def select_now() -> str:
   return current_time
 
 if __name__ == '__main__':
-    print(select_now())
     print("database module load")
