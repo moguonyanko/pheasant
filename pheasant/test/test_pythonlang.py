@@ -41,16 +41,16 @@ def test_enumerate_list():
 def test_range_with_sum():
   assert sum(range(1, 11)) == 55
 
-class TestMember:
+class MyTestMember:
   def __init__(self, name, age):
     self.name = name
     self.age = age
 
 def test_match_sentense(): 
-  mem = TestMember('Mike', 21)
+  mem = MyTestMember('Mike', 21)
   result = None
   match mem:
-    case TestMember(name=name, age=age) if age >= 18:
+    case MyTestMember(name=name, age=age) if age >= 18:
       result = 'Adult'
     case _:
       result = 'Child'
