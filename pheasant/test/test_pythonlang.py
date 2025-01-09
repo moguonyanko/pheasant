@@ -16,6 +16,10 @@ from operator import itemgetter, attrgetter
 import unicodedata
 from typing import TypeAlias
 from typing import NewType
+import platform
+
+def test_get_python_version():
+  print('Python Version: ' + platform.python_version())
 
 def test_gettime():
   now = dt.now()
