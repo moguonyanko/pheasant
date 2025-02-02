@@ -606,7 +606,7 @@ class TestBayes(unittest.TestCase):
 		probs = [(0.2,0.05),(0.3,0.01),(0.5,0.06)]
 		res = ts.law_of_total(probs)
 		
-		self.assertEqual(0.043, res)
+		self.assertEqual(0.043, round(res, 3))
 		
 class TestProbability(unittest.TestCase):
 	'''
