@@ -14,7 +14,7 @@ from enum import Enum, IntEnum, IntFlag, Flag, auto
 import json
 from operator import itemgetter, attrgetter
 import unicodedata
-from typing import TypeAlias
+from typing import List, TypeAlias
 from typing import NewType
 import platform
 
@@ -576,7 +576,8 @@ def test_new_type():
   assert result == 'AB'
 
 #type文は3.12から使用可能。
-type MySampleId = [[str], [int], [str]] #後方互換性のためtypeを付けなくてもエラーにはならない。
+type MySampleId = [List[str], List[int], List[str]] #後方互換性のためtypeを付けなくてもエラーにはならない。
+MySampleIdType = NewType('MySampleIdType', MySampleId);
 
 def test_type_sentence():
   def get_test_id() -> MySampleId:
@@ -585,4 +586,9 @@ def test_type_sentence():
   result = get_test_id()
   # MySampleIdとするとエラーになる。type文はあくまでもソースコード上の別名に過ぎないようだ。
   # class宣言した時のように内部的に新しい型として認識してくれるわけではない。
+  # TypeAliasと同じということである。
   assert type(result) is list 
+  # type()で返されるのは別名の元になった型なのでNewTypeで定義した型とも一致しない。
+  # assert type(result) is MySampleIdType
+  # 以下も実行時エラー
+  # assert isinstance(result, MySampleIdType) == True
