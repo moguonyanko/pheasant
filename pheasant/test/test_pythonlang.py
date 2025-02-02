@@ -554,9 +554,6 @@ def test_unicode_category():
 MySampleCode: TypeAlias = list[int]
 
 def test_type_alias():
-  #type文は3.12から使用可能。
-  #type Id = [[str], [int], [str]]
-
   def create_sample_code(values: [int]) -> MySampleCode:
     return MySampleCode(values)
 
@@ -578,3 +575,14 @@ def test_new_type():
   result = add_my_code(StrMyCode('A'), StrMyCode('B'))
   assert result == 'AB'
 
+#type文は3.12から使用可能。
+type MySampleId = [[str], [int], [str]] #後方互換性のためtypeを付けなくてもエラーにはならない。
+
+def test_type_sentence():
+  def get_test_id() -> MySampleId:
+    return [['Mike', 'test'], [1, 2, 3], ['sample']]
+  
+  result = get_test_id()
+  # MySampleIdとするとエラーになる。type文はあくまでもソースコード上の別名に過ぎないようだ。
+  # class宣言した時のように内部的に新しい型として認識してくれるわけではない。
+  assert type(result) is list 
