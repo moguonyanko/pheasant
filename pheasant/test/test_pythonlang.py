@@ -17,6 +17,7 @@ import unicodedata
 from typing import List, TypeAlias
 from typing import NewType
 import platform
+from pathlib import Path
 
 def test_get_python_version():
   print('Python Version: ' + platform.python_version())
@@ -163,8 +164,7 @@ def test_formatted_table():
 
 def test_read_file():
   print(os.getcwd())
-  #~でユーザーディレクトリを参照することはできない。
-  with open('/usr/local/var/www/index.php', encoding='utf-8') as f:
+  with open(f"{Path.home()}/tmp/tempmemo.txt", encoding='utf-8') as f:
     for line in f:
       #endに改行を指定しなくても改行はそのまま読み込まれる。
       print(line, end='')
