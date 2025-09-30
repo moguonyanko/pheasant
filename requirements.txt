@@ -20,3 +20,4 @@ osmnx
 dnspython
 pyotp
 uv
+pillow
