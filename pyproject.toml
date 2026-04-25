@@ -1,0 +1,60 @@
+[project]
+name = "pheasant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dnspython>=2.8.0",
+    "iniconfig==2.1.0",
+    "narwhals==1.37.0",
+    "numpy==2.2.5",
+    "osmnx>=2.1.0",
+    "packaging==25.0",
+    "pandas==2.2.3",
+    "patsy==1.0.1",
+    "pillow>=12.2.0",
+    "pip>=26.0.1",
+    "plotly==6.0.1",
+    "plotly-express==0.4.1",
+    "pluggy==1.5.0",
+    "pyotp>=2.9.0",
+    "pytest==8.3.5",
+    "python-dateutil==2.9.0.post0",
+    "pytz==2025.2",
+    "scipy==1.15.2",
+    "six==1.17.0",
+    "statsmodels==0.14.4",
+    "tzdata==2025.2",
+    "uv==0.7.3",
+]
+
+[tool.pytest.ini_options]
+# ログをコンソールに出力することを有効化 (pytestのログキャプチャ機能を、出力を担当するモードに切り替えます)
+log_cli = true
+
+# コンソールに出力するログの最小レベルを DEBUG に設定
+log_cli_level = "DEBUG"
+
+# ログメッセージのフォーマットを conftest.py と揃える
+log_cli_format = "%(asctime)s.%(msecs)03d - %(levelname)s - %(name)s - %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+# printのキャプチャを無効化（-s オプションと同じ効果）
+addopts = "-s"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.5",
+]
+
+[tool.ruff]
+# チェックするルールの種類
+select = ["E", "F", "I", "B"]
+# Python 3.15 をターゲットにする
+target-version = "py315" 
+
+[tool.ruff.format]
+# Black と同等のスタイルを維持
+quote-style = "double"
+indent-style = "space"
