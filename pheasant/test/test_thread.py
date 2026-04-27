@@ -4,6 +4,7 @@
 """
 
 import logging
+import sys
 import threading
 import time
 
@@ -51,5 +52,7 @@ def test_threading_with_gil(pheasant_logger: logging.Logger):
     pheasant_logger.debug("--- 1スレッドで実行 ---")
     run_experiment(1, increment_task_efficient, pheasant_logger)
 
-    pheasant_logger.debug("\n--- 4スレッドで並列実行（GIL有効） ---")
+    pheasant_logger.debug(
+        f"\n--- 4スレッドで並列実行（GIL={sys._is_gil_enabled()}） ---"
+    )
     run_experiment(4, increment_task_efficient, pheasant_logger)
